@@ -1,0 +1,3 @@
+# Ablation: trust estimated at the KD temperature (tau=4), seeds 1 and 2 (seed 0 already run)
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch resnet18 --seed 1 --trust-temp 4
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch resnet18 --seed 2 --trust-temp 4

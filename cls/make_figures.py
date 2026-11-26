@@ -3,6 +3,7 @@ Report / slide figures from the FINAL runs (seed 0, ResNet-50 -> ResNet-18).
 
   fig_problem_<dataset>.png  real test images where the teacher is wrong on a look-alike class, the student
                              trained alone is right, vanilla KD copies the teacher's mistake and CPT-KD does not
+  fig_problem.png / fig_problem_kd_only.png   2 CUB + 2 Aircraft examples, with / without the CPT-KD bars
   fig_c1_inheritance.png     teacher-error inheritance: student alone vs KD vs CPT-KD, both datasets, both students
   fig_trust_<dataset>.png    pair-trust heatmap over the classes of the lowest-trust look-alike pairs
 
@@ -172,7 +173,7 @@ def trust_figure(ds, runs, data, out, k=12):
     plt.close(fig)
 
 
-def combined_problem_figure(data, out, per_ds=2):
+def combined_problem_figure(data, out, per_ds=2, with_cpt=True):
     """Fig. 1: 2 CUB + 2 Aircraft examples from the per-dataset JSON files."""
     ex = []
     for ds in ("cub", "aircraft"):
@@ -191,17 +192,20 @@ def combined_problem_figure(data, out, per_ds=2):
         ax.imshow(img); ax.set_xticks([]); ax.set_yticks([])
         ax.set_title("true: %s" % nice(e["label"]), fontsize=10, color=C_S)
         ax = axes[1, j]
-        x = np.arange(4)
-        ax.bar(x - 0.2, e["p"][0], 0.4, color=C_S, label="true class")
-        ax.bar(x + 0.2, e["p"][1], 0.4, color=C_KD, label="teacher's wrong class")
-        ax.set_xticks(x); ax.set_xticklabels(["Teacher", "Student\nalone", "KD", "CPT-KD\n(ours)"], fontsize=8)
+        k = 4 if with_cpt else 3
+        x = np.arange(k)
+        ax.bar(x - 0.2, e["p"][0][:k], 0.4, color=C_S, label="true class")
+        ax.bar(x + 0.2, e["p"][1][:k], 0.4, color=C_KD, label="teacher's wrong class")
+        ax.set_xticks(x); ax.set_xticklabels(["Teacher", "Student\nalone", "KD", "CPT-KD\n(ours)"][:k], fontsize=8)
         ax.set_ylim(0, 1.0)
-        ax.set_title("teacher: %s\ntrust = %.2f" % (nice(e["teacher"]), e["trust"]), fontsize=9, color=C_KD)
+        ax.set_title(("teacher: %s\ntrust = %.2f" % (nice(e["teacher"]), e["trust"])) if with_cpt
+                     else "teacher says: %s" % nice(e["teacher"]), fontsize=9, color=C_KD)
         if j == 0:
             ax.set_ylabel("probability")
     axes[1, 0].legend(fontsize=8, loc="upper left", bbox_to_anchor=(0, -0.28), ncol=2, frameon=False)
     fig.tight_layout()
-    fig.savefig(os.path.join(out, "fig_problem.png"), dpi=200, bbox_inches="tight")
+    fig.savefig(os.path.join(out, "fig_problem.png" if with_cpt else "fig_problem_kd_only.png"), dpi=200,
+                bbox_inches="tight")
     plt.close(fig)
 
 
@@ -215,6 +219,7 @@ def main():
     for ds in ("cub", "aircraft"):
         problem_figure(ds, a.runs, a.data, a.out)
     combined_problem_figure(a.data, a.out)
+    combined_problem_figure(a.data, a.out, with_cpt=False)
     c1_figure(a.runs, a.out)
     trust_figure("cub", a.runs, a.data, a.out)
     trust_figure("aircraft", a.runs, a.data, a.out)
