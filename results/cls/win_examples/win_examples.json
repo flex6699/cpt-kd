@@ -1,0 +1,70 @@
+{
+ "examples": [
+  {
+   "setup": "cub_resnet18",
+   "tag": "cub_9409",
+   "true": "Fox Sparrow",
+   "teacher": "Rusty Blackbird",
+   "trust": 0.05,
+   "kd_copies": 3,
+   "cpt_right": 3
+  },
+  {
+   "setup": "cub_resnet18",
+   "tag": "cub_9435",
+   "true": "Grasshopper Sparrow",
+   "teacher": "Baird Sparrow",
+   "trust": 0.43,
+   "kd_copies": 3,
+   "cpt_right": 3
+  },
+  {
+   "setup": "cub_resnet18",
+   "tag": "cub_9836",
+   "true": "Cape Glossy Starling",
+   "teacher": "Boat tailed Grackle",
+   "trust": 0.33,
+   "kd_copies": 2,
+   "cpt_right": 3
+  },
+  {
+   "setup": "aircraft_mobilenet_v2",
+   "tag": "aircraft_6728",
+   "true": "727-200",
+   "teacher": "707-320",
+   "trust": 0.29,
+   "kd_copies": 3,
+   "cpt_right": 2
+  }
+ ],
+ "counts": {
+  "cub_resnet18": {
+   "flagged": 116,
+   "wins": 7,
+   "reverse": 1,
+   "copies_kd": 45.666666666666664,
+   "copies_cpt": 34.333333333333336
+  },
+  "cub_mobilenet_v2": {
+   "flagged": 116,
+   "wins": 2,
+   "reverse": 1,
+   "copies_kd": 43.0,
+   "copies_cpt": 36.0
+  },
+  "aircraft_resnet18": {
+   "flagged": 52,
+   "wins": 1,
+   "reverse": 2,
+   "copies_kd": 11.666666666666666,
+   "copies_cpt": 9.666666666666666
+  },
+  "aircraft_mobilenet_v2": {
+   "flagged": 52,
+   "wins": 2,
+   "reverse": 1,
+   "copies_kd": 15.666666666666666,
+   "copies_cpt": 11.0
+  }
+ }
+}
