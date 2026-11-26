@@ -1,0 +1,9 @@
+# TEA-KD project requirements.
+# PyTorch is installed separately by setup_env.sh from the CUDA 12.4 index
+# (driver 550 supports CUDA <= 12.4):
+#   torch==2.5.1  torchvision==0.20.1   (index: https://download.pytorch.org/whl/cu124)
+numpy>=1.26,<3
+pillow>=10.0
+pandas>=2.1        # results tables in analyze.py
+matplotlib>=3.8    # figures for the report / final poster
+tqdm>=4.66         # progress bars
