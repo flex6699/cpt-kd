@@ -1,0 +1,16 @@
+{
+ "slices": [
+  {
+   "slice": 100,
+   "copied_kd": 2432
+  },
+  {
+   "slice": 209,
+   "copied_kd": 185
+  }
+ ],
+ "total_copied_pixels": {
+  "KD": 13741
+ },
+ "teacher_wrong_alone_right": 52154
+}

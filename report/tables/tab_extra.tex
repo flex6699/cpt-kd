@@ -1,0 +1,17 @@
+\begin{tabular}{l cccc cccc}
+\toprule
+ & \multicolumn{4}{c}{CUB-200-2011} & \multicolumn{4}{c}{FGVC-Aircraft} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Method & T-ok$\uparrow$ & Agr. & ECE$\downarrow$ & W10$\uparrow$ & T-ok$\uparrow$ & Agr. & ECE$\downarrow$ & W10$\uparrow$ \\
+\midrule
+Student alone & 87.8 & 79.2 & 3.2 & 34.5 & 89.7 & 79.1 & 8.2 & 52.0 \\
+Vanilla KD & 92.9 & 84.9 & 3.6 & 40.2 & 93.9 & 83.5 & 6.9 & 54.3 \\
+DKD & 93.1 & 85.6 & 2.7 & 39.4 & 90.5 & 81.1 & 6.6 & 46.6 \\
+Weighted soft labels & 92.7 & 84.5 & 3.9 & 40.2 & 93.5 & 82.8 & 7.6 & 54.5 \\
+Knowledge Adjustment & 92.9 & 84.9 & 3.5 & 40.6 & 93.9 & 83.5 & 7.0 & 53.9 \\
+Per-image gate & 91.3 & 83.2 & 1.5 & 36.8 & 91.0 & 81.2 & 4.9 & 48.8 \\
+Class-level trust & 93.1 & 85.0 & 3.6 & 41.0 & 94.0 & 83.4 & 6.8 & 55.3 \\
+\textbf{CPT-KD (ours)} & 92.5 & 84.3 & 3.9 & 40.9 & 93.8 & 83.1 & 7.3 & 54.0 \\
+\textbf{CPT-KD + DKD (ours)} & 92.6 & 84.5 & 3.4 & 38.6 & 93.5 & 83.5 & 7.1 & 53.1 \\
+\bottomrule
+\end{tabular}

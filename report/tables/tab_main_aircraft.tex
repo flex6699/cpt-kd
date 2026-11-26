@@ -1,0 +1,18 @@
+\begin{tabular}{l ccc ccc}
+\toprule
+ & \multicolumn{3}{c}{ResNet-50 $\to$ ResNet-18} & \multicolumn{3}{c}{ResNet-50 $\to$ MobileNetV2} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Method & mAcc$\uparrow$ & Inh.$\downarrow$ & Flag.$\downarrow$ & mAcc$\uparrow$ & Inh.$\downarrow$ & Flag.$\downarrow$ \\
+\midrule
+Student alone & 79.0{\scriptsize$\pm$0.4} & 31.5{\scriptsize$\pm$2.1} & 21.2{\scriptsize$\pm$3.8} & 79.8{\scriptsize$\pm$0.6} & 32.6{\scriptsize$\pm$1.9} & 25.6{\scriptsize$\pm$2.2} \\
+Vanilla KD~\cite{hinton2015distilling} & 82.8{\scriptsize$\pm$0.2} & 36.6{\scriptsize$\pm$0.8} & 22.4{\scriptsize$\pm$4.0} & 84.1{\scriptsize$\pm$0.2} & 37.6{\scriptsize$\pm$0.5} & 30.1{\scriptsize$\pm$2.9} \\
+DKD~\cite{zhao2022dkd} & 78.9{\scriptsize$\pm$4.7} & 38.6{\scriptsize$\pm$3.7} & 23.7{\scriptsize$\pm$4.4} & 83.2{\scriptsize$\pm$0.5} & 41.9{\scriptsize$\pm$0.9} & 32.7{\scriptsize$\pm$0.0} \\
+Weighted soft labels~\cite{zhou2021wsl} & 82.8{\scriptsize$\pm$0.4} & 34.6{\scriptsize$\pm$1.4} & 22.4{\scriptsize$\pm$7.8} & 84.7{\scriptsize$\pm$0.4} & 35.0{\scriptsize$\pm$0.7} & 28.2{\scriptsize$\pm$2.9} \\
+Knowledge Adjustment~\cite{wen2021preparing} & 82.8{\scriptsize$\pm$0.3} & 36.6{\scriptsize$\pm$1.6} & 21.2{\scriptsize$\pm$5.8} & 84.4{\scriptsize$\pm$0.6} & 37.5{\scriptsize$\pm$1.9} & 28.8{\scriptsize$\pm$6.9} \\
+Per-image gate~\cite{mishra2026correctness} & 79.1{\scriptsize$\pm$0.2} & 37.1{\scriptsize$\pm$1.8} & 28.8{\scriptsize$\pm$9.6} & 80.2{\scriptsize$\pm$0.3} & 38.9{\scriptsize$\pm$1.9} & 32.1{\scriptsize$\pm$2.9} \\
+Class-level trust~\cite{lukasik2022teacherspet} & 83.0{\scriptsize$\pm$0.4} & 35.5{\scriptsize$\pm$1.4} & 25.0{\scriptsize$\pm$1.9} & 84.1{\scriptsize$\pm$0.3} & 38.1{\scriptsize$\pm$1.3} & 29.5{\scriptsize$\pm$4.0} \\
+\midrule
+\textbf{CPT-KD (ours)} & 82.7{\scriptsize$\pm$0.1} & 35.0{\scriptsize$\pm$1.4} & 18.6{\scriptsize$\pm$1.1} & 84.0{\scriptsize$\pm$0.2} & 36.4{\scriptsize$\pm$0.1} & 21.2{\scriptsize$\pm$3.3} \\
+\textbf{CPT-KD + DKD (ours)} & 81.7{\scriptsize$\pm$0.3} & 38.7{\scriptsize$\pm$0.6} & 19.9{\scriptsize$\pm$4.8} & 83.7{\scriptsize$\pm$0.1} & 38.8{\scriptsize$\pm$1.0} & 17.9{\scriptsize$\pm$5.9} \\
+\bottomrule
+\end{tabular}
