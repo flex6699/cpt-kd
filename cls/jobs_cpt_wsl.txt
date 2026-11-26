@@ -1,0 +1,7 @@
+# CPT-KD + WSL combination (fixed in advance, not tuned on test), ResNet-50 -> ResNet-18
+python train_student.py --data data/tea_kd/cub      --method cpt_wsl --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_wsl --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub      --method cpt_wsl --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_wsl --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub      --method cpt_wsl --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_wsl --student-arch resnet18 --seed 2 --cpt-keep-target

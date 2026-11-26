@@ -1,0 +1,65 @@
+Using GPU 0: NVIDIA RTX A6000, 37.6 / 47.5 GB free
+  cached 6667 images (202 MB) in 0.3s
+  cached 6667 images (202 MB) in 0.2s
+
+[student fold 0] resnet18, 40 epochs, 5336 images, seed 100
+  epoch   1/40  loss 4.466  train acc   8.2%  (12s/epoch)
+  epoch   5/40  loss 2.564  train acc  42.9%  (7s/epoch)
+  epoch  10/40  loss 1.446  train acc  64.0%  (7s/epoch)
+  epoch  15/40  loss 0.481  train acc  86.2%  (7s/epoch)
+  epoch  20/40  loss 0.099  train acc  97.5%  (7s/epoch)
+  epoch  25/40  loss 0.033  train acc  99.5%  (7s/epoch)
+  epoch  30/40  loss 0.023  train acc  99.8%  (7s/epoch)
+  epoch  35/40  loss 0.017  train acc  99.9%  (7s/epoch)
+  epoch  40/40  loss 0.018  train acc  99.9%  (7s/epoch)
+[student fold 0] accuracy on its unseen fold: 45.91%
+
+[student fold 1] resnet18, 40 epochs, 5333 images, seed 101
+  epoch   1/40  loss 4.469  train acc   8.5%  (7s/epoch)
+  epoch   5/40  loss 2.542  train acc  44.1%  (7s/epoch)
+  epoch  10/40  loss 1.376  train acc  64.7%  (7s/epoch)
+  epoch  15/40  loss 0.524  train acc  85.6%  (6s/epoch)
+  epoch  20/40  loss 0.100  train acc  97.5%  (7s/epoch)
+  epoch  25/40  loss 0.035  train acc  99.4%  (5s/epoch)
+  epoch  30/40  loss 0.020  train acc  99.8%  (6s/epoch)
+  epoch  35/40  loss 0.020  train acc  99.8%  (6s/epoch)
+  epoch  40/40  loss 0.018  train acc  99.8%  (6s/epoch)
+[student fold 1] accuracy on its unseen fold: 46.70%
+
+[student fold 2] resnet18, 40 epochs, 5337 images, seed 102
+  epoch   1/40  loss 4.480  train acc   8.5%  (7s/epoch)
+  epoch   5/40  loss 2.500  train acc  44.6%  (7s/epoch)
+  epoch  10/40  loss 1.354  train acc  65.9%  (7s/epoch)
+  epoch  15/40  loss 0.500  train acc  85.4%  (6s/epoch)
+  epoch  20/40  loss 0.102  train acc  97.5%  (6s/epoch)
+  epoch  25/40  loss 0.035  train acc  99.5%  (7s/epoch)
+  epoch  30/40  loss 0.021  train acc  99.8%  (7s/epoch)
+  epoch  35/40  loss 0.019  train acc  99.9%  (7s/epoch)
+  epoch  40/40  loss 0.018  train acc  99.9%  (7s/epoch)
+[student fold 2] accuracy on its unseen fold: 46.92%
+
+[student fold 3] resnet18, 40 epochs, 5329 images, seed 103
+  epoch   1/40  loss 4.449  train acc   8.6%  (7s/epoch)
+  epoch   5/40  loss 2.579  train acc  43.2%  (6s/epoch)
+  epoch  10/40  loss 1.396  train acc  64.5%  (7s/epoch)
+  epoch  15/40  loss 0.495  train acc  85.7%  (6s/epoch)
+  epoch  20/40  loss 0.106  train acc  97.2%  (5s/epoch)
+  epoch  25/40  loss 0.034  train acc  99.4%  (6s/epoch)
+  epoch  30/40  loss 0.021  train acc  99.9%  (6s/epoch)
+  epoch  35/40  loss 0.016  train acc  99.9%  (6s/epoch)
+  epoch  40/40  loss 0.019  train acc  99.8%  (6s/epoch)
+[student fold 3] accuracy on its unseen fold: 46.11%
+
+[student fold 4] resnet18, 40 epochs, 5333 images, seed 104
+  epoch   1/40  loss 4.446  train acc   8.1%  (6s/epoch)
+  epoch   5/40  loss 2.521  train acc  43.8%  (6s/epoch)
+  epoch  10/40  loss 1.387  train acc  64.5%  (6s/epoch)
+  epoch  15/40  loss 0.474  train acc  86.4%  (6s/epoch)
+  epoch  20/40  loss 0.102  train acc  97.5%  (6s/epoch)
+  epoch  25/40  loss 0.032  train acc  99.5%  (6s/epoch)
+  epoch  30/40  loss 0.022  train acc  99.8%  (6s/epoch)
+  epoch  35/40  loss 0.018  train acc  99.9%  (6s/epoch)
+  epoch  40/40  loss 0.017  train acc  99.9%  (6s/epoch)
+[student fold 4] accuracy on its unseen fold: 46.55%
+
+Trust table not built yet: 2/5 teacher folds and 5/5 student folds done. It is built automatically when both are complete (or run with --models none).

@@ -1,0 +1,10 @@
+# Label-noise robustness (20% symmetric noise on the Aircraft training pool), ResNet-50 -> ResNet-18
+python train_student.py --data data/tea_kd/aircraft_noise20 --method cpt --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft_noise20 --method kd  --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft_noise20 --method ce  --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft_noise20 --method cpt --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft_noise20 --method kd  --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft_noise20 --method ce  --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft_noise20 --method cpt --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft_noise20 --method kd  --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/aircraft_noise20 --method ce  --student-arch resnet18 --seed 2

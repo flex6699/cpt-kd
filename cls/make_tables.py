@@ -22,7 +22,8 @@ ROWS = [("ce", "Student alone"), ("kd", "Vanilla KD~\\cite{hinton2015distilling}
         ("ka", "Knowledge Adjustment~\\cite{wen2021preparing}"),
         ("pergate_{s}_oofteacher", "Per-image gate~\\cite{mishra2026correctness}"),
         ("class_trust_{s}_keept", "Class-level trust~\\cite{lukasik2022teacherspet}"),
-        ("cpt_{s}_keept", "\\textbf{CPT-KD (ours)}"), ("cpt_dkd_{s}_keept", "\\textbf{CPT-KD + DKD (ours)}")]
+        ("cpt_{s}_keept", "\\textbf{CPT-KD (ours)}"), ("cpt_dkd_{s}_keept", "\\textbf{CPT-KD + DKD (ours)}"),
+        ("cpt_wsl_{s}_keept", "\\textbf{CPT-KD + WSL (ours)}"), ("cpt_pair_{s}_keept", "\\textbf{CPT-KD + pair penalty (ours)}")]
 STUDENTS = [("resnet18", "ResNet-18"), ("mobilenet_v2", "MobileNetV2")]
 
 
@@ -99,7 +100,7 @@ def main():
                 ("cpt_resnet18_keept", "Keep true-class prob. (\\textbf{default})"),
                 ("cpt_resnet18_pow2", "trust$^2$, rescale all"),
                 ("cpt_resnet18_pow2_keept", "trust$^2$, keep true class"),
-                ("cpt_resnet18_trustT4", "Trust estimated at $\\tau{=}4$ (1 seed)"),
+                ("cpt_resnet18_trustT4", "Trust estimated at $\\tau{=}4$ (rescale all)"),
                 ("class_trust_resnet18_keept", "Per-class trust (keep true class)"),
                 ("cpt_dkd_resnet18_keept", "CPT-KD + DKD")]
     lines = ["\\begin{tabular}{l c ccc}", "\\toprule",
@@ -115,6 +116,31 @@ def main():
                                                      f(d["flagged_pair_inheritance"])))
     lines += ["\\bottomrule", "\\end{tabular}"]
     open(os.path.join(a.out, "tab_ablation.tex"), "w").write("\n".join(lines) + "\n")
+    # label-noise robustness (20% symmetric noise on the training labels), ResNet-18
+    lines = ["\\begin{tabular}{l ccc ccc}", "\\toprule",
+             " & \\multicolumn{3}{c}{CUB, 20\\% noise} & \\multicolumn{3}{c}{Aircraft, 20\\% noise} \\\\",
+             "\\cmidrule(lr){2-4}\\cmidrule(lr){5-7}",
+             "Method & Top-1$\\uparrow$ & Inh.$\\downarrow$ & Flag.$\\downarrow$ & mAcc$\\uparrow$ & Inh.$\\downarrow$ & Flag.$\\downarrow$ \\\\", "\\midrule"]
+    have_noise = False
+    for key, label in (("ce", "Student alone"), ("kd", "Vanilla KD"), ("cpt_{s}_keept", "\\textbf{CPT-KD (ours)}")):
+        cells = []
+        for ds, acc_key in (("cub_noise20", "top1"), ("aircraft_noise20", "mean_per_class")):
+            if not os.path.isdir(os.path.join(a.runs, ds)):
+                cells += ["--"] * 3
+                continue
+            g = load(a.runs, ds)
+            runs = g.get(group(key, "resnet18"), {})
+            if not runs:
+                cells += ["--"] * 3
+                continue
+            have_noise = True
+            v = {k: [r[k] for r in runs.values()] for k in (acc_key, "inheritance", "flagged_pair_inheritance")}
+            numbers[f"{ds}/{group(key, 'resnet18')}"] = {k: [float(np.mean(x)), float(np.std(x, ddof=1)), len(x)] for k, x in v.items()}
+            cells += [ms(v[acc_key]), ms(v["inheritance"]), ms(v["flagged_pair_inheritance"])]
+        lines.append(label + " & " + " & ".join(cells) + " \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}"]
+    if have_noise:
+        open(os.path.join(a.out, "tab_noise.tex"), "w").write("\n".join(lines) + "\n")
     json.dump(numbers, open(os.path.join(a.out, "numbers.json"), "w"), indent=1)
     print("wrote", sorted(os.listdir(a.out)))
 

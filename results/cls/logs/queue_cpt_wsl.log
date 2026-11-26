@@ -1,0 +1,16 @@
+6 jobs, GPUs [2], 2 per GPU -> up to 2 at a time. Logs in logs/
+
+[21:28] #1 start cub_cpt_wsl_student-archresnet18_seed0_cpt-keep-target on GPU 2 (9.6 GB free)
+[21:28] #2 start aircraft_cpt_wsl_student-archresnet18_seed0_cpt-keep-target on GPU 2 (9.5 GB free)
+[21:37] #1 cub_cpt_wsl_student-archresnet18_seed0_cpt-keep-target on GPU 2: done after 8.2 min
+[21:38] #3 start cub_cpt_wsl_student-archresnet18_seed1_cpt-keep-target on GPU 2 (10.0 GB free)
+[21:49] #3 cub_cpt_wsl_student-archresnet18_seed1_cpt-keep-target on GPU 2: done after 11.6 min
+[21:50] #4 start aircraft_cpt_wsl_student-archresnet18_seed1_cpt-keep-target on GPU 2 (10.7 GB free)
+[21:51] #2 aircraft_cpt_wsl_student-archresnet18_seed0_cpt-keep-target on GPU 2: done after 22.9 min
+[21:51] #5 start cub_cpt_wsl_student-archresnet18_seed2_cpt-keep-target on GPU 2 (12.1 GB free)
+[22:04] #4 aircraft_cpt_wsl_student-archresnet18_seed1_cpt-keep-target on GPU 2: done after 13.4 min
+[22:04] #6 start aircraft_cpt_wsl_student-archresnet18_seed2_cpt-keep-target on GPU 2 (12.4 GB free)
+[22:04] #5 cub_cpt_wsl_student-archresnet18_seed2_cpt-keep-target on GPU 2: done after 12.4 min
+[22:10] #6 aircraft_cpt_wsl_student-archresnet18_seed2_cpt-keep-target on GPU 2: done after 6.6 min
+
+All jobs finished in 42.0 min: 6 ok, 0 failed.

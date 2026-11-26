@@ -1,0 +1,11 @@
+\begin{tabular}{l ccc ccc}
+\toprule
+ & \multicolumn{3}{c}{CUB, 20\% noise} & \multicolumn{3}{c}{Aircraft, 20\% noise} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Method & Top-1$\uparrow$ & Inh.$\downarrow$ & Flag.$\downarrow$ & mAcc$\uparrow$ & Inh.$\downarrow$ & Flag.$\downarrow$ \\
+\midrule
+Student alone & 62.4{\scriptsize$\pm$0.3} & 24.1{\scriptsize$\pm$1.3} & 25.7{\scriptsize$\pm$1.4} & 61.6{\scriptsize$\pm$0.7} & 23.1{\scriptsize$\pm$0.6} & 14.6{\scriptsize$\pm$2.2} \\
+Vanilla KD & 69.9{\scriptsize$\pm$0.2} & 34.3{\scriptsize$\pm$0.3} & 36.0{\scriptsize$\pm$0.6} & 70.1{\scriptsize$\pm$0.6} & 30.6{\scriptsize$\pm$0.4} & 24.9{\scriptsize$\pm$3.3} \\
+\textbf{CPT-KD (ours)} & 69.2{\scriptsize$\pm$0.2} & 33.0{\scriptsize$\pm$0.6} & 31.6{\scriptsize$\pm$2.3} & 69.6{\scriptsize$\pm$0.6} & 30.0{\scriptsize$\pm$0.7} & 21.3{\scriptsize$\pm$4.4} \\
+\bottomrule
+\end{tabular}

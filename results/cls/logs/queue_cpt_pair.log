@@ -1,0 +1,16 @@
+6 jobs, GPUs [1], 2 per GPU -> up to 2 at a time. Logs in logs/
+
+[21:47] #1 start cub_cpt_pair_student-archresnet18_seed0_cpt-keep-target_pair-lambda1.0 on GPU 1 (23.7 GB free)
+[21:47] #2 start aircraft_cpt_pair_student-archresnet18_seed0_cpt-keep-target_pair-lambda1.0 on GPU 1 (23.3 GB free)
+[21:57] #1 cub_cpt_pair_student-archresnet18_seed0_cpt-keep-target_pair-lambda1.0 on GPU 1: done after 9.7 min
+[21:57] #3 start cub_cpt_pair_student-archresnet18_seed1_cpt-keep-target_pair-lambda1.0 on GPU 1 (14.8 GB free)
+[21:58] #2 aircraft_cpt_pair_student-archresnet18_seed0_cpt-keep-target_pair-lambda1.0 on GPU 1: done after 10.8 min
+[21:58] #4 start aircraft_cpt_pair_student-archresnet18_seed1_cpt-keep-target_pair-lambda1.0 on GPU 1 (14.7 GB free)
+[22:07] #3 cub_cpt_pair_student-archresnet18_seed1_cpt-keep-target_pair-lambda1.0 on GPU 1: done after 9.9 min
+[22:07] #5 start cub_cpt_pair_student-archresnet18_seed2_cpt-keep-target_pair-lambda1.0 on GPU 1 (14.7 GB free)
+[22:09] #4 aircraft_cpt_pair_student-archresnet18_seed1_cpt-keep-target_pair-lambda1.0 on GPU 1: done after 11.0 min
+[22:09] #6 start aircraft_cpt_pair_student-archresnet18_seed2_cpt-keep-target_pair-lambda1.0 on GPU 1 (14.7 GB free)
+[22:17] #5 cub_cpt_pair_student-archresnet18_seed2_cpt-keep-target_pair-lambda1.0 on GPU 1: done after 9.9 min
+[22:18] #6 aircraft_cpt_pair_student-archresnet18_seed2_cpt-keep-target_pair-lambda1.0 on GPU 1: done after 9.1 min
+
+All jobs finished in 43.8 min: 6 ok, 0 failed.

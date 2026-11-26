@@ -1,0 +1,97 @@
+Using GPU 0: NVIDIA RTX A6000, 40.3 / 47.5 GB free
+  cached 6667 images (202 MB) in 0.2s
+  cached 6667 images (202 MB) in 0.2s
+
+[teacher fold 0] resnet50, 40 epochs, 5336 images, seed 0
+  epoch   1/40  loss 4.351  train acc   7.0%  (18s/epoch)
+  epoch   5/40  loss 1.328  train acc  68.4%  (15s/epoch)
+  epoch  10/40  loss 0.302  train acc  91.2%  (16s/epoch)
+  epoch  15/40  loss 0.072  train acc  98.4%  (17s/epoch)
+  epoch  20/40  loss 0.027  train acc  99.7%  (15s/epoch)
+  epoch  25/40  loss 0.017  train acc  99.9%  (16s/epoch)
+  epoch  30/40  loss 0.015  train acc  99.9%  (13s/epoch)
+  epoch  35/40  loss 0.014  train acc 100.0%  (16s/epoch)
+  epoch  40/40  loss 0.013  train acc 100.0%  (15s/epoch)
+[teacher fold 0] accuracy on its unseen fold: 50.11%
+
+[teacher fold 1] resnet50, 40 epochs, 5333 images, seed 1
+  epoch   1/40  loss 4.359  train acc   6.4%  (16s/epoch)
+  epoch   5/40  loss 1.359  train acc  68.1%  (16s/epoch)
+  epoch  10/40  loss 0.281  train acc  92.7%  (16s/epoch)
+  epoch  15/40  loss 0.071  train acc  98.6%  (16s/epoch)
+  epoch  20/40  loss 0.028  train acc  99.7%  (12s/epoch)
+  epoch  25/40  loss 0.017  train acc  99.9%  (16s/epoch)
+  epoch  30/40  loss 0.014  train acc  99.9%  (15s/epoch)
+  epoch  35/40  loss 0.013  train acc 100.0%  (15s/epoch)
+  epoch  40/40  loss 0.014  train acc 100.0%  (16s/epoch)
+[teacher fold 1] accuracy on its unseen fold: 50.82%
+
+[teacher fold 2] resnet50, 40 epochs, 5337 images, seed 2
+  epoch   1/40  loss 4.352  train acc   7.1%  (17s/epoch)
+  epoch   5/40  loss 1.311  train acc  68.7%  (11s/epoch)
+  epoch  10/40  loss 0.313  train acc  90.9%  (11s/epoch)
+  epoch  15/40  loss 0.071  train acc  98.5%  (11s/epoch)
+  epoch  20/40  loss 0.027  train acc  99.7%  (11s/epoch)
+  epoch  25/40  loss 0.018  train acc  99.8%  (11s/epoch)
+  epoch  30/40  loss 0.015  train acc 100.0%  (11s/epoch)
+  epoch  35/40  loss 0.014  train acc 100.0%  (11s/epoch)
+  epoch  40/40  loss 0.014  train acc 100.0%  (11s/epoch)
+[teacher fold 2] accuracy on its unseen fold: 52.03%
+
+[teacher fold 3] resnet50, 40 epochs, 5329 images, seed 3
+  epoch   1/40  loss 4.351  train acc   6.8%  (11s/epoch)
+  epoch   5/40  loss 1.349  train acc  68.2%  (11s/epoch)
+  epoch  10/40  loss 0.299  train acc  92.0%  (11s/epoch)
+  epoch  15/40  loss 0.066  train acc  98.7%  (11s/epoch)
+  epoch  20/40  loss 0.027  train acc  99.7%  (11s/epoch)
+  epoch  25/40  loss 0.017  train acc  99.9%  (11s/epoch)
+  epoch  30/40  loss 0.017  train acc  99.9%  (11s/epoch)
+  epoch  35/40  loss 0.014  train acc 100.0%  (11s/epoch)
+  epoch  40/40  loss 0.014  train acc  99.9%  (11s/epoch)
+[teacher fold 3] accuracy on its unseen fold: 49.18%
+
+[teacher fold 4] resnet50, 40 epochs, 5333 images, seed 4
+  epoch   1/40  loss 4.346  train acc   7.0%  (12s/epoch)
+  epoch   5/40  loss 1.325  train acc  69.1%  (11s/epoch)
+  epoch  10/40  loss 0.253  train acc  93.7%  (11s/epoch)
+  epoch  15/40  loss 0.069  train acc  98.5%  (11s/epoch)
+  epoch  20/40  loss 0.025  train acc  99.7%  (11s/epoch)
+  epoch  25/40  loss 0.018  train acc  99.9%  (10s/epoch)
+  epoch  30/40  loss 0.015  train acc  99.9%  (8s/epoch)
+  epoch  35/40  loss 0.014  train acc  99.9%  (8s/epoch)
+  epoch  40/40  loss 0.014  train acc 100.0%  (8s/epoch)
+[teacher fold 4] accuracy on its unseen fold: 51.20%
+  cached 6667 images (202 MB) in 0.1s
+
+[full teacher] resnet50, 40 epochs, 6667 images, seed 0
+  epoch   1/40  loss 4.233  train acc   8.4%  (10s/epoch)
+  epoch   5/40  loss 1.379  train acc  67.7%  (10s/epoch)
+  epoch  10/40  loss 0.335  train acc  90.7%  (10s/epoch)
+  epoch  15/40  loss 0.088  train acc  98.1%  (10s/epoch)
+  epoch  20/40  loss 0.034  train acc  99.4%  (10s/epoch)
+  epoch  25/40  loss 0.018  train acc  99.9%  (9s/epoch)
+  epoch  30/40  loss 0.017  train acc  99.9%  (10s/epoch)
+  epoch  35/40  loss 0.016  train acc  99.9%  (9s/epoch)
+  epoch  40/40  loss 0.016  train acc  99.9%  (10s/epoch)
+  cached 3333 images (101 MB) in 0.1s
+[full teacher] test accuracy 67.75%
+
+Out-of-fold accuracy on training images: teacher 50.7%, student alone 46.4%
+trust T1: mean 0.836, pairs < 0.5: 1371, pairs < 0.9: 3692 (of 9900)
+trust T4: mean 0.930, pairs < 0.5: 0, pairs < 0.9: 3011 (of 9900)
+
+Most suspicious pairs (T4); these should look like real look-alike classes:
+  A300B4                           -> A310                             trust 0.70   teacher mistakes 10, student mistakes 4
+  BAE-125                          -> Cessna 560                       trust 0.63   teacher mistakes 2, student mistakes 0
+  DC-10                            -> MD-11                            trust 0.77   teacher mistakes 10, student mistakes 8
+  747-400                          -> 747-300                          trust 0.77   teacher mistakes 12, student mistakes 8
+  ATR-72                           -> DHC-8-300                        trust 0.64   teacher mistakes 1, student mistakes 0
+  757-300                          -> A310                             trust 0.54   teacher mistakes 0, student mistakes 0
+  747-300                          -> 747-100                          trust 0.78   teacher mistakes 6, student mistakes 4
+  DR-400                           -> Boeing 717                       trust 0.54   teacher mistakes 1, student mistakes 0
+  ATR-42                           -> DHC-8-100                        trust 0.64   teacher mistakes 1, student mistakes 1
+  DHC-8-300                        -> ATR-72                           trust 0.71   teacher mistakes 2, student mistakes 1
+  A300B4                           -> Model B200                       trust 0.55   teacher mistakes 1, student mistakes 1
+  Gulfstream V                     -> Embraer Legacy 600               trust 0.62   teacher mistakes 1, student mistakes 0
+
+Saved trust tables, lowest_trust_pairs.csv/.png and summary.json in runs/aircraft_noise20/final/oof

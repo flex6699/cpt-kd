@@ -96,6 +96,7 @@ def main():
     ap.add_argument("--cpt-power", type=float, default=1.0, help="CPT-KD: use trust^power")
     ap.add_argument("--cpt-keep-target", action="store_true",
                     help="CPT-KD: keep the true-class probability; spread removed mass over wrong classes")
+    ap.add_argument("--pair-lambda", type=float, default=1.0, help="cpt_pair: weight of the pair penalty")
     ap.add_argument("--tag", default="", help="extra name for ablation runs")
     ap.add_argument("--gpu", type=int, default=1)
     ap.add_argument("--workers", type=int, default=8)
@@ -107,7 +108,7 @@ def main():
     C, ds_name = info["num_classes"], info["dataset"]
     oof_dir = args.oof_dir or os.path.join("runs", ds_name, args.phase, "oof")
     name = f"{args.method}_{args.student_arch}"
-    if args.method in ("cpt", "cpt_dkd", "class_trust"):
+    if args.method in ("cpt", "cpt_dkd", "cpt_wsl", "cpt_pair", "class_trust"):
         if args.trust_temp != "1":
             name += f"_trustT{args.trust_temp}"
         if args.cpt_power != 1.0:
@@ -133,7 +134,7 @@ def main():
     trust = torch.tensor(trust_np, device=device)
     class_trust = torch.tensor(np.load(os.path.join(oof_dir, f"class_trust_T{args.trust_temp}.npy")), device=device)
     cfg = dict(alpha=args.alpha, T=args.T, dkd_alpha=args.dkd_alpha, dkd_beta=args.dkd_beta,
-               dkd_warmup=args.dkd_warmup, cpt_power=args.cpt_power, cpt_keep_target=args.cpt_keep_target)
+               dkd_warmup=args.dkd_warmup, cpt_power=args.cpt_power, cpt_keep_target=args.cpt_keep_target, pair_lambda=args.pair_lambda)
 
     train_rows = select_rows(rows, args.phase, "train")
     eval_rows = select_rows(rows, args.phase, "eval")

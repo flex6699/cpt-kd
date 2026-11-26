@@ -35,8 +35,8 @@ IIT Jodhpur\\
 \maketitle
 \vspace{-2.2em}
 \begin{center}
-\includegraphics[width=0.97\textwidth]{figs/fig_problem.png}\\[-0.3em]
-\includegraphics[width=0.97\textwidth]{figs/fig_problem_acdc.png}
+\includegraphics[width=0.86\textwidth]{figs/fig_problem.png}\\[-0.3em]
+\includegraphics[width=0.70\textwidth]{figs/fig_problem_acdc.png}
 \captionof{figure}{\textbf{The problem: a distilled student copies the teacher's look-alike confusions.}
 \emph{Top:} real test images from CUB-200-2011 and FGVC-Aircraft. The ResNet-50 teacher confidently predicts a look-alike class (red), a ResNet-18 trained alone is right (green), and after vanilla KD the same student copies the teacher's mistake. CPT-KD, which turns down the teacher's soft label on low-trust class pairs, gives the right answer again.
 \emph{Bottom:} the same effect in medical segmentation (ACDC cardiac MRI, SAM ViT-L teacher $\to$ EfficientNet-B1 student). Yellow outlines mark pixels where the teacher is wrong, the student alone is right, and the distilled student copies the teacher's error (\eg the missed right ventricle in row 1).}
@@ -47,7 +47,7 @@ IIT Jodhpur\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Knowledge distillation (KD) trains a small student to match a large teacher's soft labels. Those soft labels also carry the teacher's \emph{confusions between look-alike classes}, and the student copies them even where it would have been right on its own. We measure this leak with \emph{teacher-error inheritance}: of the test images the teacher gets wrong, the share on which the student makes the same mistake. On CUB-200-2011 and FGVC-Aircraft, vanilla KD raises inheritance from 38.7\% to 47.4\% and from 31.5\% to 36.6\% (ResNet-50$\to$ResNet-18), even though the teacher makes no errors on its training images. We propose \textbf{Class-Pair Trust KD (CPT-KD)}. It estimates, from cross-fitted out-of-fold predictions, how much more the teacher confuses each class pair than a student trained alone, and scales down the teacher's soft label on exactly those pairs. CPT-KD needs about 20 lines of code and no new parameters. Over 2 datasets, 2 students and 3 seeds, it keeps KD's accuracy (within 0.5 points) and cuts inheritance on the flagged look-alike pairs by 4--10 points, below the level of a student trained alone. No baseline (DKD, weighted soft labels, Knowledge Adjustment, per-image gating, class-level trust) does this, and the reduction is significant by paired bootstrap in three of four setups. It closes only about a quarter of KD's \emph{overall} inheritance gap, where weighted soft labels do as well, and we explain why. As a step beyond the proposal, we carry the analysis to medical image segmentation with a SAM foundation-model teacher. There the leak reappears and grows with the KD temperature.
+Knowledge distillation (KD) trains a small student to match a large teacher's soft labels. Those soft labels also carry the teacher's \emph{confusions between look-alike classes}, and the student copies them even where it would have been right on its own. We measure this leak with \emph{teacher-error inheritance}: of the test images the teacher gets wrong, the share on which the student makes the same mistake. On CUB-200-2011 and FGVC-Aircraft, vanilla KD raises inheritance from 38.7\% to 47.4\% and from 31.5\% to 36.6\% (ResNet-50$\to$ResNet-18), even though the teacher makes no errors on its training images. We propose \textbf{Class-Pair Trust KD (CPT-KD)}. It estimates, from cross-fitted out-of-fold predictions, how much more the teacher confuses each class pair than a student trained alone, and scales down the teacher's soft label on exactly those pairs. CPT-KD needs about 20 lines of code and no new parameters. Over 2 datasets, 2 students and 3 seeds, it keeps KD's accuracy (within 0.5 points) and cuts inheritance on the flagged look-alike pairs by 4--10 points, below the level of a student trained alone. No baseline (DKD, weighted soft labels, Knowledge Adjustment, per-image gating, class-level trust) does this, and the reduction is significant by paired bootstrap in three of four setups. It closes only about a quarter of KD's \emph{overall} inheritance gap, where weighted soft labels do as well, and we explain why. CPT-KD does \emph{not} raise accuracy: the student falls back to its own errors rather than the right answer, and neither ensembles, combinations with WSL or a pair penalty, nor 20\% label noise change this. As a step beyond the proposal, we carry the analysis to medical image segmentation with a SAM foundation-model teacher. There the leak reappears and grows with the KD temperature.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,7 +97,7 @@ with $\epsilon=0.1/C$ for $C$ classes. A trust of 1 means the teacher is no more
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\linewidth]{figs/fig_trust_cub.png}
+\includegraphics[width=0.72\linewidth]{figs/fig_trust_cub.png}
 \caption{\textbf{Pair-trust table (CUB, Eq.~\ref{eq:trust})} over the classes in the lowest-trust pairs. Red cells are confusions made by the teacher only. They are look-alike species: crows and ravens, terns, albatrosses, gulls.}
 \label{fig:trust}
 \end{figure}
@@ -116,7 +116,7 @@ The student is then trained with Eq.~\eqref{eq:kd}, with $\tilde q$ in place of 
 
 \paragraph{Models and recipe.} The teacher is a ResNet-50~\cite{he2016resnet}. The students are ResNet-18 (same family) and MobileNetV2~\cite{sandler2018mobilenetv2} (cross-architecture). All networks start from torchvision ImageNet weights and use one recipe: SGD (Nesterov, momentum 0.9, lr 0.01, $10\times$ for the new head, weight decay $5\cdot10^{-4}$), batch 64, 40 epochs, linear warm-up then cosine decay, and bf16 mixed precision. KD uses $\tau{=}4$ and $\alpha{=}1$. DKD uses $\alpha{=}1$, $\beta{=}8$ and a 5-epoch warm-up. The teacher reaches 82.5\% (CUB) and 81.9\% (Aircraft) test accuracy. Each method is run with 3 seeds, and every method uses the \emph{same} seeds and the \emph{same} teacher. One student run takes 5--11 minutes on an RTX A5000/A6000.
 
-\paragraph{Baselines.} (1) student alone (CE only); (2) vanilla KD~\cite{hinton2015distilling}; (3) DKD~\cite{zhao2022dkd}; (4) weighted soft labels~\cite{zhou2021wsl}; (5) Knowledge Adjustment~\cite{wen2021preparing}; (6) per-image correctness gate~\cite{mishra2026correctness}, which skips KD on images the teacher gets wrong; (7) class-level trust in the spirit of~\cite{lukasik2022teacherspet}, where one trust value per true class (the mean of its row of Eq.~\eqref{eq:trust}) scales all wrong-class probabilities. The full teacher is never wrong on its training images, so (6) would reduce to KD. We therefore give the gate the out-of-fold teacher predictions, which is the strongest fair version. Ours: (8) CPT-KD and (9) CPT-KD + DKD.
+\paragraph{Baselines.} (1) student alone (CE only); (2) vanilla KD~\cite{hinton2015distilling}; (3) DKD~\cite{zhao2022dkd}; (4) weighted soft labels~\cite{zhou2021wsl}; (5) Knowledge Adjustment~\cite{wen2021preparing}; (6) per-image correctness gate~\cite{mishra2026correctness}, which skips KD on images the teacher gets wrong; (7) class-level trust in the spirit of~\cite{lukasik2022teacherspet}, where one trust value per true class (the mean of its row of Eq.~\eqref{eq:trust}) scales all wrong-class probabilities. The full teacher is never wrong on its training images, so (6) would reduce to KD. We therefore give the gate the out-of-fold teacher predictions, which is the strongest fair version. Ours: (8) CPT-KD and (9) CPT-KD + DKD. Two further combinations were fixed in advance and run on ResNet-18 only: (10) CPT-KD + WSL (cleaned soft label, WSL per-image weight) and (11) CPT-KD + pair penalty, which adds $\lambda\sum_{c\neq y}(1-\trust(y,c))\,p_s(c)$ with $\lambda{=}1$ to push the student off teacher-only confusions.
 
 \paragraph{Metrics.} Top-1 accuracy (CUB) and mean per-class accuracy (Aircraft, the official metric). \textbf{Teacher-error inheritance} ($\downarrow$): of the test images the teacher gets wrong, the percentage on which the student predicts the \emph{same} wrong class. \textbf{Flagged-pair inheritance} ($\downarrow$): the same, restricted to teacher errors $(y,\hat y_t)$ with $\trust(y,\hat y_t)<0.5$ (116 test images on CUB, 52 on Aircraft). Also reported: accuracy on teacher-correct images (a no-harm check), student--teacher agreement, expected calibration error (ECE, 15 bins)~\cite{guo2017calibration}, and worst-10-class accuracy.
 
@@ -126,14 +126,14 @@ The student is then trained with Eq.~\eqref{eq:kd}, with $\tilde q$ in place of 
 
 \subsection{C1: the hidden leak}
 \label{sec:c1}
-\Cref{fig:c1} (red vs.\ green bars) shows that vanilla KD raises teacher-error inheritance in all four setups: 38.7$\to$47.4\% and 40.3$\to$47.5\% on CUB, 31.5$\to$36.6\% and 32.6$\to$37.6\% on Aircraft. Paired with the same seeds, the increase is $+8.7\pm1.8$ (CUB, ResNet-18) and $+5.1\pm2.7$ points (Aircraft, ResNet-18). This is far more than the variation between student-alone seeds. The teacher has 100\% training accuracy, so the leak cannot come from its top-1 mistakes on training images. It travels through the wrong-class probabilities of its soft labels. KD still helps overall (+3--4 points of accuracy), so the goal is to remove the leak, not KD.
-
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{figs/fig_c1_inheritance.png}
+\includegraphics[width=0.92\textwidth]{figs/fig_c1_inheritance.png}
 \caption{\textbf{Teacher-error inheritance} (\%, mean $\pm$ std over 3 seeds; lower is better). Solid bars: all teacher errors. Hatched bars: teacher errors on flagged (low-trust) pairs. KD (red) raises inheritance above a student trained alone (green) everywhere. CPT-KD (blue) brings flagged-pair inheritance below the student-alone level, but recovers only part of the overall increase.}
 \label{fig:c1}
 \end{figure*}
+\Cref{fig:c1} (red vs.\ green bars) and the first two rows of \cref{tab:cub,tab:air} show that vanilla KD raises teacher-error inheritance in all four setups: 38.7$\to$47.4\% and 40.3$\to$47.5\% on CUB, 31.5$\to$36.6\% and 32.6$\to$37.6\% on Aircraft. Paired with the same seeds, the increase is $+8.7\pm1.8$ (CUB, ResNet-18) and $+5.1\pm2.7$ points (Aircraft, ResNet-18). This is far more than the variation between student-alone seeds. The teacher has 100\% training accuracy, so the leak cannot come from its top-1 mistakes on training images. It travels through the wrong-class probabilities of its soft labels. KD still helps overall (+3--4 points of accuracy), so the goal is to remove the leak, not KD.
+
 
 \subsection{C2 and C3: main comparison}
 \label{sec:main}
@@ -158,32 +158,25 @@ The student is then trained with Eq.~\eqref{eq:kd}, with $\tilde q$ in place of 
 \end{table}
 
 \begin{table*}[t]
-\centering\small
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{\textbf{CUB-200-2011} test results (mean $\pm$ std, 3 seeds). Inh.: teacher-error inheritance; Flag.: inheritance on flagged (low-trust) pairs; both in \%, lower is better. Teacher (ResNet-50): 82.5\% top-1.}
 \label{tab:cub}
 \input{tables/tab_main_cub}
 \end{table*}
 
 \begin{table*}[t]
-\centering\small
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{\textbf{FGVC-Aircraft} test results (mean $\pm$ std, 3 seeds); mAcc = mean per-class accuracy (official metric). Teacher (ResNet-50): 81.9\% top-1. DKD on ResNet-18 had one diverging seed (high std).}
 \label{tab:air}
 \input{tables/tab_main_aircraft}
 \end{table*}
 
 \subsection{No-harm checks, calibration and fairness}
-\Cref{tab:extra} reports the remaining metrics for ResNet-18. On images the teacher gets right, CPT-KD keeps 92.5\% (CUB) and 93.8\% (Aircraft) accuracy, against 92.9\% and 93.9\% for KD, so the useful knowledge survives. ECE is slightly worse than KD on both datasets (3.9 vs.\ 3.6 on CUB, 7.3 vs.\ 6.9 on Aircraft). Redistributing wrong-class mass leaves the student a little over-confident; temperature scaling~\cite{guo2017calibration} would correct this. Worst-10-class accuracy is unchanged within noise (40.9 vs.\ 40.2 on CUB).
+For ResNet-18 (all values in \texttt{tables/tab\_extra.tex}): on images the teacher gets right, CPT-KD keeps 92.5\% (CUB) and 93.8\% (Aircraft) accuracy, against 92.9\% and 93.9\% for KD, so the useful knowledge survives. ECE is slightly worse than KD on both datasets (3.9 vs.\ 3.6 on CUB, 7.3 vs.\ 6.9 on Aircraft). Redistributing wrong-class mass leaves the student a little over-confident; temperature scaling~\cite{guo2017calibration} would correct this. Worst-10-class accuracy is unchanged within noise (40.9 vs.\ 40.2 on CUB).
 
-\begin{table}[t]
-\centering\scriptsize
-\setlength{\tabcolsep}{2.6pt}
-\caption{Additional metrics, ResNet-18 student (mean over 3 seeds). T-ok: accuracy on teacher-correct images; Agr.: student--teacher agreement; W10: worst-10-class accuracy.}
-\label{tab:extra}
-\resizebox{\linewidth}{!}{\input{tables/tab_extra}}
-\end{table}
 
 \subsection{Ablations}
-\Cref{tab:ablation} varies the cleaning rule on CUB/ResNet-18 and reports differences to KD on the same seeds. Keeping the true-class probability (Eq.~\ref{eq:clean}) beats letting the true class absorb the removed mass: it has a smaller accuracy cost ($-0.24$ vs.\ $-0.45$) and a larger flagged-pair reduction. Squaring the trust (a stronger turn-down) lowers overall inheritance more ($-3.6$) but costs a full point of accuracy. Trust estimated at the KD temperature ($\tau{=}4$, 1 seed) flattens the pair differences: it has almost no effect on overall inheritance and a weaker flagged-pair effect ($-6.0$), so temperature~1 is the right choice. Combining with DKD preserves the flagged-pair benefit ($-10.1$) but not DKD's other properties.
+\Cref{tab:ablation} varies the cleaning rule on CUB/ResNet-18 and reports differences to KD on the same seeds. Keeping the true-class probability (Eq.~\ref{eq:clean}) beats letting the true class absorb the removed mass: it has a smaller accuracy cost ($-0.24$ vs.\ $-0.45$) and a larger flagged-pair reduction. Squaring the trust (a stronger turn-down) lowers overall inheritance more ($-3.6$) but costs a full point of accuracy. Trust estimated at the KD temperature ($\tau{=}4$, 3 seeds; compare with the ``rescale all'' row) flattens the pair differences: the flagged-pair effect shrinks from $-8.9$ to $-2.6\pm4.0$, so temperature~1 is the right choice. Combining with DKD preserves the flagged-pair benefit ($-10.1$) but not DKD's other properties.
 
 \begin{table}[t]
 \centering\scriptsize
@@ -193,8 +186,29 @@ The student is then trained with Eq.~\eqref{eq:kd}, with $\tilde q$ in place of 
 \resizebox{\linewidth}{!}{\input{tables/tab_ablation}}
 \end{table}
 
+\subsection{Can CPT-KD raise accuracy?}
+\label{sec:acc}
+CPT-KD lowers flagged-pair inheritance by up to 10 points, yet accuracy does not rise. \Cref{tab:errorflow} shows why. On the flagged images, the student rarely switches to the true class. Instead, the share of \emph{other} wrong answers rises by 3--7 points: the student falls back to its own mistakes. The correct share rises by up to 3 points in three of four setups, but these images are only 2\% of the test set (116/5{,}794 and 52/3{,}333). Inherited errors and accuracy are therefore separate problems: removing a copied error does not supply the missing correct knowledge.
+
+We tested six further routes to an accuracy gain, all fixed before seeing test results. (i)~Letting the true class absorb the removed mass costs 0.45 points (\cref{tab:ablation}). (ii)~Squared trust costs 1.0 point. (iii)~Two-student ensembles: KD+CPT-KD is no better than KD+KD, and the share of images both students get wrong is unchanged (16.1 vs.\ 16.2\% on CUB/R18), so the changed errors are too few to diversify an ensemble (\cref{tab:errorflow}, right). (iv)~CPT-KD + WSL gives the lowest overall inheritance on CUB (44.7\%) but no accuracy gain ($-0.4$ on CUB, $-0.1$ on Aircraft). (v)~CPT-KD + pair penalty is inconsistent: $-0.5\pm0.4$ on CUB and $+0.4\pm0.5$ on Aircraft, and it weakens the flagged-pair effect. (vi)~With 20\% symmetric label noise (\cref{tab:noise}), where the teacher's errors are far more frequent, KD still gives $+7.5$/$+8.5$ points over the student alone, and CPT-KD stays $0.6$ below KD on both datasets. It still lowers flagged-pair inheritance (36.0$\to$31.6 and 24.9$\to$21.3), so the method is robust to noise in what it targets. The noisy trust table, however, flags 2.7$\times$ more pairs on CUB and so also removes some useful knowledge.
+
+\begin{table*}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Where do the removed mistakes go?} Left/middle: on flagged test images (teacher wrong on a low-trust pair), the share the student gets right and the share it assigns to a third, wrong class (mean over 3 seeds; the rest copy the teacher). Right: accuracy of two-student ensembles (equal-weight average of two seeds).}
+\label{tab:errorflow}
+\input{tables/tab_errorflow}
+\end{table*}
+
+\begin{table}[t]
+\centering\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\caption{\textbf{20\% symmetric label noise} on the training labels (test labels clean), ResNet-18, 3 seeds. Trust tables and teachers are rebuilt from the noisy labels.}
+\label{tab:noise}
+\resizebox{\linewidth}{!}{\input{tables/tab_noise}}
+\end{table}
+
 \subsection{Error analysis}
-The pairs CPT-KD flags agree with what a bird or aircraft expert would expect. On CUB they include Fish Crow/Common Raven, Forster's/Common Tern, Black-/Yellow-billed Cuckoo, Acadian/Least Flycatcher and Glaucous-winged/Western Gull. On Aircraft they include DC-10/MD-11, 737-500/737-300, A310/A300B4, A340-300/A340-200 and E-195/E-190, all of which are sub-variants of the same family. The flagged pairs also contain a few implausible pairs supported by only a few teacher mistakes (\eg 757-200$\to$A321). This is the expected noise from about 30--67 training images per class, and the reason we smooth with~$\epsilon$.
+The flagged pairs match expert intuition: Fish Crow/Common Raven, Forster's/Common Tern, Black-/Yellow-billed Cuckoo and Glaucous-winged/Western Gull on CUB; DC-10/MD-11, 737-500/737-300, A340-300/A340-200 and E-195/E-190 on Aircraft. A few implausible pairs (\eg 757-200$\to$A321) rest on only a few teacher mistakes, the expected noise from 30--67 training images per class.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Beyond the proposal: medical segmentation}
@@ -218,17 +232,14 @@ In the binary polyp benchmark of IAD, Eq.~\eqref{eq:clean} is exactly the identi
 \section{Limitations and honest assessment}
 \label{sec:limits}
 \begin{itemize}
-\item \textbf{Partial fix.} CPT-KD removes teacher-only confusions but closes only about 25\% of KD's overall inheritance gap. The remainder is shared confusion or general imitation, which pair trust does not target.
-\item \textbf{Small flagged sets.} Flagged-pair inheritance is measured on 116 (CUB) and 52 (Aircraft) test images, hence the wide intervals. By paired bootstrap, the Aircraft/ResNet-18 reduction ($-3.8$, 95\% CI $[-8.9, +1.4]$) is not significant; the other three are.
-\item \textbf{Overall leak:} a simple baseline, weighted soft labels, reduces overall inheritance as much as CPT-KD or more. CPT-KD's advantage is specific to the look-alike pairs it targets.
-\item \textbf{Small accuracy and calibration cost} on CUB/MobileNetV2 ($-0.5$ top-1) and a slightly higher ECE.
-\item \textbf{Planned but not run} (time budget): the ResNet-101 teacher, the 10/20\% label-noise study and the 2-fold vs.\ 5-fold ablation from our proposal. CPT-KD uses the labels to estimate confusions, so its robustness to label noise remains untested.
-\item \textbf{Segmentation extension:} trust is estimated on validation slices, not cross-fitted, and each configuration has only 2 seeds.
+\item \textbf{Partial, narrow fix.} CPT-KD removes teacher-only confusions but closes only about 25\% of KD's overall inheritance gap, where weighted soft labels do as well. Its effect is confined to the 1.6--2\% of test images with teacher-only confusions, so it does not raise accuracy (\cref{sec:acc}).
+\item \textbf{Small flagged sets} (116 and 52 test images): the Aircraft/ResNet-18 reduction ($-3.8$, 95\% CI $[-8.9,+1.4]$) is not significant; the other three are. Accuracy cost is significant only on CUB/MobileNetV2 ($-0.5$); ECE is slightly higher.
+\item \textbf{Not run} (time budget): the ResNet-101 teacher, 10\% label noise and 2- vs.\ 5-fold trust. On ACDC, trust is estimated on validation slices rather than cross-fitted, and each configuration has a single seed.
 \end{itemize}
 
 \section{Reproducibility statement}
 \label{sec:repro}
-All code, run configurations, logs, per-run result files, test logits, trust tables and the scripts that produce every table and figure in this report are available at \repourl\ (commit \repocommit). The repository's \texttt{README.md} gives step-by-step commands, and \texttt{REPRODUCIBILITY.md} contains our declaration. The exact conda environments are in \texttt{environment/}. All numbers in \cref{tab:cub,tab:air,tab:extra,tab:ablation} are produced by \texttt{cls/make\_tables.py} from the released \texttt{results.json} files, \cref{tab:boot} by \texttt{cls/bootstrap\_ci.py} from the test logits, and \cref{fig:teaser,fig:trust,fig:c1} by \texttt{cls/make\_figures.py} and \texttt{seg/make\_seg\_figure.py}. Seeds are fixed (0, 1, 2 for classification; 2345 and 1234 for ACDC), and all methods share the same teachers. Model weights are too large for the repository; \texttt{checkpoints/README.md} lists their sizes and SHA-256 hashes and explains how to regenerate them.
+Code, configurations, logs, per-run results, test logits and trust tables are at \repourl, with step-by-step commands in \texttt{README.md} and our declaration in \texttt{REPRODUCIBILITY.md}; the conda environments are in \texttt{environment/}. Every table is regenerated from the released files by \texttt{cls/make\_tables.py}, \texttt{cls/bootstrap\_ci.py}, \texttt{cls/error\_flow.py} and \texttt{seg/make\_acdc\_table.py}, and every figure by \texttt{cls/make\_figures.py} and \texttt{seg/make\_seg\_figure.py}. Seeds are fixed and all methods share the same teachers. Weights are too large for the repository; \texttt{checkpoints/README.md} lists their SHA-256 hashes and how to regenerate them.
 
 \section{Conclusion}
 Distilled students copy their teacher's look-alike confusions, even from a teacher that makes no training errors. We showed this on two fine-grained benchmarks and on medical segmentation with a SAM teacher. CPT-KD estimates which class pairs the teacher confuses more than a student would, and turns down only those pairs in the soft label. It removes the targeted confusions, bringing flagged-pair inheritance below the level of an independently trained student, while keeping KD's accuracy, in about 20 lines and with no new parameters. Its limits are equally clear: it cannot fix shared confusions or the student's general imitation of the teacher, and it needs errors between classes rather than on object boundaries.

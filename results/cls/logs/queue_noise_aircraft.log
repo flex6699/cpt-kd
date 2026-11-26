@@ -1,0 +1,22 @@
+9 jobs, GPUs [2, 0], 2 per GPU -> up to 4 at a time. Logs in logs/
+
+[23:11] #1 start aircraft_noise20_cpt_student-archresnet18_seed0_cpt-keep-target on GPU 2 (23.7 GB free)
+[23:11] #2 start aircraft_noise20_kd_student-archresnet18_seed0 on GPU 2 (23.3 GB free)
+[23:11] #3 start aircraft_noise20_ce_student-archresnet18_seed0 on GPU 0 (44.8 GB free)
+[23:11] #4 start aircraft_noise20_cpt_student-archresnet18_seed1_cpt-keep-target on GPU 0 (44.4 GB free)
+[23:15] #3 aircraft_noise20_ce_student-archresnet18_seed0 on GPU 0: done after 4.2 min
+[23:15] #5 start aircraft_noise20_kd_student-archresnet18_seed1 on GPU 0 (43.0 GB free)
+[23:18] #1 aircraft_noise20_cpt_student-archresnet18_seed0_cpt-keep-target on GPU 2: done after 7.7 min
+[23:18] #2 aircraft_noise20_kd_student-archresnet18_seed0 on GPU 2: done after 7.6 min
+[23:18] #6 start aircraft_noise20_ce_student-archresnet18_seed1 on GPU 2 (23.7 GB free)
+[23:19] #7 start aircraft_noise20_cpt_student-archresnet18_seed2_cpt-keep-target on GPU 2 (23.4 GB free)
+[23:19] #4 aircraft_noise20_cpt_student-archresnet18_seed1_cpt-keep-target on GPU 0: done after 7.7 min
+[23:19] #8 start aircraft_noise20_kd_student-archresnet18_seed2 on GPU 0 (43.0 GB free)
+[23:23] #5 aircraft_noise20_kd_student-archresnet18_seed1 on GPU 0: done after 7.7 min
+[23:23] #9 start aircraft_noise20_ce_student-archresnet18_seed2 on GPU 0 (43.0 GB free)
+[23:23] #6 aircraft_noise20_ce_student-archresnet18_seed1 on GPU 2: done after 4.5 min
+[23:25] #7 aircraft_noise20_cpt_student-archresnet18_seed2_cpt-keep-target on GPU 2: done after 6.1 min
+[23:26] #8 aircraft_noise20_kd_student-archresnet18_seed2 on GPU 0: done after 7.6 min
+[23:27] #9 aircraft_noise20_ce_student-archresnet18_seed2 on GPU 0: done after 4.1 min
+
+All jobs finished in 16.1 min: 9 ok, 0 failed.

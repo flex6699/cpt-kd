@@ -17,6 +17,9 @@ Methods ("--method" in train_student.py)
   class_trust   class-level trust: one trust value per true class scales ALL wrong-class probabilities
   cpt           CPT-KD (ours): pair-level trust scales each wrong-class probability separately
   cpt_dkd       CPT-KD cleaning, then DKD
+  cpt_wsl       CPT-KD cleaning (per pair), then WSL per-image weighting (combination fixed in advance)
+  cpt_pair      CPT-KD + pair penalty: pair_lambda * sum_c (1 - trust(y,c)) * p_student(c), temperature 1
+                (pushes the student off the teacher-only look-alike classes; lambda fixed in advance = 1)
 
 CPT-KD options (also used by class_trust):
   cpt_power        apply trust^power (2 = turn flagged pairs down more strongly)
@@ -26,7 +29,7 @@ CPT-KD options (also used by class_trust):
 import torch
 import torch.nn.functional as F
 
-METHODS = ["ce", "kd", "dkd", "wsl", "ka", "pergate", "class_trust", "cpt", "cpt_dkd"]
+METHODS = ["ce", "kd", "dkd", "wsl", "ka", "pergate", "class_trust", "cpt", "cpt_dkd", "cpt_wsl", "cpt_pair"]
 NEEDS_TEACHER = set(METHODS) - {"ce"}
 
 
@@ -99,7 +102,7 @@ def compute_loss(method, s_logits, y, t_logits=None, cfg=None, trust=None, class
     info = {}
 
     opts = dict(y=y, power=cfg.get("cpt_power", 1.0), keep_target=cfg.get("cpt_keep_target", False))
-    if method in ("cpt", "cpt_dkd"):
+    if method in ("cpt", "cpt_dkd", "cpt_wsl", "cpt_pair"):
         q = clean_with_trust(q, trust[y], **opts)
     elif method == "class_trust":
         C = q.size(1)
@@ -114,7 +117,7 @@ def compute_loss(method, s_logits, y, t_logits=None, cfg=None, trust=None, class
         return ce + warm * dkd_loss(s_logits, q, y, T, cfg["dkd_alpha"], cfg["dkd_beta"]), info
 
     per_img = kd_per_image(s_logits, q, T)
-    if method == "wsl":
+    if method in ("wsl", "cpt_wsl"):
         with torch.no_grad():
             ce_s = F.cross_entropy(s_logits, y, reduction="none")
             ce_t = F.cross_entropy(t_logits, y, reduction="none")
@@ -125,4 +128,9 @@ def compute_loss(method, s_logits, y, t_logits=None, cfg=None, trust=None, class
         w = (t_logits.argmax(1) == y).float()
         per_img = w * per_img
         info["teacher_wrong_frac"] = 1 - w.mean().item()
+    if method == "cpt_pair":
+        w = (1.0 - trust[y]).clamp_min(0)                       # (B, C), 0 on the true class
+        pen = (w * F.softmax(s_logits, 1)).sum(1).mean()
+        info["pair_penalty"] = pen.item()
+        return ce + a * per_img.mean() + cfg.get("pair_lambda", 1.0) * pen, info
     return ce + a * per_img.mean(), info

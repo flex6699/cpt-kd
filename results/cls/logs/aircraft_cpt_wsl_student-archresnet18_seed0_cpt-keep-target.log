@@ -1,0 +1,19 @@
+/data/p25_aniruddha_bohra/ml_research/train_student.py:149: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load(os.path.join(oof_dir, "teacher_full.pt"), map_location=device))
+Using GPU 2: NVIDIA RTX A5000, 4.3 / 23.7 GB free
+WARNING: less than 8.0 GB free on GPU 2; other jobs are using it.
+  cached 6667 images (202 MB) in 402.3s
+  cached 3333 images (101 MB) in 217.3s
+
+[cpt_wsl_resnet18_keept_s0] 6667 training images, 40 epochs
+  epoch   1/40  loss 16.554  train acc  20.1%  mean_weight 0.994  (28s/epoch)
+  epoch   5/40  loss 5.159  train acc  73.1%  mean_weight 0.897  (21s/epoch)
+  epoch  10/40  loss 2.549  train acc  89.3%  mean_weight 0.757  (20s/epoch)
+  epoch  15/40  loss 1.421  train acc  96.3%  mean_weight 0.617  (19s/epoch)
+  epoch  20/40  loss 0.832  train acc  98.9%  mean_weight 0.522  (19s/epoch)
+  epoch  25/40  loss 0.617  train acc  99.7%  mean_weight 0.473  (19s/epoch)
+  epoch  30/40  loss 0.530  train acc  99.9%  mean_weight 0.460  (20s/epoch)
+  epoch  35/40  loss 0.484  train acc  99.9%  mean_weight 0.452  (13s/epoch)
+  epoch  40/40  loss 0.480  train acc  99.9%  mean_weight 0.446  (16s/epoch)
+
+[cpt_wsl_resnet18_keept_s0] top-1 82.66%  mean/class 82.65%  inheritance 35.0%  flagged-pair inheritance 19.2% (n=52)  acc on teacher-correct 93.51%  ECE 7.88  (12.4 min)

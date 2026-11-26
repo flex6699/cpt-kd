@@ -1,0 +1,18 @@
+/data/p25_aniruddha_bohra/ml_research/train_student.py:150: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load(os.path.join(oof_dir, "teacher_full.pt"), map_location=device))
+Using GPU 1: NVIDIA RTX A5000, 23.5 / 23.7 GB free
+  cached 5994 images (200 MB) in 0.2s
+  cached 5794 images (193 MB) in 0.2s
+
+[cpt_pair_resnet18_keept_s0] 5994 training images, 40 epochs
+  epoch   1/40  loss 9.449  train acc  30.3%  pair_penalty 0.075  (11s/epoch)
+  epoch   5/40  loss 2.662  train acc  87.2%  pair_penalty 0.021  (14s/epoch)
+  epoch  10/40  loss 1.330  train acc  98.4%  pair_penalty 0.005  (14s/epoch)
+  epoch  15/40  loss 0.988  train acc  99.6%  pair_penalty 0.002  (15s/epoch)
+  epoch  20/40  loss 0.822  train acc  99.8%  pair_penalty 0.001  (15s/epoch)
+  epoch  25/40  loss 0.722  train acc  99.8%  pair_penalty 0.001  (15s/epoch)
+  epoch  30/40  loss 0.657  train acc 100.0%  pair_penalty 0.001  (15s/epoch)
+  epoch  35/40  loss 0.628  train acc  99.9%  pair_penalty 0.001  (15s/epoch)
+  epoch  40/40  loss 0.619  train acc  99.9%  pair_penalty 0.001  (14s/epoch)
+
+[cpt_pair_resnet18_keept_s0] top-1 80.12%  mean/class 80.28%  inheritance 47.4%  flagged-pair inheritance 33.6% (n=116)  acc on teacher-correct 92.28%  ECE 3.92  (9.6 min)

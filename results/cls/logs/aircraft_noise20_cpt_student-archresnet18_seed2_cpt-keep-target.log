@@ -1,0 +1,18 @@
+/data/p25_aniruddha_bohra/ml_research/train_student.py:150: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load(os.path.join(oof_dir, "teacher_full.pt"), map_location=device))
+Using GPU 2: NVIDIA RTX A5000, 22.1 / 23.7 GB free
+  cached 6667 images (202 MB) in 0.3s
+  cached 3333 images (101 MB) in 0.4s
+
+[cpt_resnet18_keept_s2] 6667 training images, 40 epochs
+  epoch   1/40  loss 14.970  train acc  11.8%  (14s/epoch)
+  epoch   5/40  loss 8.431  train acc  50.0%  (11s/epoch)
+  epoch  10/40  loss 5.452  train acc  70.6%  (11s/epoch)
+  epoch  15/40  loss 3.357  train acc  87.3%  (11s/epoch)
+  epoch  20/40  loss 2.255  train acc  96.3%  (11s/epoch)
+  epoch  25/40  loss 1.755  train acc  99.0%  (6s/epoch)
+  epoch  30/40  loss 1.524  train acc  99.4%  (6s/epoch)
+  epoch  35/40  loss 1.439  train acc  99.6%  (6s/epoch)
+  epoch  40/40  loss 1.398  train acc  99.7%  (6s/epoch)
+
+[cpt_resnet18_keept_s2] top-1 69.04%  mean/class 69.02%  inheritance 30.0%  flagged-pair inheritance 25.2% (n=139)  acc on teacher-correct 88.09%  ECE 9.42  (5.9 min)

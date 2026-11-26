@@ -1,0 +1,8 @@
+2 jobs, GPUs [2], 2 per GPU -> up to 2 at a time. Logs in logs/
+
+[21:11] #1 start cub_cpt_student-archresnet18_seed1_trust-temp4 on GPU 2 (16.6 GB free)
+[21:11] #2 start cub_cpt_student-archresnet18_seed2_trust-temp4 on GPU 2 (11.1 GB free)
+[21:25] #1 cub_cpt_student-archresnet18_seed1_trust-temp4 on GPU 2: done after 14.2 min
+[21:25] #2 cub_cpt_student-archresnet18_seed2_trust-temp4 on GPU 2: done after 14.1 min
+
+All jobs finished in 14.3 min: 2 ok, 0 failed.

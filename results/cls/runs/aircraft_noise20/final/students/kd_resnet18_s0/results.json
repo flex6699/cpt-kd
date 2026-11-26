@@ -1,0 +1,21 @@
+{
+ "top1": 69.45694569456946,
+ "mean_per_class": 69.43850267379679,
+ "worst10_class": 35.258467023172905,
+ "inheritance": 30.697674418604652,
+ "flagged_pair_inheritance": 23.021582733812952,
+ "n_flagged_test": 139,
+ "acc_teacher_correct": 88.48538529672277,
+ "agreement": 69.84698469846985,
+ "ece": 9.299281684800812,
+ "method": "kd",
+ "seed": 0,
+ "student": "resnet18",
+ "trust_temp": "1",
+ "cpt_power": 1.0,
+ "cpt_keep_target": false,
+ "dataset": "aircraft_noise20",
+ "teacher_source": "full",
+ "minutes": 7.5,
+ "eval_split": "test"
+}

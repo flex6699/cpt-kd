@@ -1,0 +1,22 @@
+9 jobs, GPUs [2], 3 per GPU -> up to 3 at a time. Logs in logs/
+
+[22:21] #1 start cub_noise20_cpt_student-archresnet18_seed0_cpt-keep-target on GPU 2 (23.7 GB free)
+[22:21] #2 start cub_noise20_kd_student-archresnet18_seed0 on GPU 2 (23.3 GB free)
+[22:21] #3 start cub_noise20_ce_student-archresnet18_seed0 on GPU 2 (21.7 GB free)
+[22:27] #3 cub_noise20_ce_student-archresnet18_seed0 on GPU 2: done after 6.1 min
+[22:27] #4 start cub_noise20_cpt_student-archresnet18_seed1_cpt-keep-target on GPU 2 (20.2 GB free)
+[22:31] #1 cub_noise20_cpt_student-archresnet18_seed0_cpt-keep-target on GPU 2: done after 10.0 min
+[22:31] #2 cub_noise20_kd_student-archresnet18_seed0 on GPU 2: done after 10.0 min
+[22:31] #5 start cub_noise20_kd_student-archresnet18_seed1 on GPU 2 (21.9 GB free)
+[22:31] #6 start cub_noise20_ce_student-archresnet18_seed1 on GPU 2 (21.7 GB free)
+[22:37] #6 cub_noise20_ce_student-archresnet18_seed1 on GPU 2: done after 6.0 min
+[22:37] #7 start cub_noise20_cpt_student-archresnet18_seed2_cpt-keep-target on GPU 2 (21.2 GB free)
+[22:37] #4 cub_noise20_cpt_student-archresnet18_seed1_cpt-keep-target on GPU 2: done after 10.0 min
+[22:37] #8 start cub_noise20_kd_student-archresnet18_seed2 on GPU 2 (20.6 GB free)
+[22:41] #5 cub_noise20_kd_student-archresnet18_seed1 on GPU 2: done after 9.5 min
+[22:41] #9 start cub_noise20_ce_student-archresnet18_seed2 on GPU 2 (20.2 GB free)
+[22:46] #9 cub_noise20_ce_student-archresnet18_seed2 on GPU 2: done after 5.7 min
+[22:47] #7 cub_noise20_cpt_student-archresnet18_seed2_cpt-keep-target on GPU 2: done after 9.8 min
+[22:47] #8 cub_noise20_kd_student-archresnet18_seed2 on GPU 2: done after 9.7 min
+
+All jobs finished in 26.0 min: 9 ok, 0 failed.
