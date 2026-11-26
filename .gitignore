@@ -1,0 +1,17 @@
+# data and large artifacts are not versioned (see README / checkpoints/README.md)
+data/
+cls/data/
+cls/runs/
+cls/logs/
+*.pt
+*.pth
+**/test_logits.npz
+__pycache__/
+*.pyc
+.venv/
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.out
+report/*.bbl
+report/*.blg

@@ -1,0 +1,110 @@
+# Full experiment. CPT-KD flags: '--cpt-keep-target'
+# Order: CPT-KD and KD first (the main comparison), then the other methods.
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method kd --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/cub --method kd --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/cub --method kd --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/cub --method ce --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/cub --method ce --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/cub --method ce --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/cub --method dkd --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/cub --method dkd --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/cub --method dkd --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/cub --method wsl --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/cub --method wsl --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/cub --method wsl --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/cub --method ka --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/cub --method ka --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/cub --method ka --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/cub --method pergate --student-arch resnet18 --seed 0 --teacher-source oof
+python train_student.py --data data/tea_kd/cub --method pergate --student-arch resnet18 --seed 1 --teacher-source oof
+python train_student.py --data data/tea_kd/cub --method pergate --student-arch resnet18 --seed 2 --teacher-source oof
+python train_student.py --data data/tea_kd/cub --method class_trust --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method class_trust --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method class_trust --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt_dkd --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt_dkd --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt_dkd --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch mobilenet_v2 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch mobilenet_v2 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt --student-arch mobilenet_v2 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method kd --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/cub --method kd --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/cub --method kd --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/cub --method ce --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/cub --method ce --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/cub --method ce --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/cub --method dkd --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/cub --method dkd --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/cub --method dkd --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/cub --method wsl --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/cub --method wsl --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/cub --method wsl --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/cub --method ka --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/cub --method ka --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/cub --method ka --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/cub --method pergate --student-arch mobilenet_v2 --seed 0 --teacher-source oof
+python train_student.py --data data/tea_kd/cub --method pergate --student-arch mobilenet_v2 --seed 1 --teacher-source oof
+python train_student.py --data data/tea_kd/cub --method pergate --student-arch mobilenet_v2 --seed 2 --teacher-source oof
+python train_student.py --data data/tea_kd/cub --method class_trust --student-arch mobilenet_v2 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method class_trust --student-arch mobilenet_v2 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method class_trust --student-arch mobilenet_v2 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt_dkd --student-arch mobilenet_v2 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt_dkd --student-arch mobilenet_v2 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/cub --method cpt_dkd --student-arch mobilenet_v2 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method kd --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method kd --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method kd --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method ce --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method ce --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method ce --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method dkd --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method dkd --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method dkd --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method wsl --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method wsl --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method wsl --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method ka --student-arch resnet18 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method ka --student-arch resnet18 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method ka --student-arch resnet18 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method pergate --student-arch resnet18 --seed 0 --teacher-source oof
+python train_student.py --data data/tea_kd/aircraft --method pergate --student-arch resnet18 --seed 1 --teacher-source oof
+python train_student.py --data data/tea_kd/aircraft --method pergate --student-arch resnet18 --seed 2 --teacher-source oof
+python train_student.py --data data/tea_kd/aircraft --method class_trust --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method class_trust --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method class_trust --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_dkd --student-arch resnet18 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_dkd --student-arch resnet18 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_dkd --student-arch resnet18 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt --student-arch mobilenet_v2 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt --student-arch mobilenet_v2 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt --student-arch mobilenet_v2 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method kd --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method kd --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method kd --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method ce --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method ce --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method ce --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method dkd --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method dkd --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method dkd --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method wsl --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method wsl --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method wsl --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method ka --student-arch mobilenet_v2 --seed 0
+python train_student.py --data data/tea_kd/aircraft --method ka --student-arch mobilenet_v2 --seed 1
+python train_student.py --data data/tea_kd/aircraft --method ka --student-arch mobilenet_v2 --seed 2
+python train_student.py --data data/tea_kd/aircraft --method pergate --student-arch mobilenet_v2 --seed 0 --teacher-source oof
+python train_student.py --data data/tea_kd/aircraft --method pergate --student-arch mobilenet_v2 --seed 1 --teacher-source oof
+python train_student.py --data data/tea_kd/aircraft --method pergate --student-arch mobilenet_v2 --seed 2 --teacher-source oof
+python train_student.py --data data/tea_kd/aircraft --method class_trust --student-arch mobilenet_v2 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method class_trust --student-arch mobilenet_v2 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method class_trust --student-arch mobilenet_v2 --seed 2 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_dkd --student-arch mobilenet_v2 --seed 0 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_dkd --student-arch mobilenet_v2 --seed 1 --cpt-keep-target
+python train_student.py --data data/tea_kd/aircraft --method cpt_dkd --student-arch mobilenet_v2 --seed 2 --cpt-keep-target

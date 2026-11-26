@@ -1,0 +1,16 @@
+# CUB batch 2: most important first.
+# 1) Broader CPT-KD: temperature-4 trust table (reduces many more pairs)
+python train_student.py --data data/tea_kd/cub --method cpt --trust-temp 4
+# 2) Is the flagged-pair effect real? Seeds 1 and 2 for KD, CPT-KD and the student alone
+python train_student.py --data data/tea_kd/cub --method kd  --seed 1
+python train_student.py --data data/tea_kd/cub --method cpt --seed 1
+python train_student.py --data data/tea_kd/cub --method kd  --seed 2
+python train_student.py --data data/tea_kd/cub --method cpt --seed 2
+python train_student.py --data data/tea_kd/cub --method ce  --seed 1
+python train_student.py --data data/tea_kd/cub --method ce  --seed 2
+# 3) Remaining baselines, seed 0
+python train_student.py --data data/tea_kd/cub --method dkd
+python train_student.py --data data/tea_kd/cub --method cpt_dkd
+python train_student.py --data data/tea_kd/cub --method wsl
+python train_student.py --data data/tea_kd/cub --method ka
+python train_student.py --data data/tea_kd/cub --method class_trust

@@ -1,0 +1,13 @@
+# CPT-KD variants on CUB, 3 seeds each (compare with cpt_resnet18 and kd_resnet18 from batch 2).
+# A) keep the true-class probability (fixes over-confidence / ECE)
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-keep-target --seed 0
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-keep-target --seed 1
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-keep-target --seed 2
+# B) trust squared (turns flagged pairs down more strongly)
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-power 2 --seed 0
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-power 2 --seed 1
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-power 2 --seed 2
+# C) both
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-power 2 --cpt-keep-target --seed 0
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-power 2 --cpt-keep-target --seed 1
+python train_student.py --data data/tea_kd/cub --method cpt --cpt-power 2 --cpt-keep-target --seed 2
