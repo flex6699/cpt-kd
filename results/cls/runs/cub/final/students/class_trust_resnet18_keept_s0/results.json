@@ -1,0 +1,21 @@
+{
+ "top1": 80.98032447359337,
+ "mean_per_class": 81.19272550587553,
+ "worst10_class": 41.97701149425287,
+ "inheritance": 46.59427443237907,
+ "flagged_pair_inheritance": 39.6551724137931,
+ "n_flagged_test": 116,
+ "acc_teacher_correct": 93.20225894164402,
+ "agreement": 85.05350362443907,
+ "ece": 3.1989355604680254,
+ "method": "class_trust",
+ "seed": 0,
+ "student": "resnet18",
+ "trust_temp": "1",
+ "cpt_power": 1.0,
+ "cpt_keep_target": true,
+ "dataset": "cub",
+ "teacher_source": "full",
+ "minutes": 6.9,
+ "eval_split": "test"
+}

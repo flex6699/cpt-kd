@@ -1,0 +1,17 @@
+{
+ "data": "data/tea_kd/cub",
+ "out": "runs/quick_evidence",
+ "gpu": 1,
+ "teacher_arch": "resnet50",
+ "student_arch": "resnet18",
+ "teacher_epochs": 40,
+ "student_epochs": 40,
+ "batch_size": 64,
+ "lr": 0.01,
+ "wd": 0.0005,
+ "alpha": 1.0,
+ "T": 4.0,
+ "workers": 8,
+ "n_examples": 6,
+ "no_pretrained": false
+}

@@ -1,0 +1,21 @@
+{
+ "top1": 80.01800180018002,
+ "mean_per_class": 80.01069518716577,
+ "worst10_class": 45.080213903743314,
+ "inheritance": 40.99173553719008,
+ "flagged_pair_inheritance": 32.69230769230769,
+ "n_flagged_test": 52,
+ "acc_teacher_correct": 91.53225806451613,
+ "agreement": 82.35823582358236,
+ "ece": 4.8136233138923625,
+ "method": "pergate",
+ "seed": 0,
+ "student": "mobilenet_v2",
+ "trust_temp": "1",
+ "cpt_power": 1.0,
+ "cpt_keep_target": false,
+ "dataset": "aircraft",
+ "teacher_source": "oof",
+ "minutes": 7.8,
+ "eval_split": "test"
+}

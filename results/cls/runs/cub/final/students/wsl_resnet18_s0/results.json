@@ -1,0 +1,18 @@
+{
+ "top1": 80.63513979979288,
+ "mean_per_class": 80.76743737856143,
+ "worst10_class": 41.7816091954023,
+ "inheritance": 46.495557749259625,
+ "flagged_pair_inheritance": 35.3448275862069,
+ "n_flagged_test": 116,
+ "acc_teacher_correct": 92.53294289897511,
+ "agreement": 84.48394891266828,
+ "ece": 3.676897353979073,
+ "method": "wsl",
+ "seed": 0,
+ "student": "resnet18",
+ "trust_temp": "1",
+ "teacher_source": "full",
+ "minutes": 6.6,
+ "eval_split": "test"
+}

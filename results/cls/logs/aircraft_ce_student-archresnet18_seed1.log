@@ -1,0 +1,16 @@
+Using GPU 1: NVIDIA RTX A5000, 13.5 / 23.7 GB free
+  cached 6667 images (202 MB) in 0.3s
+  cached 3333 images (101 MB) in 0.1s
+
+[ce_resnet18_s1] 6667 training images, 40 epochs
+  epoch   1/40  loss 3.645  train acc  16.3%  (12s/epoch)
+  epoch   5/40  loss 1.278  train acc  63.8%  (9s/epoch)
+  epoch  10/40  loss 0.521  train acc  82.9%  (9s/epoch)
+  epoch  15/40  loss 0.191  train acc  93.4%  (9s/epoch)
+  epoch  20/40  loss 0.058  train acc  98.5%  (9s/epoch)
+  epoch  25/40  loss 0.027  train acc  99.6%  (9s/epoch)
+  epoch  30/40  loss 0.018  train acc  99.8%  (5s/epoch)
+  epoch  35/40  loss 0.016  train acc  99.9%  (8s/epoch)
+  epoch  40/40  loss 0.014  train acc  99.9%  (8s/epoch)
+
+[ce_resnet18_s1] top-1 79.15%  mean/class 79.14%  inheritance 29.9%  flagged-pair inheritance 25.0% (n=52)  acc on teacher-correct 89.77%  ECE 8.34  (5.4 min)

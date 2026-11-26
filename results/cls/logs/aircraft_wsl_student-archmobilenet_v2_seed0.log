@@ -1,0 +1,18 @@
+/data/p25_aniruddha_bohra/ml_research/train_student.py:149: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher.load_state_dict(torch.load(os.path.join(oof_dir, "teacher_full.pt"), map_location=device))
+Using GPU 1: NVIDIA RTX A5000, 11.8 / 23.7 GB free
+  cached 6667 images (202 MB) in 0.2s
+  cached 3333 images (101 MB) in 0.1s
+
+[wsl_mobilenet_v2_s0] 6667 training images, 40 epochs
+  epoch   1/40  loss 16.802  train acc  18.5%  mean_weight 0.999  (34s/epoch)
+  epoch   5/40  loss 3.614  train acc  80.7%  mean_weight 0.868  (18s/epoch)
+  epoch  10/40  loss 1.851  train acc  93.1%  mean_weight 0.724  (17s/epoch)
+  epoch  15/40  loss 1.071  train acc  97.9%  mean_weight 0.617  (17s/epoch)
+  epoch  20/40  loss 0.789  train acc  99.2%  mean_weight 0.557  (19s/epoch)
+  epoch  25/40  loss 0.627  train acc  99.7%  mean_weight 0.519  (15s/epoch)
+  epoch  30/40  loss 0.551  train acc  99.8%  mean_weight 0.498  (19s/epoch)
+  epoch  35/40  loss 0.530  train acc  99.9%  mean_weight 0.498  (18s/epoch)
+  epoch  40/40  loss 0.510  train acc  99.9%  mean_weight 0.484  (17s/epoch)
+
+[wsl_mobilenet_v2_s0] top-1 85.12%  mean/class 85.11%  inheritance 34.4%  flagged-pair inheritance 28.8% (n=52)  acc on teacher-correct 95.78%  ECE 6.32  (12.1 min)

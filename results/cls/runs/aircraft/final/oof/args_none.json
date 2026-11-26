@@ -1,0 +1,23 @@
+{
+ "data": "data/tea_kd/aircraft",
+ "out": null,
+ "phase": "final",
+ "models": "none",
+ "gpu": 1,
+ "teacher_arch": "resnet50",
+ "student_arch": "resnet18",
+ "teacher_epochs": 40,
+ "student_epochs": 40,
+ "batch_size": 64,
+ "lr": 0.01,
+ "wd": 0.0005,
+ "workers": 8,
+ "trust_temps": [
+  4.0,
+  1.0
+ ],
+ "eps": null,
+ "no_pretrained": false,
+ "alpha": 0.0,
+ "T": 1.0
+}

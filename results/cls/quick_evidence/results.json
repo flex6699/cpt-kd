@@ -1,0 +1,30 @@
+{
+ "n_test": 5794,
+ "acc": {
+  "teacher": 82.53365550569555,
+  "student_alone": 76.40662754573697,
+  "student_alone_control": 76.06144287193649,
+  "student_kd": 80.96306523990336
+ },
+ "teacher_wrong_pct": 17.466344494304455,
+ "teacher_wrong_student_right": {
+  "count": 258,
+  "pct_of_test": 4.452882292026234,
+  "pct_of_teacher_errors": 25.494071146245062
+ },
+ "on_S_kd_student": {
+  "copies_teacher": 20.930232558139537,
+  "stays_correct": 65.11627906976744,
+  "other_wrong": 13.953488372093023
+ },
+ "on_S_control_student": {
+  "copies_teacher": 15.503875968992247,
+  "stays_correct": 66.27906976744185,
+  "other_wrong": 18.217054263565892
+ },
+ "teacher_error_inheritance": {
+  "student_alone": 35.869565217391305,
+  "student_alone_control": 36.36363636363637,
+  "student_kd": 44.07114624505929
+ }
+}

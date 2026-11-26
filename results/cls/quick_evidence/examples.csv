@@ -1,0 +1,7 @@
+rank,file,label,teacher_pred,p_teacher_pred,alone_pred,p_alone_label,kd_pred,p_kd_pred,figure
+1,images/064.Ring_billed_Gull/Ring_Billed_Gull_0078_51494.jpg,Ring_billed_Gull,Elegant_Tern,0.898,Ring_billed_Gull,0.797,Elegant_Tern,0.759,example_1.png
+2,images/136.Barn_Swallow/Barn_Swallow_0020_132317.jpg,Barn_Swallow,Cliff_Swallow,0.878,Barn_Swallow,0.815,Cliff_Swallow,0.716,example_2.png
+3,images/039.Least_Flycatcher/Least_Flycatcher_0085_30318.jpg,Least_Flycatcher,Sayornis,0.990,Least_Flycatcher,0.705,Sayornis,0.948,example_3.png
+4,images/105.Whip_poor_Will/Whip_Poor_Will_0041_796428.jpg,Whip_poor_Will,Chuck_will_Widow,0.860,Whip_poor_Will,0.730,Chuck_will_Widow,0.618,example_4.png
+5,images/091.Mockingbird/Mockingbird_0013_82010.jpg,Mockingbird,Clark_Nutcracker,0.734,Mockingbird,0.847,Clark_Nutcracker,0.331,example_5.png
+6,images/037.Acadian_Flycatcher/Acadian_Flycatcher_0050_795608.jpg,Acadian_Flycatcher,Yellow_bellied_Flycatcher,0.624,Acadian_Flycatcher,0.950,Yellow_bellied_Flycatcher,0.681,example_6.png

@@ -1,0 +1,19 @@
+{
+ "n_train": 5994,
+ "n_folds": 5,
+ "eps": 0.0005,
+ "oof_teacher_acc": 79.71304637971305,
+ "oof_student_acc": 73.02302302302303,
+ "T4": {
+  "mean_trust": 0.9270895636288786,
+  "pairs_below_0_5": 43,
+  "pairs_below_0_9": 11976,
+  "total_pairs": 39800
+ },
+ "T1": {
+  "mean_trust": 0.9506886007057926,
+  "pairs_below_0_5": 1428,
+  "pairs_below_0_9": 4711,
+  "total_pairs": 39800
+ }
+}

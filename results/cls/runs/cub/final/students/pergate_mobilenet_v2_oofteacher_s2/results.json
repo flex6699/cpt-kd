@@ -1,0 +1,21 @@
+{
+ "top1": 80.2899551259924,
+ "mean_per_class": 80.46328934705404,
+ "worst10_class": 39.81609195402299,
+ "inheritance": 45.70582428430405,
+ "flagged_pair_inheritance": 37.06896551724138,
+ "n_flagged_test": 116,
+ "acc_teacher_correct": 92.05187199330685,
+ "agreement": 83.94891266827753,
+ "ece": 1.4222860530476586,
+ "method": "pergate",
+ "seed": 2,
+ "student": "mobilenet_v2",
+ "trust_temp": "1",
+ "cpt_power": 1.0,
+ "cpt_keep_target": false,
+ "dataset": "cub",
+ "teacher_source": "oof",
+ "minutes": 7.1,
+ "eval_split": "test"
+}

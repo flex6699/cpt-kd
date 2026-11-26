@@ -1,0 +1,20 @@
+
+================ PRELIMINARY RESULT (CUB-200-2011, 1 seed) ================
+Test accuracy:  teacher 82.5%  |  student alone 76.4%
+                student alone (seed 1) 76.1%  |  student with KD 81.0%
+
+Teacher wrong on 17.5% of test images.
+Teacher WRONG but student-alone RIGHT: 258 images (4.5% of test,
+  25.5% of the teacher's errors).
+
+On those 258 images:
+                         copies teacher's wrong class   stays correct   other error
+  student with KD               20.9%                   65.1%         14.0%
+  control (alone, seed 1)       15.5%                   66.3%         18.2%
+
+Teacher-error inheritance (of all teacher-wrong test images, % with the SAME wrong class):
+  student alone 35.9%  |  control 36.4%  |  student with KD 44.1%
+===========================================================================
+
+Poster sentence:
+Preliminary result (CUB-200-2011, 1 seed): on 4.5% of test images the teacher (resnet50) is wrong while a resnet18 trained alone is right. After standard KD, the student copies the teacher's wrong class on 21% of these images (vs. 16% for a second student trained alone), and repeats the teacher's exact mistake on 44% of all teacher errors (vs. 36% without KD).

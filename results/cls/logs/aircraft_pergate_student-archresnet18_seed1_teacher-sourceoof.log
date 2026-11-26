@@ -1,0 +1,16 @@
+Using GPU 1: NVIDIA RTX A5000, 13.5 / 23.7 GB free
+  cached 6667 images (202 MB) in 0.3s
+  cached 3333 images (101 MB) in 0.1s
+
+[pergate_resnet18_oofteacher_s1] 6667 training images, 40 epochs
+  epoch   1/40  loss 12.506  train acc  20.6%  teacher_wrong_frac 0.220  (12s/epoch)
+  epoch   5/40  loss 3.299  train acc  73.9%  teacher_wrong_frac 0.220  (8s/epoch)
+  epoch  10/40  loss 2.025  train acc  87.9%  teacher_wrong_frac 0.220  (5s/epoch)
+  epoch  15/40  loss 1.423  train acc  94.8%  teacher_wrong_frac 0.220  (8s/epoch)
+  epoch  20/40  loss 1.144  train acc  97.6%  teacher_wrong_frac 0.220  (8s/epoch)
+  epoch  25/40  loss 0.955  train acc  99.1%  teacher_wrong_frac 0.220  (8s/epoch)
+  epoch  30/40  loss 0.862  train acc  99.4%  teacher_wrong_frac 0.220  (8s/epoch)
+  epoch  35/40  loss 0.808  train acc  99.6%  teacher_wrong_frac 0.220  (8s/epoch)
+  epoch  40/40  loss 0.784  train acc  99.8%  teacher_wrong_frac 0.220  (8s/epoch)
+
+[pergate_resnet18_oofteacher_s1] top-1 78.85%  mean/class 78.84%  inheritance 35.7%  flagged-pair inheritance 28.8% (n=52)  acc on teacher-correct 90.54%  ECE 5.14  (5.4 min)
