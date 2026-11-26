@@ -1,0 +1,968 @@
+[20:40:04] Namespace(mode='kis', exp='kis_cpt_t1', save_path='/data/p25_aniruddha_bohra/cvpr2027/runs', root_dir='/data/p25_aniruddha_bohra/cvpr2027/data/ACDC', list_dir='/data/p25_aniruddha_bohra/cvpr2027/data/ACDC/lists_ACDC', volume_path='/data/p25_aniruddha_bohra/cvpr2027/data/ACDC/test', ckpt='/data/p25_aniruddha_bohra/cvpr2027/checkpoints/sam_vit_l_0b3195.pth', tea_ckpt='/data/p25_aniruddha_bohra/cvpr2027/runs/teacher/best.pth', stu_ckpt=None, vit_name='vit_l', tea_module='sam_lora_image_encoder_tea', stu_module='sam_lora_image_encoder_stu', rank=8, stu_train_encoder=1, batch_size=6, lr=0.0001, max_epochs=200, img_size=256, num_classes=3, z_spacing=10, n_gpu=1, num_workers=4, seed=2345, deterministic=1, weighting='fixed', alpha=1.0, beta=1.0, gamma=0.1, delta=1.0, kas_in_ch=256, trust='/data/p25_aniruddha_bohra/cvpr2027/runs/cpt_pilot/trust_valid.npy', kd_loss='cpt', kd_tau=1.0, max_train_iters=0, amp=1, val_every=5, encoder='PVT', skip_aggregation='additive', checkpoint=None, test_save_dir='/data/p25_aniruddha_bohra/cvpr2027/runs/kis_cpt_t1/pre', module='sam_lora_image_encoder_tea', warmup=False, warmup_period=250, AdamW=False)
+[20:40:07] teacher loaded from /data/p25_aniruddha_bohra/cvpr2027/runs/teacher/best.pth
+[20:40:07] CPT-KD pair trust (rows = true class):
+[[1.    1.    0.846 0.745]
+ [1.    1.    1.    0.401]
+ [1.    1.    1.    1.   ]
+ [0.489 0.101 1.    1.   ]]
+[20:40:07] trainable parameters: 12188472
+[20:40:07] train slices: 1304 | val slices: 182 | test volumes: 40
+[20:40:16] iter 50 | loss 0.6252 | seg 0.4218 moved 0.0000 sld 0.0889 cpd 0.1145
+[20:40:22] iter 100 | loss 0.4815 | seg 0.3096 moved 0.0000 sld 0.0824 cpd 0.0895
+[20:40:29] iter 150 | loss 0.3642 | seg 0.2429 moved 0.0000 sld 0.0500 cpd 0.0714
+[20:40:36] iter 200 | loss 0.5430 | seg 0.3235 moved 0.0000 sld 0.1578 cpd 0.0617
+[20:40:44] iter 250 | loss 0.3576 | seg 0.2532 moved 0.0000 sld 0.0424 cpd 0.0620
+[20:40:57] iter 300 | loss 0.2857 | seg 0.2046 moved 0.0000 sld 0.0330 cpd 0.0481
+[20:41:13] iter 350 | loss 0.2887 | seg 0.1880 moved 0.0000 sld 0.0442 cpd 0.0565
+[20:41:30] iter 400 | loss 0.2884 | seg 0.2135 moved 0.0000 sld 0.0443 cpd 0.0306
+[20:41:47] iter 450 | loss 0.2704 | seg 0.1887 moved 0.0000 sld 0.0566 cpd 0.0251
+[20:42:03] iter 500 | loss 0.2562 | seg 0.1876 moved 0.0000 sld 0.0337 cpd 0.0349
+[20:42:20] iter 550 | loss 0.2322 | seg 0.1743 moved 0.0000 sld 0.0359 cpd 0.0220
+[20:42:37] iter 600 | loss 0.1932 | seg 0.1469 moved 0.0000 sld 0.0228 cpd 0.0235
+[20:42:54] iter 650 | loss 0.1796 | seg 0.1392 moved 0.0000 sld 0.0273 cpd 0.0132
+[20:43:11] iter 700 | loss 0.1639 | seg 0.1262 moved 0.0000 sld 0.0224 cpd 0.0154
+[20:43:27] iter 750 | loss 0.2379 | seg 0.1803 moved 0.0000 sld 0.0384 cpd 0.0192
+[20:43:44] iter 800 | loss 0.1931 | seg 0.1365 moved 0.0000 sld 0.0336 cpd 0.0230
+[20:44:00] iter 850 | loss 0.3579 | seg 0.2284 moved 0.0000 sld 0.1016 cpd 0.0279
+[20:44:18] iter 900 | loss 0.2241 | seg 0.1594 moved 0.0000 sld 0.0263 cpd 0.0384
+[20:44:36] iter 950 | loss 0.1751 | seg 0.1238 moved 0.0000 sld 0.0220 cpd 0.0292
+[20:44:55] iter 1000 | loss 0.1465 | seg 0.1191 moved 0.0000 sld 0.0153 cpd 0.0121
+[20:45:13] iter 1050 | loss 0.1640 | seg 0.1132 moved 0.0000 sld 0.0349 cpd 0.0159
+[20:45:38] epoch 4 | val dice 0.6280 | best 0.6280
+[20:45:42] iter 1100 | loss 0.1531 | seg 0.1082 moved 0.0000 sld 0.0198 cpd 0.0251
+[20:45:58] iter 1150 | loss 0.1914 | seg 0.1417 moved 0.0000 sld 0.0215 cpd 0.0282
+[20:46:15] iter 1200 | loss 0.1164 | seg 0.0874 moved 0.0000 sld 0.0150 cpd 0.0140
+[20:46:31] iter 1250 | loss 0.1511 | seg 0.1034 moved 0.0000 sld 0.0365 cpd 0.0113
+[20:46:48] iter 1300 | loss 0.1746 | seg 0.1322 moved 0.0000 sld 0.0326 cpd 0.0098
+[20:47:05] iter 1350 | loss 0.1163 | seg 0.0868 moved 0.0000 sld 0.0164 cpd 0.0132
+[20:47:22] iter 1400 | loss 0.1775 | seg 0.1266 moved 0.0000 sld 0.0320 cpd 0.0190
+[20:47:41] iter 1450 | loss 0.2015 | seg 0.1430 moved 0.0000 sld 0.0281 cpd 0.0304
+[20:47:59] iter 1500 | loss 0.1412 | seg 0.1088 moved 0.0000 sld 0.0187 cpd 0.0137
+[20:48:18] iter 1550 | loss 0.1526 | seg 0.1013 moved 0.0000 sld 0.0201 cpd 0.0312
+[20:48:36] iter 1600 | loss 0.1035 | seg 0.0764 moved 0.0000 sld 0.0149 cpd 0.0122
+[20:48:54] iter 1650 | loss 0.2361 | seg 0.1450 moved 0.0000 sld 0.0494 cpd 0.0416
+[20:49:12] iter 1700 | loss 0.1218 | seg 0.0858 moved 0.0000 sld 0.0240 cpd 0.0121
+[20:49:31] iter 1750 | loss 0.1070 | seg 0.0751 moved 0.0000 sld 0.0171 cpd 0.0147
+[20:49:49] iter 1800 | loss 0.1334 | seg 0.0935 moved 0.0000 sld 0.0260 cpd 0.0139
+[20:50:07] iter 1850 | loss 0.1281 | seg 0.0959 moved 0.0000 sld 0.0170 cpd 0.0152
+[20:50:35] iter 1900 | loss 0.1238 | seg 0.0976 moved 0.0000 sld 0.0196 cpd 0.0066
+[20:50:53] iter 1950 | loss 0.1401 | seg 0.1013 moved 0.0000 sld 0.0140 cpd 0.0248
+[20:51:12] iter 2000 | loss 0.0999 | seg 0.0794 moved 0.0000 sld 0.0168 cpd 0.0036
+[20:51:29] iter 2050 | loss 0.1543 | seg 0.1119 moved 0.0000 sld 0.0202 cpd 0.0223
+[20:51:48] iter 2100 | loss 0.1057 | seg 0.0859 moved 0.0000 sld 0.0120 cpd 0.0079
+[20:52:06] iter 2150 | loss 0.1146 | seg 0.0922 moved 0.0000 sld 0.0115 cpd 0.0109
+[20:52:22] epoch 9 | val dice 0.6903 | best 0.6903
+[20:52:30] iter 2200 | loss 0.1794 | seg 0.1348 moved 0.0000 sld 0.0135 cpd 0.0311
+[20:52:56] iter 2250 | loss 0.0967 | seg 0.0765 moved 0.0000 sld 0.0145 cpd 0.0057
+[20:53:25] iter 2300 | loss 0.1006 | seg 0.0732 moved 0.0000 sld 0.0189 cpd 0.0085
+[20:53:55] iter 2350 | loss 0.1015 | seg 0.0782 moved 0.0000 sld 0.0142 cpd 0.0091
+[20:54:15] iter 2400 | loss 0.1201 | seg 0.0937 moved 0.0000 sld 0.0179 cpd 0.0085
+[20:54:30] iter 2450 | loss 0.1069 | seg 0.0853 moved 0.0000 sld 0.0143 cpd 0.0074
+[20:54:45] iter 2500 | loss 0.1087 | seg 0.0837 moved 0.0000 sld 0.0200 cpd 0.0050
+[20:55:02] iter 2550 | loss 0.0777 | seg 0.0624 moved 0.0000 sld 0.0112 cpd 0.0041
+[20:55:18] iter 2600 | loss 0.1012 | seg 0.0783 moved 0.0000 sld 0.0115 cpd 0.0114
+[20:55:36] iter 2650 | loss 0.1059 | seg 0.0856 moved 0.0000 sld 0.0116 cpd 0.0086
+[20:55:52] iter 2700 | loss 0.1091 | seg 0.0869 moved 0.0000 sld 0.0126 cpd 0.0096
+[20:56:09] iter 2750 | loss 0.1080 | seg 0.0868 moved 0.0000 sld 0.0126 cpd 0.0086
+[20:56:25] iter 2800 | loss 0.1182 | seg 0.0994 moved 0.0000 sld 0.0123 cpd 0.0065
+[20:56:43] iter 2850 | loss 0.1053 | seg 0.0761 moved 0.0000 sld 0.0214 cpd 0.0078
+[20:57:00] iter 2900 | loss 0.0863 | seg 0.0666 moved 0.0000 sld 0.0127 cpd 0.0069
+[20:57:16] iter 2950 | loss 0.0829 | seg 0.0648 moved 0.0000 sld 0.0135 cpd 0.0046
+[20:57:33] iter 3000 | loss 0.1209 | seg 0.0860 moved 0.0000 sld 0.0189 cpd 0.0160
+[20:57:50] iter 3050 | loss 0.1261 | seg 0.0957 moved 0.0000 sld 0.0186 cpd 0.0118
+[20:58:07] iter 3100 | loss 0.1551 | seg 0.1287 moved 0.0000 sld 0.0146 cpd 0.0118
+[20:58:24] iter 3150 | loss 0.1204 | seg 0.0933 moved 0.0000 sld 0.0167 cpd 0.0104
+[20:58:44] iter 3200 | loss 0.0890 | seg 0.0686 moved 0.0000 sld 0.0154 cpd 0.0050
+[20:59:08] iter 3250 | loss 0.1074 | seg 0.0780 moved 0.0000 sld 0.0228 cpd 0.0066
+[20:59:19] epoch 14 | val dice 0.6645 | best 0.6903
+[20:59:29] iter 3300 | loss 0.1472 | seg 0.1064 moved 0.0000 sld 0.0250 cpd 0.0158
+[20:59:46] iter 3350 | loss 0.1583 | seg 0.1362 moved 0.0000 sld 0.0167 cpd 0.0054
+[21:00:03] iter 3400 | loss 0.1250 | seg 0.0965 moved 0.0000 sld 0.0215 cpd 0.0071
+[21:00:19] iter 3450 | loss 0.0780 | seg 0.0611 moved 0.0000 sld 0.0126 cpd 0.0043
+[21:00:37] iter 3500 | loss 0.0929 | seg 0.0766 moved 0.0000 sld 0.0077 cpd 0.0086
+[21:00:52] iter 3550 | loss 0.1532 | seg 0.1191 moved 0.0000 sld 0.0101 cpd 0.0240
+[21:01:07] iter 3600 | loss 0.0752 | seg 0.0611 moved 0.0000 sld 0.0117 cpd 0.0023
+[21:01:25] iter 3650 | loss 0.0729 | seg 0.0571 moved 0.0000 sld 0.0102 cpd 0.0056
+[21:01:50] iter 3700 | loss 0.0856 | seg 0.0650 moved 0.0000 sld 0.0156 cpd 0.0050
+[21:02:17] iter 3750 | loss 0.0968 | seg 0.0777 moved 0.0000 sld 0.0134 cpd 0.0057
+[21:02:43] iter 3800 | loss 0.0791 | seg 0.0635 moved 0.0000 sld 0.0110 cpd 0.0046
+[21:03:06] iter 3850 | loss 0.0979 | seg 0.0818 moved 0.0000 sld 0.0108 cpd 0.0053
+[21:03:51] iter 3900 | loss 0.1015 | seg 0.0729 moved 0.0000 sld 0.0174 cpd 0.0112
+[21:04:18] iter 3950 | loss 0.0926 | seg 0.0594 moved 0.0000 sld 0.0216 cpd 0.0117
+[21:04:41] iter 4000 | loss 0.0814 | seg 0.0691 moved 0.0000 sld 0.0087 cpd 0.0035
+[21:05:02] iter 4050 | loss 0.0806 | seg 0.0629 moved 0.0000 sld 0.0124 cpd 0.0053
+[21:05:29] iter 4100 | loss 0.1000 | seg 0.0804 moved 0.0000 sld 0.0166 cpd 0.0030
+[21:06:04] iter 4150 | loss 0.0905 | seg 0.0811 moved 0.0000 sld 0.0069 cpd 0.0025
+[21:06:44] iter 4200 | loss 0.0953 | seg 0.0759 moved 0.0000 sld 0.0138 cpd 0.0056
+[21:07:12] iter 4250 | loss 0.1017 | seg 0.0733 moved 0.0000 sld 0.0176 cpd 0.0108
+[21:07:47] iter 4300 | loss 0.0790 | seg 0.0646 moved 0.0000 sld 0.0092 cpd 0.0052
+[21:08:06] iter 4350 | loss 0.0833 | seg 0.0689 moved 0.0000 sld 0.0096 cpd 0.0048
+[21:08:21] epoch 19 | val dice 0.7144 | best 0.7144
+[21:08:41] iter 4400 | loss 0.0912 | seg 0.0684 moved 0.0000 sld 0.0132 cpd 0.0095
+[21:08:58] iter 4450 | loss 0.0824 | seg 0.0665 moved 0.0000 sld 0.0130 cpd 0.0029
+[21:09:15] iter 4500 | loss 0.0821 | seg 0.0646 moved 0.0000 sld 0.0077 cpd 0.0099
+[21:09:32] iter 4550 | loss 0.0798 | seg 0.0727 moved 0.0000 sld 0.0052 cpd 0.0019
+[21:09:50] iter 4600 | loss 0.0913 | seg 0.0747 moved 0.0000 sld 0.0106 cpd 0.0060
+[21:10:05] iter 4650 | loss 0.1034 | seg 0.0748 moved 0.0000 sld 0.0098 cpd 0.0188
+[21:10:23] iter 4700 | loss 0.0736 | seg 0.0573 moved 0.0000 sld 0.0085 cpd 0.0078
+[21:10:50] iter 4750 | loss 0.0727 | seg 0.0594 moved 0.0000 sld 0.0099 cpd 0.0034
+[21:11:11] iter 4800 | loss 0.1226 | seg 0.0803 moved 0.0000 sld 0.0190 cpd 0.0232
+[21:11:33] iter 4850 | loss 0.0927 | seg 0.0799 moved 0.0000 sld 0.0070 cpd 0.0058
+[21:11:54] iter 4900 | loss 0.1142 | seg 0.0764 moved 0.0000 sld 0.0146 cpd 0.0232
+[21:12:18] iter 4950 | loss 0.0861 | seg 0.0704 moved 0.0000 sld 0.0121 cpd 0.0036
+[21:12:54] iter 5000 | loss 0.0888 | seg 0.0732 moved 0.0000 sld 0.0120 cpd 0.0037
+[21:14:11] iter 5050 | loss 0.0813 | seg 0.0621 moved 0.0000 sld 0.0119 cpd 0.0073
+[21:15:22] iter 5100 | loss 0.1032 | seg 0.0683 moved 0.0000 sld 0.0252 cpd 0.0098
+[21:16:04] iter 5150 | loss 0.0727 | seg 0.0599 moved 0.0000 sld 0.0094 cpd 0.0034
+[21:16:47] iter 5200 | loss 0.0781 | seg 0.0641 moved 0.0000 sld 0.0090 cpd 0.0051
+[21:17:27] iter 5250 | loss 0.0790 | seg 0.0666 moved 0.0000 sld 0.0085 cpd 0.0038
+[21:17:56] iter 5300 | loss 0.0956 | seg 0.0812 moved 0.0000 sld 0.0108 cpd 0.0035
+[21:18:26] iter 5350 | loss 0.0756 | seg 0.0659 moved 0.0000 sld 0.0074 cpd 0.0022
+[21:18:56] iter 5400 | loss 0.0634 | seg 0.0510 moved 0.0000 sld 0.0081 cpd 0.0043
+[21:19:26] iter 5450 | loss 0.0633 | seg 0.0527 moved 0.0000 sld 0.0083 cpd 0.0023
+[21:19:42] epoch 24 | val dice 0.7310 | best 0.7310
+[21:20:14] iter 5500 | loss 0.0645 | seg 0.0497 moved 0.0000 sld 0.0118 cpd 0.0030
+[21:20:41] iter 5550 | loss 0.0829 | seg 0.0662 moved 0.0000 sld 0.0107 cpd 0.0060
+[21:21:10] iter 5600 | loss 0.0764 | seg 0.0668 moved 0.0000 sld 0.0077 cpd 0.0019
+[21:21:40] iter 5650 | loss 0.0837 | seg 0.0679 moved 0.0000 sld 0.0107 cpd 0.0052
+[21:22:14] iter 5700 | loss 0.1024 | seg 0.0781 moved 0.0000 sld 0.0155 cpd 0.0088
+[21:22:45] iter 5750 | loss 0.0831 | seg 0.0695 moved 0.0000 sld 0.0118 cpd 0.0017
+[21:23:15] iter 5800 | loss 0.0714 | seg 0.0625 moved 0.0000 sld 0.0057 cpd 0.0033
+[21:23:48] iter 5850 | loss 0.0750 | seg 0.0642 moved 0.0000 sld 0.0068 cpd 0.0041
+[21:24:21] iter 5900 | loss 0.1061 | seg 0.0847 moved 0.0000 sld 0.0144 cpd 0.0070
+[21:24:46] iter 5950 | loss 0.0819 | seg 0.0599 moved 0.0000 sld 0.0101 cpd 0.0119
+[21:25:19] iter 6000 | loss 0.0602 | seg 0.0483 moved 0.0000 sld 0.0097 cpd 0.0021
+[21:25:53] iter 6050 | loss 0.0861 | seg 0.0700 moved 0.0000 sld 0.0092 cpd 0.0069
+[21:26:23] iter 6100 | loss 0.0761 | seg 0.0572 moved 0.0000 sld 0.0119 cpd 0.0070
+[21:27:00] iter 6150 | loss 0.0504 | seg 0.0395 moved 0.0000 sld 0.0094 cpd 0.0015
+[21:27:31] iter 6200 | loss 0.0824 | seg 0.0681 moved 0.0000 sld 0.0101 cpd 0.0042
+[21:28:00] iter 6250 | loss 0.0834 | seg 0.0683 moved 0.0000 sld 0.0127 cpd 0.0024
+[21:28:26] iter 6300 | loss 0.0660 | seg 0.0554 moved 0.0000 sld 0.0079 cpd 0.0028
+[21:28:50] iter 6350 | loss 0.0646 | seg 0.0531 moved 0.0000 sld 0.0083 cpd 0.0032
+[21:29:20] iter 6400 | loss 0.0814 | seg 0.0634 moved 0.0000 sld 0.0143 cpd 0.0037
+[21:29:50] iter 6450 | loss 0.1126 | seg 0.0918 moved 0.0000 sld 0.0149 cpd 0.0059
+[21:30:28] iter 6500 | loss 0.0830 | seg 0.0651 moved 0.0000 sld 0.0159 cpd 0.0020
+[21:31:07] epoch 29 | val dice 0.7325 | best 0.7325
+[21:31:13] iter 6550 | loss 0.0750 | seg 0.0625 moved 0.0000 sld 0.0105 cpd 0.0019
+[21:31:37] iter 6600 | loss 0.0707 | seg 0.0544 moved 0.0000 sld 0.0124 cpd 0.0040
+[21:32:01] iter 6650 | loss 0.1740 | seg 0.1360 moved 0.0000 sld 0.0309 cpd 0.0071
+[21:32:22] iter 6700 | loss 0.0850 | seg 0.0690 moved 0.0000 sld 0.0097 cpd 0.0063
+[21:32:46] iter 6750 | loss 0.0645 | seg 0.0497 moved 0.0000 sld 0.0099 cpd 0.0049
+[21:33:10] iter 6800 | loss 0.0854 | seg 0.0706 moved 0.0000 sld 0.0096 cpd 0.0052
+[21:33:38] iter 6850 | loss 0.0820 | seg 0.0683 moved 0.0000 sld 0.0075 cpd 0.0063
+[21:34:07] iter 6900 | loss 0.0649 | seg 0.0492 moved 0.0000 sld 0.0129 cpd 0.0028
+[21:34:37] iter 6950 | loss 0.0566 | seg 0.0467 moved 0.0000 sld 0.0073 cpd 0.0026
+[21:35:09] iter 7000 | loss 0.0826 | seg 0.0688 moved 0.0000 sld 0.0111 cpd 0.0027
+[21:35:48] iter 7050 | loss 0.0766 | seg 0.0639 moved 0.0000 sld 0.0094 cpd 0.0032
+[21:36:14] iter 7100 | loss 0.0563 | seg 0.0470 moved 0.0000 sld 0.0078 cpd 0.0015
+[21:36:36] iter 7150 | loss 0.0821 | seg 0.0688 moved 0.0000 sld 0.0107 cpd 0.0026
+[21:36:59] iter 7200 | loss 0.1282 | seg 0.0813 moved 0.0000 sld 0.0235 cpd 0.0234
+[21:37:21] iter 7250 | loss 0.0959 | seg 0.0787 moved 0.0000 sld 0.0075 cpd 0.0097
+[21:37:40] iter 7300 | loss 0.0649 | seg 0.0505 moved 0.0000 sld 0.0086 cpd 0.0057
+[21:37:58] iter 7350 | loss 0.0642 | seg 0.0478 moved 0.0000 sld 0.0137 cpd 0.0026
+[21:38:19] iter 7400 | loss 0.0719 | seg 0.0611 moved 0.0000 sld 0.0071 cpd 0.0038
+[21:38:43] iter 7450 | loss 0.0667 | seg 0.0514 moved 0.0000 sld 0.0089 cpd 0.0064
+[21:39:07] iter 7500 | loss 0.0693 | seg 0.0594 moved 0.0000 sld 0.0076 cpd 0.0023
+[21:39:45] iter 7550 | loss 0.0674 | seg 0.0511 moved 0.0000 sld 0.0112 cpd 0.0051
+[21:40:24] iter 7600 | loss 0.0656 | seg 0.0552 moved 0.0000 sld 0.0061 cpd 0.0043
+[21:40:55] epoch 34 | val dice 0.7278 | best 0.7325
+[21:41:06] iter 7650 | loss 0.0736 | seg 0.0542 moved 0.0000 sld 0.0122 cpd 0.0072
+[21:41:27] iter 7700 | loss 0.0758 | seg 0.0629 moved 0.0000 sld 0.0104 cpd 0.0025
+[21:41:48] iter 7750 | loss 0.0600 | seg 0.0496 moved 0.0000 sld 0.0082 cpd 0.0023
+[21:42:09] iter 7800 | loss 0.0672 | seg 0.0573 moved 0.0000 sld 0.0057 cpd 0.0042
+[21:42:31] iter 7850 | loss 0.0712 | seg 0.0548 moved 0.0000 sld 0.0080 cpd 0.0084
+[21:42:52] iter 7900 | loss 0.1204 | seg 0.0836 moved 0.0000 sld 0.0118 cpd 0.0250
+[21:43:15] iter 7950 | loss 0.0718 | seg 0.0574 moved 0.0000 sld 0.0097 cpd 0.0048
+[21:43:38] iter 8000 | loss 0.0651 | seg 0.0540 moved 0.0000 sld 0.0068 cpd 0.0043
+[21:44:13] iter 8050 | loss 0.0631 | seg 0.0529 moved 0.0000 sld 0.0061 cpd 0.0042
+[21:44:50] iter 8100 | loss 0.0826 | seg 0.0704 moved 0.0000 sld 0.0065 cpd 0.0058
+[21:45:26] iter 8150 | loss 0.0951 | seg 0.0822 moved 0.0000 sld 0.0064 cpd 0.0065
+[21:45:53] iter 8200 | loss 0.0721 | seg 0.0581 moved 0.0000 sld 0.0101 cpd 0.0039
+[21:46:15] iter 8250 | loss 0.0787 | seg 0.0545 moved 0.0000 sld 0.0061 cpd 0.0181
+[21:46:37] iter 8300 | loss 0.1008 | seg 0.0801 moved 0.0000 sld 0.0100 cpd 0.0106
+[21:47:07] iter 8350 | loss 0.0669 | seg 0.0519 moved 0.0000 sld 0.0130 cpd 0.0020
+[21:47:45] iter 8400 | loss 0.0738 | seg 0.0614 moved 0.0000 sld 0.0087 cpd 0.0038
+[21:48:21] iter 8450 | loss 0.0652 | seg 0.0506 moved 0.0000 sld 0.0125 cpd 0.0021
+[21:48:54] iter 8500 | loss 0.0807 | seg 0.0703 moved 0.0000 sld 0.0065 cpd 0.0040
+[21:49:42] iter 8550 | loss 0.0733 | seg 0.0551 moved 0.0000 sld 0.0108 cpd 0.0073
+[21:50:44] iter 8600 | loss 0.0676 | seg 0.0561 moved 0.0000 sld 0.0082 cpd 0.0033
+[21:51:47] iter 8650 | loss 0.0618 | seg 0.0515 moved 0.0000 sld 0.0077 cpd 0.0025
+[21:52:29] iter 8700 | loss 0.0723 | seg 0.0616 moved 0.0000 sld 0.0064 cpd 0.0042
+[21:52:42] epoch 39 | val dice 0.7459 | best 0.7459
+[21:52:52] iter 8750 | loss 0.0523 | seg 0.0447 moved 0.0000 sld 0.0052 cpd 0.0024
+[21:53:07] iter 8800 | loss 0.0794 | seg 0.0574 moved 0.0000 sld 0.0103 cpd 0.0117
+[21:53:23] iter 8850 | loss 0.0824 | seg 0.0655 moved 0.0000 sld 0.0072 cpd 0.0098
+[21:53:36] iter 8900 | loss 0.0612 | seg 0.0498 moved 0.0000 sld 0.0085 cpd 0.0029
+[21:53:51] iter 8950 | loss 0.0505 | seg 0.0417 moved 0.0000 sld 0.0080 cpd 0.0009
+[21:54:08] iter 9000 | loss 0.0672 | seg 0.0547 moved 0.0000 sld 0.0071 cpd 0.0054
+[21:54:24] iter 9050 | loss 0.0791 | seg 0.0673 moved 0.0000 sld 0.0098 cpd 0.0020
+[21:54:39] iter 9100 | loss 0.0689 | seg 0.0558 moved 0.0000 sld 0.0112 cpd 0.0019
+[21:55:20] iter 9150 | loss 0.0739 | seg 0.0557 moved 0.0000 sld 0.0077 cpd 0.0105
+[21:55:38] iter 9200 | loss 0.0574 | seg 0.0477 moved 0.0000 sld 0.0064 cpd 0.0033
+[21:56:17] iter 9250 | loss 0.0613 | seg 0.0502 moved 0.0000 sld 0.0076 cpd 0.0034
+[21:56:58] iter 9300 | loss 0.0663 | seg 0.0572 moved 0.0000 sld 0.0064 cpd 0.0027
+[21:57:15] iter 9350 | loss 0.0815 | seg 0.0678 moved 0.0000 sld 0.0074 cpd 0.0063
+[21:57:54] iter 9400 | loss 0.0597 | seg 0.0497 moved 0.0000 sld 0.0086 cpd 0.0013
+[21:58:06] iter 9450 | loss 0.0690 | seg 0.0576 moved 0.0000 sld 0.0092 cpd 0.0023
+[21:58:14] iter 9500 | loss 0.0685 | seg 0.0608 moved 0.0000 sld 0.0057 cpd 0.0020
+[21:58:22] iter 9550 | loss 0.0628 | seg 0.0551 moved 0.0000 sld 0.0046 cpd 0.0031
+[21:58:31] iter 9600 | loss 0.0651 | seg 0.0503 moved 0.0000 sld 0.0088 cpd 0.0060
+[21:58:39] iter 9650 | loss 0.0749 | seg 0.0598 moved 0.0000 sld 0.0085 cpd 0.0066
+[21:58:46] iter 9700 | loss 0.0653 | seg 0.0523 moved 0.0000 sld 0.0093 cpd 0.0037
+[21:58:54] iter 9750 | loss 0.0755 | seg 0.0578 moved 0.0000 sld 0.0110 cpd 0.0066
+[21:59:02] iter 9800 | loss 0.0534 | seg 0.0424 moved 0.0000 sld 0.0083 cpd 0.0028
+[21:59:08] epoch 44 | val dice 0.7382 | best 0.7459
+[21:59:14] iter 9850 | loss 0.0570 | seg 0.0459 moved 0.0000 sld 0.0071 cpd 0.0039
+[21:59:22] iter 9900 | loss 0.0587 | seg 0.0467 moved 0.0000 sld 0.0090 cpd 0.0030
+[21:59:29] iter 9950 | loss 0.0647 | seg 0.0515 moved 0.0000 sld 0.0108 cpd 0.0024
+[21:59:37] iter 10000 | loss 0.0759 | seg 0.0538 moved 0.0000 sld 0.0168 cpd 0.0053
+[21:59:45] iter 10050 | loss 0.0666 | seg 0.0531 moved 0.0000 sld 0.0098 cpd 0.0036
+[21:59:53] iter 10100 | loss 0.0643 | seg 0.0509 moved 0.0000 sld 0.0077 cpd 0.0057
+[22:00:00] iter 10150 | loss 0.0632 | seg 0.0510 moved 0.0000 sld 0.0102 cpd 0.0020
+[22:00:08] iter 10200 | loss 0.0604 | seg 0.0490 moved 0.0000 sld 0.0083 cpd 0.0031
+[22:00:17] iter 10250 | loss 0.0528 | seg 0.0426 moved 0.0000 sld 0.0091 cpd 0.0011
+[22:00:25] iter 10300 | loss 0.0642 | seg 0.0554 moved 0.0000 sld 0.0069 cpd 0.0019
+[22:00:33] iter 10350 | loss 0.0544 | seg 0.0442 moved 0.0000 sld 0.0086 cpd 0.0016
+[22:00:40] iter 10400 | loss 0.0699 | seg 0.0483 moved 0.0000 sld 0.0074 cpd 0.0143
+[22:00:48] iter 10450 | loss 0.0527 | seg 0.0445 moved 0.0000 sld 0.0059 cpd 0.0023
+[22:00:56] iter 10500 | loss 0.0725 | seg 0.0596 moved 0.0000 sld 0.0096 cpd 0.0033
+[22:01:04] iter 10550 | loss 0.0617 | seg 0.0506 moved 0.0000 sld 0.0077 cpd 0.0034
+[22:01:12] iter 10600 | loss 0.0546 | seg 0.0469 moved 0.0000 sld 0.0058 cpd 0.0018
+[22:01:19] iter 10650 | loss 0.0640 | seg 0.0515 moved 0.0000 sld 0.0056 cpd 0.0069
+[22:01:27] iter 10700 | loss 0.0601 | seg 0.0499 moved 0.0000 sld 0.0074 cpd 0.0028
+[22:01:35] iter 10750 | loss 0.0712 | seg 0.0566 moved 0.0000 sld 0.0116 cpd 0.0030
+[22:01:42] iter 10800 | loss 0.0613 | seg 0.0511 moved 0.0000 sld 0.0090 cpd 0.0012
+[22:01:50] iter 10850 | loss 0.0566 | seg 0.0461 moved 0.0000 sld 0.0093 cpd 0.0013
+[22:01:57] iter 10900 | loss 0.0526 | seg 0.0426 moved 0.0000 sld 0.0085 cpd 0.0015
+[22:02:02] epoch 49 | val dice 0.7398 | best 0.7459
+[22:02:10] iter 10950 | loss 0.0628 | seg 0.0518 moved 0.0000 sld 0.0090 cpd 0.0021
+[22:02:18] iter 11000 | loss 0.0553 | seg 0.0467 moved 0.0000 sld 0.0054 cpd 0.0032
+[22:02:25] iter 11050 | loss 0.0526 | seg 0.0441 moved 0.0000 sld 0.0075 cpd 0.0010
+[22:02:33] iter 11100 | loss 0.0614 | seg 0.0488 moved 0.0000 sld 0.0064 cpd 0.0062
+[22:02:41] iter 11150 | loss 0.0504 | seg 0.0424 moved 0.0000 sld 0.0068 cpd 0.0012
+[22:02:49] iter 11200 | loss 0.0688 | seg 0.0593 moved 0.0000 sld 0.0080 cpd 0.0014
+[22:02:57] iter 11250 | loss 0.0872 | seg 0.0695 moved 0.0000 sld 0.0084 cpd 0.0094
+[22:03:05] iter 11300 | loss 0.0559 | seg 0.0421 moved 0.0000 sld 0.0102 cpd 0.0036
+[22:03:13] iter 11350 | loss 0.0720 | seg 0.0588 moved 0.0000 sld 0.0091 cpd 0.0040
+[22:03:22] iter 11400 | loss 0.0474 | seg 0.0390 moved 0.0000 sld 0.0072 cpd 0.0012
+[22:03:34] iter 11450 | loss 0.0579 | seg 0.0496 moved 0.0000 sld 0.0072 cpd 0.0011
+[22:03:45] iter 11500 | loss 0.0762 | seg 0.0619 moved 0.0000 sld 0.0079 cpd 0.0064
+[22:03:57] iter 11550 | loss 0.0599 | seg 0.0521 moved 0.0000 sld 0.0057 cpd 0.0020
+[22:04:10] iter 11600 | loss 0.0859 | seg 0.0626 moved 0.0000 sld 0.0055 cpd 0.0177
+[22:04:22] iter 11650 | loss 0.0729 | seg 0.0628 moved 0.0000 sld 0.0052 cpd 0.0049
+[22:04:34] iter 11700 | loss 0.0422 | seg 0.0356 moved 0.0000 sld 0.0058 cpd 0.0008
+[22:04:46] iter 11750 | loss 0.0706 | seg 0.0561 moved 0.0000 sld 0.0054 cpd 0.0091
+[22:05:00] iter 11800 | loss 0.0599 | seg 0.0503 moved 0.0000 sld 0.0079 cpd 0.0018
+[22:05:12] iter 11850 | loss 0.0726 | seg 0.0589 moved 0.0000 sld 0.0072 cpd 0.0065
+[22:05:25] iter 11900 | loss 0.0531 | seg 0.0469 moved 0.0000 sld 0.0048 cpd 0.0014
+[22:05:37] iter 11950 | loss 0.0695 | seg 0.0550 moved 0.0000 sld 0.0107 cpd 0.0038
+[22:05:55] epoch 54 | val dice 0.7504 | best 0.7504
+[22:05:58] iter 12000 | loss 0.0730 | seg 0.0635 moved 0.0000 sld 0.0064 cpd 0.0031
+[22:06:11] iter 12050 | loss 0.0721 | seg 0.0611 moved 0.0000 sld 0.0061 cpd 0.0049
+[22:06:23] iter 12100 | loss 0.0883 | seg 0.0468 moved 0.0000 sld 0.0306 cpd 0.0109
+[22:06:35] iter 12150 | loss 0.0505 | seg 0.0434 moved 0.0000 sld 0.0053 cpd 0.0018
+[22:06:47] iter 12200 | loss 0.0518 | seg 0.0436 moved 0.0000 sld 0.0067 cpd 0.0014
+[22:07:00] iter 12250 | loss 0.0495 | seg 0.0405 moved 0.0000 sld 0.0073 cpd 0.0017
+[22:07:12] iter 12300 | loss 0.0564 | seg 0.0478 moved 0.0000 sld 0.0058 cpd 0.0028
+[22:07:24] iter 12350 | loss 0.0806 | seg 0.0679 moved 0.0000 sld 0.0069 cpd 0.0058
+[22:07:36] iter 12400 | loss 0.0564 | seg 0.0419 moved 0.0000 sld 0.0124 cpd 0.0021
+[22:07:48] iter 12450 | loss 0.0637 | seg 0.0501 moved 0.0000 sld 0.0089 cpd 0.0048
+[22:07:59] iter 12500 | loss 0.0707 | seg 0.0635 moved 0.0000 sld 0.0058 cpd 0.0015
+[22:08:10] iter 12550 | loss 0.0600 | seg 0.0492 moved 0.0000 sld 0.0078 cpd 0.0030
+[22:08:22] iter 12600 | loss 0.0638 | seg 0.0545 moved 0.0000 sld 0.0058 cpd 0.0036
+[22:08:34] iter 12650 | loss 0.0582 | seg 0.0485 moved 0.0000 sld 0.0091 cpd 0.0006
+[22:08:46] iter 12700 | loss 0.0679 | seg 0.0561 moved 0.0000 sld 0.0072 cpd 0.0046
+[22:08:58] iter 12750 | loss 0.0660 | seg 0.0557 moved 0.0000 sld 0.0067 cpd 0.0037
+[22:09:10] iter 12800 | loss 0.0667 | seg 0.0560 moved 0.0000 sld 0.0064 cpd 0.0043
+[22:09:22] iter 12850 | loss 0.0548 | seg 0.0463 moved 0.0000 sld 0.0064 cpd 0.0020
+[22:09:35] iter 12900 | loss 0.0590 | seg 0.0454 moved 0.0000 sld 0.0121 cpd 0.0014
+[22:09:47] iter 12950 | loss 0.0690 | seg 0.0470 moved 0.0000 sld 0.0178 cpd 0.0042
+[22:09:59] iter 13000 | loss 0.0726 | seg 0.0631 moved 0.0000 sld 0.0083 cpd 0.0012
+[22:10:12] iter 13050 | loss 0.0662 | seg 0.0572 moved 0.0000 sld 0.0076 cpd 0.0015
+[22:10:28] epoch 59 | val dice 0.7526 | best 0.7526
+[22:10:33] iter 13100 | loss 0.0519 | seg 0.0443 moved 0.0000 sld 0.0057 cpd 0.0019
+[22:10:45] iter 13150 | loss 0.0869 | seg 0.0798 moved 0.0000 sld 0.0037 cpd 0.0034
+[22:10:57] iter 13200 | loss 0.0710 | seg 0.0640 moved 0.0000 sld 0.0050 cpd 0.0020
+[22:11:09] iter 13250 | loss 0.0629 | seg 0.0565 moved 0.0000 sld 0.0048 cpd 0.0015
+[22:11:22] iter 13300 | loss 0.0758 | seg 0.0600 moved 0.0000 sld 0.0055 cpd 0.0103
+[22:11:34] iter 13350 | loss 0.0600 | seg 0.0488 moved 0.0000 sld 0.0072 cpd 0.0040
+[22:11:46] iter 13400 | loss 0.0550 | seg 0.0479 moved 0.0000 sld 0.0061 cpd 0.0010
+[22:11:57] iter 13450 | loss 0.0481 | seg 0.0410 moved 0.0000 sld 0.0052 cpd 0.0019
+[22:12:10] iter 13500 | loss 0.0505 | seg 0.0423 moved 0.0000 sld 0.0058 cpd 0.0024
+[22:12:23] iter 13550 | loss 0.0641 | seg 0.0492 moved 0.0000 sld 0.0074 cpd 0.0075
+[22:12:35] iter 13600 | loss 0.0818 | seg 0.0682 moved 0.0000 sld 0.0077 cpd 0.0059
+[22:12:47] iter 13650 | loss 0.0776 | seg 0.0670 moved 0.0000 sld 0.0055 cpd 0.0051
+[22:13:00] iter 13700 | loss 0.0706 | seg 0.0591 moved 0.0000 sld 0.0075 cpd 0.0040
+[22:13:13] iter 13750 | loss 0.0553 | seg 0.0419 moved 0.0000 sld 0.0100 cpd 0.0034
+[22:13:25] iter 13800 | loss 0.0681 | seg 0.0571 moved 0.0000 sld 0.0085 cpd 0.0025
+[22:13:38] iter 13850 | loss 0.0645 | seg 0.0561 moved 0.0000 sld 0.0050 cpd 0.0034
+[22:13:51] iter 13900 | loss 0.0630 | seg 0.0451 moved 0.0000 sld 0.0067 cpd 0.0112
+[22:14:03] iter 13950 | loss 0.0490 | seg 0.0422 moved 0.0000 sld 0.0058 cpd 0.0011
+[22:14:17] iter 14000 | loss 0.0645 | seg 0.0543 moved 0.0000 sld 0.0088 cpd 0.0014
+[22:14:29] iter 14050 | loss 0.0613 | seg 0.0551 moved 0.0000 sld 0.0040 cpd 0.0022
+[22:14:40] iter 14100 | loss 0.0747 | seg 0.0650 moved 0.0000 sld 0.0072 cpd 0.0025
+[22:14:47] iter 14150 | loss 0.0501 | seg 0.0427 moved 0.0000 sld 0.0058 cpd 0.0015
+[22:14:54] epoch 64 | val dice 0.7529 | best 0.7529
+[22:14:59] iter 14200 | loss 0.0677 | seg 0.0617 moved 0.0000 sld 0.0041 cpd 0.0019
+[22:15:08] iter 14250 | loss 0.0521 | seg 0.0434 moved 0.0000 sld 0.0060 cpd 0.0027
+[22:15:15] iter 14300 | loss 0.0504 | seg 0.0438 moved 0.0000 sld 0.0055 cpd 0.0011
+[22:15:22] iter 14350 | loss 0.0501 | seg 0.0414 moved 0.0000 sld 0.0067 cpd 0.0019
+[22:15:31] iter 14400 | loss 0.0633 | seg 0.0554 moved 0.0000 sld 0.0056 cpd 0.0023
+[22:15:42] iter 14450 | loss 0.0552 | seg 0.0471 moved 0.0000 sld 0.0071 cpd 0.0010
+[22:15:53] iter 14500 | loss 0.0733 | seg 0.0642 moved 0.0000 sld 0.0056 cpd 0.0036
+[22:16:05] iter 14550 | loss 0.0654 | seg 0.0543 moved 0.0000 sld 0.0080 cpd 0.0031
+[22:16:17] iter 14600 | loss 0.0543 | seg 0.0441 moved 0.0000 sld 0.0083 cpd 0.0018
+[22:16:29] iter 14650 | loss 0.0493 | seg 0.0431 moved 0.0000 sld 0.0049 cpd 0.0013
+[22:16:41] iter 14700 | loss 0.0811 | seg 0.0687 moved 0.0000 sld 0.0066 cpd 0.0059
+[22:16:54] iter 14750 | loss 0.0511 | seg 0.0424 moved 0.0000 sld 0.0064 cpd 0.0023
+[22:17:07] iter 14800 | loss 0.0510 | seg 0.0424 moved 0.0000 sld 0.0075 cpd 0.0011
+[22:17:19] iter 14850 | loss 0.0579 | seg 0.0483 moved 0.0000 sld 0.0084 cpd 0.0013
+[22:17:33] iter 14900 | loss 0.0599 | seg 0.0431 moved 0.0000 sld 0.0141 cpd 0.0026
+[22:17:45] iter 14950 | loss 0.0648 | seg 0.0569 moved 0.0000 sld 0.0054 cpd 0.0025
+[22:17:58] iter 15000 | loss 0.0458 | seg 0.0395 moved 0.0000 sld 0.0047 cpd 0.0016
+[22:18:12] iter 15050 | loss 0.0638 | seg 0.0530 moved 0.0000 sld 0.0075 cpd 0.0033
+[22:18:25] iter 15100 | loss 0.0572 | seg 0.0489 moved 0.0000 sld 0.0056 cpd 0.0028
+[22:18:39] iter 15150 | loss 0.0403 | seg 0.0324 moved 0.0000 sld 0.0053 cpd 0.0026
+[22:18:51] iter 15200 | loss 0.0492 | seg 0.0423 moved 0.0000 sld 0.0055 cpd 0.0013
+[22:19:01] iter 15250 | loss 0.0524 | seg 0.0430 moved 0.0000 sld 0.0058 cpd 0.0036
+[22:19:06] epoch 69 | val dice 0.7559 | best 0.7559
+[22:19:12] iter 15300 | loss 0.0493 | seg 0.0427 moved 0.0000 sld 0.0039 cpd 0.0027
+[22:19:22] iter 15350 | loss 0.0542 | seg 0.0449 moved 0.0000 sld 0.0064 cpd 0.0029
+[22:19:33] iter 15400 | loss 0.0522 | seg 0.0451 moved 0.0000 sld 0.0055 cpd 0.0016
+[22:19:45] iter 15450 | loss 0.0540 | seg 0.0470 moved 0.0000 sld 0.0064 cpd 0.0006
+[22:19:57] iter 15500 | loss 0.0700 | seg 0.0582 moved 0.0000 sld 0.0079 cpd 0.0039
+[22:20:09] iter 15550 | loss 0.0440 | seg 0.0377 moved 0.0000 sld 0.0056 cpd 0.0008
+[22:20:21] iter 15600 | loss 0.0576 | seg 0.0478 moved 0.0000 sld 0.0082 cpd 0.0016
+[22:20:33] iter 15650 | loss 0.0832 | seg 0.0610 moved 0.0000 sld 0.0148 cpd 0.0075
+[22:20:45] iter 15700 | loss 0.0609 | seg 0.0488 moved 0.0000 sld 0.0104 cpd 0.0017
+[22:20:57] iter 15750 | loss 0.0794 | seg 0.0644 moved 0.0000 sld 0.0127 cpd 0.0022
+[22:21:09] iter 15800 | loss 0.0688 | seg 0.0598 moved 0.0000 sld 0.0077 cpd 0.0013
+[22:21:20] iter 15850 | loss 0.0523 | seg 0.0458 moved 0.0000 sld 0.0054 cpd 0.0011
+[22:21:33] iter 15900 | loss 0.0494 | seg 0.0426 moved 0.0000 sld 0.0056 cpd 0.0011
+[22:22:23] iter 15950 | loss 0.0467 | seg 0.0368 moved 0.0000 sld 0.0053 cpd 0.0046
+[22:23:14] iter 16000 | loss 0.0540 | seg 0.0477 moved 0.0000 sld 0.0056 cpd 0.0006
+[22:24:08] iter 16050 | loss 0.0514 | seg 0.0438 moved 0.0000 sld 0.0069 cpd 0.0008
+[22:25:01] iter 16100 | loss 0.0528 | seg 0.0458 moved 0.0000 sld 0.0057 cpd 0.0012
+[22:25:56] iter 16150 | loss 0.0616 | seg 0.0525 moved 0.0000 sld 0.0080 cpd 0.0011
+[22:26:48] iter 16200 | loss 0.0591 | seg 0.0466 moved 0.0000 sld 0.0081 cpd 0.0043
+[22:27:41] iter 16250 | loss 0.0548 | seg 0.0483 moved 0.0000 sld 0.0047 cpd 0.0019
+[22:28:35] iter 16300 | loss 0.0595 | seg 0.0521 moved 0.0000 sld 0.0051 cpd 0.0023
+[22:29:19] iter 16350 | loss 0.0433 | seg 0.0339 moved 0.0000 sld 0.0088 cpd 0.0005
+[22:29:27] epoch 74 | val dice 0.7354 | best 0.7559
+[22:30:22] iter 16400 | loss 0.0507 | seg 0.0400 moved 0.0000 sld 0.0058 cpd 0.0049
+[22:31:14] iter 16450 | loss 0.0652 | seg 0.0557 moved 0.0000 sld 0.0056 cpd 0.0039
+[22:32:03] iter 16500 | loss 0.0598 | seg 0.0428 moved 0.0000 sld 0.0106 cpd 0.0065
+[22:32:54] iter 16550 | loss 0.0538 | seg 0.0443 moved 0.0000 sld 0.0057 cpd 0.0038
+[22:33:46] iter 16600 | loss 0.0522 | seg 0.0389 moved 0.0000 sld 0.0107 cpd 0.0026
+[22:34:38] iter 16650 | loss 0.0716 | seg 0.0583 moved 0.0000 sld 0.0070 cpd 0.0063
+[22:35:29] iter 16700 | loss 0.0552 | seg 0.0421 moved 0.0000 sld 0.0070 cpd 0.0060
+[22:36:21] iter 16750 | loss 0.0528 | seg 0.0428 moved 0.0000 sld 0.0055 cpd 0.0045
+[22:37:11] iter 16800 | loss 0.0492 | seg 0.0397 moved 0.0000 sld 0.0071 cpd 0.0024
+[22:37:59] iter 16850 | loss 0.0518 | seg 0.0449 moved 0.0000 sld 0.0047 cpd 0.0023
+[22:38:52] iter 16900 | loss 0.0503 | seg 0.0460 moved 0.0000 sld 0.0037 cpd 0.0005
+[22:39:45] iter 16950 | loss 0.0635 | seg 0.0520 moved 0.0000 sld 0.0072 cpd 0.0043
+[22:40:39] iter 17000 | loss 0.0616 | seg 0.0538 moved 0.0000 sld 0.0058 cpd 0.0020
+[22:41:33] iter 17050 | loss 0.0487 | seg 0.0417 moved 0.0000 sld 0.0055 cpd 0.0015
+[22:42:27] iter 17100 | loss 0.0612 | seg 0.0523 moved 0.0000 sld 0.0072 cpd 0.0018
+[22:43:16] iter 17150 | loss 0.0437 | seg 0.0364 moved 0.0000 sld 0.0043 cpd 0.0029
+[22:43:51] iter 17200 | loss 0.0522 | seg 0.0431 moved 0.0000 sld 0.0071 cpd 0.0020
+[22:44:25] iter 17250 | loss 0.0527 | seg 0.0455 moved 0.0000 sld 0.0060 cpd 0.0011
+[22:45:00] iter 17300 | loss 0.0471 | seg 0.0401 moved 0.0000 sld 0.0058 cpd 0.0012
+[22:45:34] iter 17350 | loss 0.0443 | seg 0.0382 moved 0.0000 sld 0.0052 cpd 0.0009
+[22:46:07] iter 17400 | loss 0.0451 | seg 0.0384 moved 0.0000 sld 0.0046 cpd 0.0020
+[22:46:42] epoch 79 | val dice 0.7785 | best 0.7785
+[22:46:49] iter 17450 | loss 0.0465 | seg 0.0387 moved 0.0000 sld 0.0070 cpd 0.0008
+[22:47:24] iter 17500 | loss 0.0572 | seg 0.0492 moved 0.0000 sld 0.0053 cpd 0.0027
+[22:47:58] iter 17550 | loss 0.0504 | seg 0.0426 moved 0.0000 sld 0.0059 cpd 0.0019
+[22:48:32] iter 17600 | loss 0.0527 | seg 0.0408 moved 0.0000 sld 0.0101 cpd 0.0018
+[22:49:06] iter 17650 | loss 0.0412 | seg 0.0341 moved 0.0000 sld 0.0048 cpd 0.0023
+[22:49:39] iter 17700 | loss 0.0491 | seg 0.0402 moved 0.0000 sld 0.0073 cpd 0.0015
+[22:50:11] iter 17750 | loss 0.0481 | seg 0.0394 moved 0.0000 sld 0.0073 cpd 0.0013
+[22:50:42] iter 17800 | loss 0.0659 | seg 0.0593 moved 0.0000 sld 0.0033 cpd 0.0033
+[22:51:17] iter 17850 | loss 0.0557 | seg 0.0475 moved 0.0000 sld 0.0058 cpd 0.0025
+[22:51:51] iter 17900 | loss 0.0507 | seg 0.0449 moved 0.0000 sld 0.0044 cpd 0.0015
+[22:52:27] iter 17950 | loss 0.0486 | seg 0.0403 moved 0.0000 sld 0.0056 cpd 0.0027
+[22:53:02] iter 18000 | loss 0.0563 | seg 0.0477 moved 0.0000 sld 0.0072 cpd 0.0014
+[22:53:37] iter 18050 | loss 0.0559 | seg 0.0495 moved 0.0000 sld 0.0045 cpd 0.0019
+[22:54:12] iter 18100 | loss 0.0441 | seg 0.0368 moved 0.0000 sld 0.0057 cpd 0.0017
+[22:54:46] iter 18150 | loss 0.0475 | seg 0.0389 moved 0.0000 sld 0.0069 cpd 0.0017
+[22:55:20] iter 18200 | loss 0.0576 | seg 0.0484 moved 0.0000 sld 0.0068 cpd 0.0024
+[22:55:55] iter 18250 | loss 0.0505 | seg 0.0448 moved 0.0000 sld 0.0041 cpd 0.0016
+[22:56:29] iter 18300 | loss 0.0619 | seg 0.0539 moved 0.0000 sld 0.0049 cpd 0.0030
+[22:57:02] iter 18350 | loss 0.0449 | seg 0.0362 moved 0.0000 sld 0.0066 cpd 0.0020
+[22:57:37] iter 18400 | loss 0.0509 | seg 0.0435 moved 0.0000 sld 0.0045 cpd 0.0030
+[22:58:07] iter 18450 | loss 0.0370 | seg 0.0311 moved 0.0000 sld 0.0050 cpd 0.0008
+[22:58:43] iter 18500 | loss 0.0598 | seg 0.0498 moved 0.0000 sld 0.0091 cpd 0.0009
+[22:59:08] epoch 84 | val dice 0.7693 | best 0.7785
+[22:59:23] iter 18550 | loss 0.0631 | seg 0.0514 moved 0.0000 sld 0.0097 cpd 0.0021
+[22:59:57] iter 18600 | loss 0.0574 | seg 0.0476 moved 0.0000 sld 0.0074 cpd 0.0025
+[23:00:31] iter 18650 | loss 0.0551 | seg 0.0469 moved 0.0000 sld 0.0050 cpd 0.0032
+[23:01:04] iter 18700 | loss 0.0707 | seg 0.0580 moved 0.0000 sld 0.0050 cpd 0.0078
+[23:01:38] iter 18750 | loss 0.0515 | seg 0.0441 moved 0.0000 sld 0.0057 cpd 0.0018
+[23:02:11] iter 18800 | loss 0.0689 | seg 0.0590 moved 0.0000 sld 0.0066 cpd 0.0032
+[23:02:35] iter 18850 | loss 0.0479 | seg 0.0401 moved 0.0000 sld 0.0071 cpd 0.0008
+[23:02:56] iter 18900 | loss 0.0391 | seg 0.0306 moved 0.0000 sld 0.0066 cpd 0.0019
+[23:03:18] iter 18950 | loss 0.0441 | seg 0.0342 moved 0.0000 sld 0.0050 cpd 0.0049
+[23:03:40] iter 19000 | loss 0.0561 | seg 0.0470 moved 0.0000 sld 0.0075 cpd 0.0016
+[23:04:02] iter 19050 | loss 0.0489 | seg 0.0446 moved 0.0000 sld 0.0038 cpd 0.0005
+[23:04:20] iter 19100 | loss 0.0514 | seg 0.0457 moved 0.0000 sld 0.0047 cpd 0.0010
+[23:04:42] iter 19150 | loss 0.0556 | seg 0.0493 moved 0.0000 sld 0.0052 cpd 0.0012
+[23:05:05] iter 19200 | loss 0.0716 | seg 0.0523 moved 0.0000 sld 0.0078 cpd 0.0115
+[23:05:27] iter 19250 | loss 0.0771 | seg 0.0687 moved 0.0000 sld 0.0040 cpd 0.0044
+[23:05:49] iter 19300 | loss 0.1129 | seg 0.0816 moved 0.0000 sld 0.0289 cpd 0.0023
+[23:06:11] iter 19350 | loss 0.0533 | seg 0.0451 moved 0.0000 sld 0.0048 cpd 0.0034
+[23:06:33] iter 19400 | loss 0.0742 | seg 0.0409 moved 0.0000 sld 0.0216 cpd 0.0117
+[23:06:55] iter 19450 | loss 0.0500 | seg 0.0411 moved 0.0000 sld 0.0055 cpd 0.0034
+[23:07:17] iter 19500 | loss 0.0413 | seg 0.0335 moved 0.0000 sld 0.0063 cpd 0.0015
+[23:07:39] iter 19550 | loss 0.0433 | seg 0.0383 moved 0.0000 sld 0.0043 cpd 0.0007
+[23:08:02] iter 19600 | loss 0.0487 | seg 0.0426 moved 0.0000 sld 0.0053 cpd 0.0009
+[23:08:14] epoch 89 | val dice 0.7583 | best 0.7785
+[23:08:28] iter 19650 | loss 0.0598 | seg 0.0542 moved 0.0000 sld 0.0038 cpd 0.0019
+[23:08:50] iter 19700 | loss 0.0580 | seg 0.0476 moved 0.0000 sld 0.0075 cpd 0.0029
+[23:09:12] iter 19750 | loss 0.0432 | seg 0.0373 moved 0.0000 sld 0.0048 cpd 0.0011
+[23:09:34] iter 19800 | loss 0.0459 | seg 0.0366 moved 0.0000 sld 0.0061 cpd 0.0032
+[23:09:56] iter 19850 | loss 0.0473 | seg 0.0401 moved 0.0000 sld 0.0063 cpd 0.0009
+[23:10:19] iter 19900 | loss 0.0476 | seg 0.0403 moved 0.0000 sld 0.0048 cpd 0.0025
+[23:10:41] iter 19950 | loss 0.0624 | seg 0.0533 moved 0.0000 sld 0.0051 cpd 0.0040
+[23:10:52] iter 20000 | loss 0.0440 | seg 0.0367 moved 0.0000 sld 0.0065 cpd 0.0008
+[23:10:59] iter 20050 | loss 0.0492 | seg 0.0430 moved 0.0000 sld 0.0039 cpd 0.0024
+[23:11:07] iter 20100 | loss 0.0531 | seg 0.0450 moved 0.0000 sld 0.0049 cpd 0.0032
+[23:11:13] iter 20150 | loss 0.0597 | seg 0.0440 moved 0.0000 sld 0.0044 cpd 0.0113
+[23:11:20] iter 20200 | loss 0.0900 | seg 0.0819 moved 0.0000 sld 0.0035 cpd 0.0046
+[23:11:27] iter 20250 | loss 0.0575 | seg 0.0446 moved 0.0000 sld 0.0065 cpd 0.0064
+[23:11:55] iter 20300 | loss 0.0530 | seg 0.0449 moved 0.0000 sld 0.0064 cpd 0.0017
+[23:12:32] iter 20350 | loss 0.0475 | seg 0.0396 moved 0.0000 sld 0.0066 cpd 0.0012
+[23:13:08] iter 20400 | loss 0.0459 | seg 0.0398 moved 0.0000 sld 0.0040 cpd 0.0021
+[23:13:44] iter 20450 | loss 0.0492 | seg 0.0399 moved 0.0000 sld 0.0054 cpd 0.0039
+[23:14:21] iter 20500 | loss 0.0546 | seg 0.0446 moved 0.0000 sld 0.0081 cpd 0.0019
+[23:14:57] iter 20550 | loss 0.0509 | seg 0.0434 moved 0.0000 sld 0.0049 cpd 0.0026
+[23:15:30] iter 20600 | loss 0.0634 | seg 0.0526 moved 0.0000 sld 0.0088 cpd 0.0020
+[23:15:55] iter 20650 | loss 0.0549 | seg 0.0486 moved 0.0000 sld 0.0049 cpd 0.0014
+[23:16:35] iter 20700 | loss 0.0555 | seg 0.0399 moved 0.0000 sld 0.0121 cpd 0.0035
+[23:16:48] epoch 94 | val dice 0.7761 | best 0.7785
+[23:17:20] iter 20750 | loss 0.0455 | seg 0.0379 moved 0.0000 sld 0.0063 cpd 0.0013
+[23:18:00] iter 20800 | loss 0.0680 | seg 0.0580 moved 0.0000 sld 0.0057 cpd 0.0043
+[23:18:40] iter 20850 | loss 0.0444 | seg 0.0383 moved 0.0000 sld 0.0049 cpd 0.0012
+[23:19:10] iter 20900 | loss 0.0495 | seg 0.0422 moved 0.0000 sld 0.0065 cpd 0.0008
+[23:19:45] iter 20950 | loss 0.0714 | seg 0.0549 moved 0.0000 sld 0.0107 cpd 0.0058
+[23:20:25] iter 21000 | loss 0.0466 | seg 0.0379 moved 0.0000 sld 0.0074 cpd 0.0013
+[23:21:08] iter 21050 | loss 0.0526 | seg 0.0474 moved 0.0000 sld 0.0037 cpd 0.0015
+[23:21:49] iter 21100 | loss 0.0489 | seg 0.0390 moved 0.0000 sld 0.0072 cpd 0.0028
+[23:22:29] iter 21150 | loss 0.0469 | seg 0.0410 moved 0.0000 sld 0.0050 cpd 0.0009
+[23:23:09] iter 21200 | loss 0.0480 | seg 0.0423 moved 0.0000 sld 0.0046 cpd 0.0011
+[23:23:34] iter 21250 | loss 0.0421 | seg 0.0356 moved 0.0000 sld 0.0061 cpd 0.0004
+[23:24:09] iter 21300 | loss 0.0485 | seg 0.0411 moved 0.0000 sld 0.0043 cpd 0.0032
+[23:24:44] iter 21350 | loss 0.0489 | seg 0.0401 moved 0.0000 sld 0.0062 cpd 0.0025
+[23:25:20] iter 21400 | loss 0.0410 | seg 0.0361 moved 0.0000 sld 0.0044 cpd 0.0005
+[23:25:56] iter 21450 | loss 0.0505 | seg 0.0440 moved 0.0000 sld 0.0055 cpd 0.0010
+[23:26:31] iter 21500 | loss 0.0699 | seg 0.0601 moved 0.0000 sld 0.0042 cpd 0.0056
+[23:26:51] iter 21550 | loss 0.0395 | seg 0.0338 moved 0.0000 sld 0.0046 cpd 0.0012
+[23:27:08] iter 21600 | loss 0.0490 | seg 0.0407 moved 0.0000 sld 0.0065 cpd 0.0019
+[23:27:18] iter 21650 | loss 0.0463 | seg 0.0404 moved 0.0000 sld 0.0047 cpd 0.0013
+[23:27:25] iter 21700 | loss 0.0518 | seg 0.0414 moved 0.0000 sld 0.0081 cpd 0.0023
+[23:27:32] iter 21750 | loss 0.0478 | seg 0.0411 moved 0.0000 sld 0.0057 cpd 0.0010
+[23:27:38] iter 21800 | loss 0.0523 | seg 0.0461 moved 0.0000 sld 0.0059 cpd 0.0003
+[23:27:42] epoch 99 | val dice 0.7593 | best 0.7785
+[23:27:49] iter 21850 | loss 0.0519 | seg 0.0446 moved 0.0000 sld 0.0058 cpd 0.0015
+[23:27:56] iter 21900 | loss 0.0448 | seg 0.0378 moved 0.0000 sld 0.0060 cpd 0.0010
+[23:28:02] iter 21950 | loss 0.0592 | seg 0.0503 moved 0.0000 sld 0.0071 cpd 0.0017
+[23:28:09] iter 22000 | loss 0.0492 | seg 0.0420 moved 0.0000 sld 0.0059 cpd 0.0013
+[23:28:16] iter 22050 | loss 0.0514 | seg 0.0401 moved 0.0000 sld 0.0052 cpd 0.0060
+[23:28:23] iter 22100 | loss 0.0389 | seg 0.0338 moved 0.0000 sld 0.0037 cpd 0.0014
+[23:28:30] iter 22150 | loss 0.0476 | seg 0.0387 moved 0.0000 sld 0.0052 cpd 0.0037
+[23:28:37] iter 22200 | loss 0.0446 | seg 0.0351 moved 0.0000 sld 0.0051 cpd 0.0044
+[23:28:44] iter 22250 | loss 0.0446 | seg 0.0399 moved 0.0000 sld 0.0036 cpd 0.0012
+[23:28:51] iter 22300 | loss 0.0452 | seg 0.0394 moved 0.0000 sld 0.0051 cpd 0.0007
+[23:28:58] iter 22350 | loss 0.0577 | seg 0.0488 moved 0.0000 sld 0.0081 cpd 0.0008
+[23:29:05] iter 22400 | loss 0.0575 | seg 0.0450 moved 0.0000 sld 0.0101 cpd 0.0023
+[23:29:12] iter 22450 | loss 0.0649 | seg 0.0574 moved 0.0000 sld 0.0037 cpd 0.0038
+[23:29:19] iter 22500 | loss 0.0509 | seg 0.0449 moved 0.0000 sld 0.0048 cpd 0.0012
+[23:29:26] iter 22550 | loss 0.0488 | seg 0.0416 moved 0.0000 sld 0.0054 cpd 0.0017
+[23:29:32] iter 22600 | loss 0.0545 | seg 0.0464 moved 0.0000 sld 0.0055 cpd 0.0026
+[23:29:39] iter 22650 | loss 0.0494 | seg 0.0403 moved 0.0000 sld 0.0073 cpd 0.0018
+[23:29:46] iter 22700 | loss 0.0624 | seg 0.0540 moved 0.0000 sld 0.0053 cpd 0.0031
+[23:29:53] iter 22750 | loss 0.0428 | seg 0.0378 moved 0.0000 sld 0.0046 cpd 0.0004
+[23:30:00] iter 22800 | loss 0.0384 | seg 0.0328 moved 0.0000 sld 0.0047 cpd 0.0009
+[23:30:07] iter 22850 | loss 0.0511 | seg 0.0430 moved 0.0000 sld 0.0055 cpd 0.0027
+[23:30:16] epoch 104 | val dice 0.7615 | best 0.7785
+[23:30:18] iter 22900 | loss 0.0403 | seg 0.0335 moved 0.0000 sld 0.0062 cpd 0.0006
+[23:30:24] iter 22950 | loss 0.0475 | seg 0.0382 moved 0.0000 sld 0.0045 cpd 0.0048
+[23:30:31] iter 23000 | loss 0.0487 | seg 0.0427 moved 0.0000 sld 0.0053 cpd 0.0007
+[23:30:38] iter 23050 | loss 0.0391 | seg 0.0329 moved 0.0000 sld 0.0044 cpd 0.0017
+[23:30:44] iter 23100 | loss 0.0465 | seg 0.0373 moved 0.0000 sld 0.0065 cpd 0.0027
+[23:30:52] iter 23150 | loss 0.0413 | seg 0.0352 moved 0.0000 sld 0.0050 cpd 0.0011
+[23:30:59] iter 23200 | loss 0.0511 | seg 0.0451 moved 0.0000 sld 0.0038 cpd 0.0022
+[23:31:06] iter 23250 | loss 0.0581 | seg 0.0436 moved 0.0000 sld 0.0056 cpd 0.0089
+[23:31:13] iter 23300 | loss 0.0440 | seg 0.0387 moved 0.0000 sld 0.0046 cpd 0.0007
+[23:31:21] iter 23350 | loss 0.0439 | seg 0.0375 moved 0.0000 sld 0.0055 cpd 0.0009
+[23:31:27] iter 23400 | loss 0.0619 | seg 0.0513 moved 0.0000 sld 0.0058 cpd 0.0048
+[23:31:34] iter 23450 | loss 0.0522 | seg 0.0474 moved 0.0000 sld 0.0028 cpd 0.0021
+[23:31:41] iter 23500 | loss 0.0569 | seg 0.0492 moved 0.0000 sld 0.0072 cpd 0.0006
+[23:31:49] iter 23550 | loss 0.0471 | seg 0.0395 moved 0.0000 sld 0.0055 cpd 0.0021
+[23:31:56] iter 23600 | loss 0.0424 | seg 0.0345 moved 0.0000 sld 0.0066 cpd 0.0014
+[23:32:02] iter 23650 | loss 0.0472 | seg 0.0376 moved 0.0000 sld 0.0069 cpd 0.0027
+[23:32:09] iter 23700 | loss 0.0509 | seg 0.0428 moved 0.0000 sld 0.0070 cpd 0.0011
+[23:32:16] iter 23750 | loss 0.0531 | seg 0.0378 moved 0.0000 sld 0.0140 cpd 0.0014
+[23:32:23] iter 23800 | loss 0.0508 | seg 0.0445 moved 0.0000 sld 0.0049 cpd 0.0014
+[23:32:30] iter 23850 | loss 0.0753 | seg 0.0482 moved 0.0000 sld 0.0252 cpd 0.0019
+[23:32:36] iter 23900 | loss 0.0490 | seg 0.0429 moved 0.0000 sld 0.0053 cpd 0.0008
+[23:32:43] iter 23950 | loss 0.0497 | seg 0.0403 moved 0.0000 sld 0.0081 cpd 0.0012
+[23:32:51] epoch 109 | val dice 0.7782 | best 0.7785
+[23:32:54] iter 24000 | loss 0.0622 | seg 0.0487 moved 0.0000 sld 0.0115 cpd 0.0020
+[23:33:01] iter 24050 | loss 0.0603 | seg 0.0547 moved 0.0000 sld 0.0041 cpd 0.0016
+[23:33:07] iter 24100 | loss 0.0485 | seg 0.0435 moved 0.0000 sld 0.0038 cpd 0.0012
+[23:33:14] iter 24150 | loss 0.0427 | seg 0.0349 moved 0.0000 sld 0.0056 cpd 0.0022
+[23:33:21] iter 24200 | loss 0.0465 | seg 0.0397 moved 0.0000 sld 0.0048 cpd 0.0019
+[23:33:28] iter 24250 | loss 0.0497 | seg 0.0425 moved 0.0000 sld 0.0060 cpd 0.0013
+[23:33:35] iter 24300 | loss 0.0522 | seg 0.0441 moved 0.0000 sld 0.0039 cpd 0.0042
+[23:33:42] iter 24350 | loss 0.0443 | seg 0.0365 moved 0.0000 sld 0.0066 cpd 0.0012
+[23:33:49] iter 24400 | loss 0.0460 | seg 0.0377 moved 0.0000 sld 0.0047 cpd 0.0036
+[23:33:57] iter 24450 | loss 0.0493 | seg 0.0411 moved 0.0000 sld 0.0072 cpd 0.0010
+[23:34:03] iter 24500 | loss 0.0543 | seg 0.0452 moved 0.0000 sld 0.0087 cpd 0.0003
+[23:34:10] iter 24550 | loss 0.0488 | seg 0.0413 moved 0.0000 sld 0.0057 cpd 0.0019
+[23:34:17] iter 24600 | loss 0.0520 | seg 0.0445 moved 0.0000 sld 0.0038 cpd 0.0038
+[23:34:25] iter 24650 | loss 0.0451 | seg 0.0379 moved 0.0000 sld 0.0047 cpd 0.0025
+[23:34:32] iter 24700 | loss 0.0513 | seg 0.0449 moved 0.0000 sld 0.0052 cpd 0.0013
+[23:34:39] iter 24750 | loss 0.0496 | seg 0.0415 moved 0.0000 sld 0.0068 cpd 0.0013
+[23:34:46] iter 24800 | loss 0.0526 | seg 0.0462 moved 0.0000 sld 0.0044 cpd 0.0019
+[23:34:53] iter 24850 | loss 0.0629 | seg 0.0466 moved 0.0000 sld 0.0066 cpd 0.0097
+[23:35:00] iter 24900 | loss 0.0562 | seg 0.0466 moved 0.0000 sld 0.0048 cpd 0.0048
+[23:35:07] iter 24950 | loss 0.0387 | seg 0.0326 moved 0.0000 sld 0.0049 cpd 0.0012
+[23:35:13] iter 25000 | loss 0.0613 | seg 0.0518 moved 0.0000 sld 0.0046 cpd 0.0050
+[23:35:20] iter 25050 | loss 0.0503 | seg 0.0429 moved 0.0000 sld 0.0053 cpd 0.0022
+[23:35:27] epoch 114 | val dice 0.7931 | best 0.7931
+[23:35:31] iter 25100 | loss 0.0452 | seg 0.0376 moved 0.0000 sld 0.0066 cpd 0.0010
+[23:35:38] iter 25150 | loss 0.0530 | seg 0.0453 moved 0.0000 sld 0.0056 cpd 0.0022
+[23:35:44] iter 25200 | loss 0.0591 | seg 0.0487 moved 0.0000 sld 0.0066 cpd 0.0038
+[23:35:51] iter 25250 | loss 0.0744 | seg 0.0636 moved 0.0000 sld 0.0057 cpd 0.0051
+[23:35:58] iter 25300 | loss 0.0396 | seg 0.0325 moved 0.0000 sld 0.0065 cpd 0.0006
+[23:36:05] iter 25350 | loss 0.0484 | seg 0.0403 moved 0.0000 sld 0.0077 cpd 0.0004
+[23:36:12] iter 25400 | loss 0.0511 | seg 0.0412 moved 0.0000 sld 0.0054 cpd 0.0045
+[23:36:18] iter 25450 | loss 0.0418 | seg 0.0361 moved 0.0000 sld 0.0046 cpd 0.0011
+[23:36:25] iter 25500 | loss 0.0450 | seg 0.0392 moved 0.0000 sld 0.0045 cpd 0.0012
+[23:36:32] iter 25550 | loss 0.0494 | seg 0.0406 moved 0.0000 sld 0.0065 cpd 0.0023
+[23:36:39] iter 25600 | loss 0.0488 | seg 0.0415 moved 0.0000 sld 0.0064 cpd 0.0009
+[23:36:46] iter 25650 | loss 0.0452 | seg 0.0379 moved 0.0000 sld 0.0061 cpd 0.0012
+[23:36:52] iter 25700 | loss 0.0716 | seg 0.0616 moved 0.0000 sld 0.0066 cpd 0.0035
+[23:37:00] iter 25750 | loss 0.0421 | seg 0.0343 moved 0.0000 sld 0.0070 cpd 0.0007
+[23:37:07] iter 25800 | loss 0.0416 | seg 0.0348 moved 0.0000 sld 0.0056 cpd 0.0013
+[23:37:14] iter 25850 | loss 0.0368 | seg 0.0324 moved 0.0000 sld 0.0040 cpd 0.0004
+[23:37:21] iter 25900 | loss 0.0459 | seg 0.0410 moved 0.0000 sld 0.0043 cpd 0.0006
+[23:37:28] iter 25950 | loss 0.0488 | seg 0.0423 moved 0.0000 sld 0.0050 cpd 0.0016
+[23:37:35] iter 26000 | loss 0.0444 | seg 0.0360 moved 0.0000 sld 0.0072 cpd 0.0011
+[23:37:42] iter 26050 | loss 0.0663 | seg 0.0557 moved 0.0000 sld 0.0044 cpd 0.0062
+[23:37:49] iter 26100 | loss 0.0398 | seg 0.0326 moved 0.0000 sld 0.0063 cpd 0.0009
+[23:37:56] iter 26150 | loss 0.0509 | seg 0.0417 moved 0.0000 sld 0.0050 cpd 0.0042
+[23:38:01] epoch 119 | val dice 0.7819 | best 0.7931
+[23:38:07] iter 26200 | loss 0.0480 | seg 0.0411 moved 0.0000 sld 0.0054 cpd 0.0016
+[23:38:14] iter 26250 | loss 0.0583 | seg 0.0441 moved 0.0000 sld 0.0089 cpd 0.0053
+[23:38:21] iter 26300 | loss 0.0451 | seg 0.0401 moved 0.0000 sld 0.0043 cpd 0.0007
+[23:38:28] iter 26350 | loss 0.0965 | seg 0.0821 moved 0.0000 sld 0.0090 cpd 0.0054
+[23:38:36] iter 26400 | loss 0.0433 | seg 0.0365 moved 0.0000 sld 0.0056 cpd 0.0012
+[23:38:42] iter 26450 | loss 0.0479 | seg 0.0390 moved 0.0000 sld 0.0078 cpd 0.0011
+[23:38:49] iter 26500 | loss 0.0472 | seg 0.0431 moved 0.0000 sld 0.0037 cpd 0.0004
+[23:38:56] iter 26550 | loss 0.0400 | seg 0.0349 moved 0.0000 sld 0.0043 cpd 0.0008
+[23:39:03] iter 26600 | loss 0.0379 | seg 0.0331 moved 0.0000 sld 0.0044 cpd 0.0004
+[23:39:10] iter 26650 | loss 0.0421 | seg 0.0360 moved 0.0000 sld 0.0050 cpd 0.0011
+[23:39:16] iter 26700 | loss 0.0472 | seg 0.0418 moved 0.0000 sld 0.0046 cpd 0.0008
+[23:39:23] iter 26750 | loss 0.0570 | seg 0.0497 moved 0.0000 sld 0.0063 cpd 0.0010
+[23:39:30] iter 26800 | loss 0.0516 | seg 0.0440 moved 0.0000 sld 0.0069 cpd 0.0007
+[23:39:37] iter 26850 | loss 0.0526 | seg 0.0453 moved 0.0000 sld 0.0058 cpd 0.0014
+[23:39:44] iter 26900 | loss 0.0399 | seg 0.0354 moved 0.0000 sld 0.0037 cpd 0.0008
+[23:39:51] iter 26950 | loss 0.0397 | seg 0.0337 moved 0.0000 sld 0.0049 cpd 0.0011
+[23:39:57] iter 27000 | loss 0.0391 | seg 0.0319 moved 0.0000 sld 0.0064 cpd 0.0008
+[23:40:05] iter 27050 | loss 0.0539 | seg 0.0460 moved 0.0000 sld 0.0067 cpd 0.0012
+[23:40:11] iter 27100 | loss 0.0443 | seg 0.0393 moved 0.0000 sld 0.0044 cpd 0.0006
+[23:40:18] iter 27150 | loss 0.0381 | seg 0.0331 moved 0.0000 sld 0.0037 cpd 0.0013
+[23:40:25] iter 27200 | loss 0.0480 | seg 0.0419 moved 0.0000 sld 0.0048 cpd 0.0013
+[23:40:31] iter 27250 | loss 0.0614 | seg 0.0518 moved 0.0000 sld 0.0085 cpd 0.0010
+[23:40:35] epoch 124 | val dice 0.7794 | best 0.7931
+[23:40:42] iter 27300 | loss 0.0432 | seg 0.0365 moved 0.0000 sld 0.0056 cpd 0.0011
+[23:40:49] iter 27350 | loss 0.0508 | seg 0.0462 moved 0.0000 sld 0.0036 cpd 0.0009
+[23:40:55] iter 27400 | loss 0.0507 | seg 0.0431 moved 0.0000 sld 0.0044 cpd 0.0033
+[23:41:02] iter 27450 | loss 0.0410 | seg 0.0367 moved 0.0000 sld 0.0032 cpd 0.0010
+[23:41:09] iter 27500 | loss 0.0529 | seg 0.0412 moved 0.0000 sld 0.0034 cpd 0.0083
+[23:41:16] iter 27550 | loss 0.0446 | seg 0.0362 moved 0.0000 sld 0.0072 cpd 0.0012
+[23:41:23] iter 27600 | loss 0.0392 | seg 0.0335 moved 0.0000 sld 0.0043 cpd 0.0014
+[23:41:30] iter 27650 | loss 0.0507 | seg 0.0451 moved 0.0000 sld 0.0039 cpd 0.0017
+[23:41:37] iter 27700 | loss 0.0414 | seg 0.0338 moved 0.0000 sld 0.0044 cpd 0.0032
+[23:41:44] iter 27750 | loss 0.0527 | seg 0.0456 moved 0.0000 sld 0.0064 cpd 0.0007
+[23:41:51] iter 27800 | loss 0.0447 | seg 0.0393 moved 0.0000 sld 0.0050 cpd 0.0004
+[23:41:58] iter 27850 | loss 0.0356 | seg 0.0305 moved 0.0000 sld 0.0047 cpd 0.0004
+[23:42:05] iter 27900 | loss 0.0397 | seg 0.0339 moved 0.0000 sld 0.0045 cpd 0.0012
+[23:42:12] iter 27950 | loss 0.0471 | seg 0.0391 moved 0.0000 sld 0.0062 cpd 0.0018
+[23:42:19] iter 28000 | loss 0.0541 | seg 0.0478 moved 0.0000 sld 0.0055 cpd 0.0009
+[23:42:26] iter 28050 | loss 0.0470 | seg 0.0395 moved 0.0000 sld 0.0063 cpd 0.0011
+[23:42:33] iter 28100 | loss 0.0499 | seg 0.0416 moved 0.0000 sld 0.0055 cpd 0.0027
+[23:42:41] iter 28150 | loss 0.0486 | seg 0.0414 moved 0.0000 sld 0.0059 cpd 0.0013
+[23:42:47] iter 28200 | loss 0.0418 | seg 0.0362 moved 0.0000 sld 0.0048 cpd 0.0009
+[23:42:54] iter 28250 | loss 0.0673 | seg 0.0620 moved 0.0000 sld 0.0033 cpd 0.0020
+[23:43:01] iter 28300 | loss 0.0580 | seg 0.0479 moved 0.0000 sld 0.0087 cpd 0.0015
+[23:43:10] epoch 129 | val dice 0.7746 | best 0.7931
+[23:43:12] iter 28350 | loss 0.0444 | seg 0.0390 moved 0.0000 sld 0.0048 cpd 0.0006
+[23:43:19] iter 28400 | loss 0.0552 | seg 0.0471 moved 0.0000 sld 0.0059 cpd 0.0022
+[23:43:26] iter 28450 | loss 0.0471 | seg 0.0414 moved 0.0000 sld 0.0049 cpd 0.0009
+[23:43:33] iter 28500 | loss 0.0598 | seg 0.0496 moved 0.0000 sld 0.0069 cpd 0.0033
+[23:43:40] iter 28550 | loss 0.0488 | seg 0.0419 moved 0.0000 sld 0.0059 cpd 0.0010
+[23:43:47] iter 28600 | loss 0.0387 | seg 0.0329 moved 0.0000 sld 0.0054 cpd 0.0004
+[23:43:54] iter 28650 | loss 0.0398 | seg 0.0320 moved 0.0000 sld 0.0045 cpd 0.0034
+[23:44:01] iter 28700 | loss 0.0428 | seg 0.0359 moved 0.0000 sld 0.0060 cpd 0.0008
+[23:44:08] iter 28750 | loss 0.0526 | seg 0.0444 moved 0.0000 sld 0.0055 cpd 0.0027
+[23:44:16] iter 28800 | loss 0.0463 | seg 0.0373 moved 0.0000 sld 0.0049 cpd 0.0041
+[23:44:22] iter 28850 | loss 0.0407 | seg 0.0333 moved 0.0000 sld 0.0071 cpd 0.0004
+[23:44:29] iter 28900 | loss 0.0427 | seg 0.0384 moved 0.0000 sld 0.0032 cpd 0.0012
+[23:44:36] iter 28950 | loss 0.0413 | seg 0.0322 moved 0.0000 sld 0.0065 cpd 0.0026
+[23:44:43] iter 29000 | loss 0.0539 | seg 0.0465 moved 0.0000 sld 0.0053 cpd 0.0021
+[23:44:50] iter 29050 | loss 0.0527 | seg 0.0469 moved 0.0000 sld 0.0048 cpd 0.0011
+[23:44:56] iter 29100 | loss 0.0490 | seg 0.0336 moved 0.0000 sld 0.0086 cpd 0.0068
+[23:45:03] iter 29150 | loss 0.0389 | seg 0.0344 moved 0.0000 sld 0.0035 cpd 0.0010
+[23:45:10] iter 29200 | loss 0.0464 | seg 0.0398 moved 0.0000 sld 0.0054 cpd 0.0012
+[23:45:17] iter 29250 | loss 0.0414 | seg 0.0371 moved 0.0000 sld 0.0034 cpd 0.0009
+[23:45:24] iter 29300 | loss 0.0439 | seg 0.0369 moved 0.0000 sld 0.0061 cpd 0.0009
+[23:45:31] iter 29350 | loss 0.0521 | seg 0.0418 moved 0.0000 sld 0.0080 cpd 0.0023
+[23:45:38] iter 29400 | loss 0.0405 | seg 0.0341 moved 0.0000 sld 0.0051 cpd 0.0012
+[23:45:46] epoch 134 | val dice 0.7619 | best 0.7931
+[23:45:49] iter 29450 | loss 0.0575 | seg 0.0486 moved 0.0000 sld 0.0063 cpd 0.0026
+[23:45:56] iter 29500 | loss 0.0485 | seg 0.0409 moved 0.0000 sld 0.0063 cpd 0.0013
+[23:46:03] iter 29550 | loss 0.0462 | seg 0.0417 moved 0.0000 sld 0.0034 cpd 0.0012
+[23:46:10] iter 29600 | loss 0.0462 | seg 0.0389 moved 0.0000 sld 0.0063 cpd 0.0011
+[23:46:17] iter 29650 | loss 0.0504 | seg 0.0402 moved 0.0000 sld 0.0065 cpd 0.0037
+[23:46:24] iter 29700 | loss 0.0401 | seg 0.0343 moved 0.0000 sld 0.0049 cpd 0.0008
+[23:46:31] iter 29750 | loss 0.0445 | seg 0.0398 moved 0.0000 sld 0.0043 cpd 0.0004
+[23:46:37] iter 29800 | loss 0.0455 | seg 0.0358 moved 0.0000 sld 0.0057 cpd 0.0040
+[23:46:44] iter 29850 | loss 0.0455 | seg 0.0384 moved 0.0000 sld 0.0048 cpd 0.0023
+[23:46:51] iter 29900 | loss 0.0440 | seg 0.0369 moved 0.0000 sld 0.0038 cpd 0.0034
+[23:46:58] iter 29950 | loss 0.0404 | seg 0.0353 moved 0.0000 sld 0.0046 cpd 0.0005
+[23:47:05] iter 30000 | loss 0.0452 | seg 0.0395 moved 0.0000 sld 0.0045 cpd 0.0012
+[23:47:12] iter 30050 | loss 0.0456 | seg 0.0399 moved 0.0000 sld 0.0050 cpd 0.0006
+[23:47:20] iter 30100 | loss 0.0318 | seg 0.0272 moved 0.0000 sld 0.0042 cpd 0.0004
+[23:47:27] iter 30150 | loss 0.0449 | seg 0.0370 moved 0.0000 sld 0.0072 cpd 0.0006
+[23:47:34] iter 30200 | loss 0.0631 | seg 0.0545 moved 0.0000 sld 0.0055 cpd 0.0031
+[23:47:41] iter 30250 | loss 0.0425 | seg 0.0349 moved 0.0000 sld 0.0051 cpd 0.0025
+[23:47:48] iter 30300 | loss 0.0469 | seg 0.0402 moved 0.0000 sld 0.0055 cpd 0.0011
+[23:47:56] iter 30350 | loss 0.0474 | seg 0.0425 moved 0.0000 sld 0.0039 cpd 0.0010
+[23:48:02] iter 30400 | loss 0.0436 | seg 0.0358 moved 0.0000 sld 0.0052 cpd 0.0026
+[23:48:09] iter 30450 | loss 0.0418 | seg 0.0361 moved 0.0000 sld 0.0052 cpd 0.0005
+[23:48:16] iter 30500 | loss 0.0379 | seg 0.0331 moved 0.0000 sld 0.0037 cpd 0.0012
+[23:48:23] epoch 139 | val dice 0.7917 | best 0.7931
+[23:48:27] iter 30550 | loss 0.0443 | seg 0.0372 moved 0.0000 sld 0.0063 cpd 0.0008
+[23:48:33] iter 30600 | loss 0.0376 | seg 0.0321 moved 0.0000 sld 0.0046 cpd 0.0009
+[23:48:40] iter 30650 | loss 0.0450 | seg 0.0376 moved 0.0000 sld 0.0062 cpd 0.0012
+[23:48:47] iter 30700 | loss 0.0432 | seg 0.0367 moved 0.0000 sld 0.0041 cpd 0.0024
+[23:48:54] iter 30750 | loss 0.0608 | seg 0.0398 moved 0.0000 sld 0.0051 cpd 0.0158
+[23:49:01] iter 30800 | loss 0.0474 | seg 0.0392 moved 0.0000 sld 0.0051 cpd 0.0032
+[23:49:07] iter 30850 | loss 0.0369 | seg 0.0322 moved 0.0000 sld 0.0039 cpd 0.0008
+[23:49:14] iter 30900 | loss 0.0433 | seg 0.0368 moved 0.0000 sld 0.0042 cpd 0.0023
+[23:49:21] iter 30950 | loss 0.0415 | seg 0.0350 moved 0.0000 sld 0.0059 cpd 0.0006
+[23:49:28] iter 31000 | loss 0.0443 | seg 0.0384 moved 0.0000 sld 0.0044 cpd 0.0014
+[23:49:35] iter 31050 | loss 0.0452 | seg 0.0401 moved 0.0000 sld 0.0036 cpd 0.0016
+[23:49:42] iter 31100 | loss 0.0613 | seg 0.0549 moved 0.0000 sld 0.0041 cpd 0.0023
+[23:49:49] iter 31150 | loss 0.0579 | seg 0.0533 moved 0.0000 sld 0.0035 cpd 0.0011
+[23:49:57] iter 31200 | loss 0.0459 | seg 0.0404 moved 0.0000 sld 0.0050 cpd 0.0006
+[23:50:03] iter 31250 | loss 0.0432 | seg 0.0391 moved 0.0000 sld 0.0035 cpd 0.0006
+[23:50:10] iter 31300 | loss 0.0467 | seg 0.0415 moved 0.0000 sld 0.0047 cpd 0.0004
+[23:50:16] iter 31350 | loss 0.0398 | seg 0.0330 moved 0.0000 sld 0.0054 cpd 0.0014
+[23:50:24] iter 31400 | loss 0.0842 | seg 0.0429 moved 0.0000 sld 0.0300 cpd 0.0113
+[23:50:30] iter 31450 | loss 0.0400 | seg 0.0337 moved 0.0000 sld 0.0051 cpd 0.0012
+[23:50:37] iter 31500 | loss 0.0380 | seg 0.0324 moved 0.0000 sld 0.0049 cpd 0.0008
+[23:50:44] iter 31550 | loss 0.0405 | seg 0.0339 moved 0.0000 sld 0.0057 cpd 0.0008
+[23:50:51] iter 31600 | loss 0.0353 | seg 0.0303 moved 0.0000 sld 0.0046 cpd 0.0004
+[23:50:56] epoch 144 | val dice 0.7867 | best 0.7931
+[23:51:02] iter 31650 | loss 0.0417 | seg 0.0353 moved 0.0000 sld 0.0058 cpd 0.0006
+[23:51:08] iter 31700 | loss 0.0864 | seg 0.0684 moved 0.0000 sld 0.0174 cpd 0.0007
+[23:51:15] iter 31750 | loss 0.0395 | seg 0.0296 moved 0.0000 sld 0.0069 cpd 0.0030
+[23:51:21] iter 31800 | loss 0.0481 | seg 0.0395 moved 0.0000 sld 0.0040 cpd 0.0047
+[23:51:29] iter 31850 | loss 0.0377 | seg 0.0320 moved 0.0000 sld 0.0054 cpd 0.0003
+[23:51:35] iter 31900 | loss 0.0450 | seg 0.0396 moved 0.0000 sld 0.0044 cpd 0.0010
+[23:51:42] iter 31950 | loss 0.0459 | seg 0.0384 moved 0.0000 sld 0.0062 cpd 0.0013
+[23:51:49] iter 32000 | loss 0.0385 | seg 0.0308 moved 0.0000 sld 0.0059 cpd 0.0018
+[23:51:56] iter 32050 | loss 0.0490 | seg 0.0430 moved 0.0000 sld 0.0047 cpd 0.0012
+[23:52:03] iter 32100 | loss 0.0526 | seg 0.0456 moved 0.0000 sld 0.0060 cpd 0.0010
+[23:52:10] iter 32150 | loss 0.0397 | seg 0.0325 moved 0.0000 sld 0.0066 cpd 0.0005
+[23:52:16] iter 32200 | loss 0.0358 | seg 0.0294 moved 0.0000 sld 0.0061 cpd 0.0003
+[23:52:23] iter 32250 | loss 0.0466 | seg 0.0411 moved 0.0000 sld 0.0036 cpd 0.0019
+[23:52:30] iter 32300 | loss 0.0418 | seg 0.0366 moved 0.0000 sld 0.0045 cpd 0.0007
+[23:52:37] iter 32350 | loss 0.0420 | seg 0.0365 moved 0.0000 sld 0.0050 cpd 0.0005
+[23:52:44] iter 32400 | loss 0.0435 | seg 0.0344 moved 0.0000 sld 0.0048 cpd 0.0042
+[23:52:50] iter 32450 | loss 0.0410 | seg 0.0331 moved 0.0000 sld 0.0057 cpd 0.0022
+[23:52:58] iter 32500 | loss 0.0454 | seg 0.0397 moved 0.0000 sld 0.0042 cpd 0.0015
+[23:53:04] iter 32550 | loss 0.0484 | seg 0.0419 moved 0.0000 sld 0.0045 cpd 0.0020
+[23:53:11] iter 32600 | loss 0.0540 | seg 0.0470 moved 0.0000 sld 0.0042 cpd 0.0028
+[23:53:17] iter 32650 | loss 0.0476 | seg 0.0395 moved 0.0000 sld 0.0046 cpd 0.0035
+[23:53:24] iter 32700 | loss 0.0459 | seg 0.0417 moved 0.0000 sld 0.0033 cpd 0.0009
+[23:53:28] epoch 149 | val dice 0.7732 | best 0.7931
+[23:53:35] iter 32750 | loss 0.0513 | seg 0.0415 moved 0.0000 sld 0.0065 cpd 0.0033
+[23:53:42] iter 32800 | loss 0.0427 | seg 0.0367 moved 0.0000 sld 0.0041 cpd 0.0019
+[23:53:48] iter 32850 | loss 0.0445 | seg 0.0384 moved 0.0000 sld 0.0047 cpd 0.0014
+[23:53:55] iter 32900 | loss 0.0501 | seg 0.0413 moved 0.0000 sld 0.0047 cpd 0.0041
+[23:54:02] iter 32950 | loss 0.0420 | seg 0.0340 moved 0.0000 sld 0.0063 cpd 0.0017
+[23:54:09] iter 33000 | loss 0.0431 | seg 0.0368 moved 0.0000 sld 0.0053 cpd 0.0010
+[23:54:16] iter 33050 | loss 0.0437 | seg 0.0371 moved 0.0000 sld 0.0054 cpd 0.0012
+[23:54:22] iter 33100 | loss 0.0444 | seg 0.0375 moved 0.0000 sld 0.0045 cpd 0.0023
+[23:54:30] iter 33150 | loss 0.0510 | seg 0.0444 moved 0.0000 sld 0.0050 cpd 0.0016
+[23:54:37] iter 33200 | loss 0.0472 | seg 0.0420 moved 0.0000 sld 0.0042 cpd 0.0010
+[23:54:44] iter 33250 | loss 0.0540 | seg 0.0433 moved 0.0000 sld 0.0057 cpd 0.0050
+[23:54:50] iter 33300 | loss 0.0596 | seg 0.0519 moved 0.0000 sld 0.0063 cpd 0.0013
+[23:54:57] iter 33350 | loss 0.0427 | seg 0.0368 moved 0.0000 sld 0.0044 cpd 0.0016
+[23:55:04] iter 33400 | loss 0.0390 | seg 0.0332 moved 0.0000 sld 0.0052 cpd 0.0006
+[23:55:11] iter 33450 | loss 0.0422 | seg 0.0301 moved 0.0000 sld 0.0079 cpd 0.0042
+[23:55:18] iter 33500 | loss 0.0562 | seg 0.0436 moved 0.0000 sld 0.0052 cpd 0.0074
+[23:55:24] iter 33550 | loss 0.0360 | seg 0.0308 moved 0.0000 sld 0.0049 cpd 0.0003
+[23:55:32] iter 33600 | loss 0.0406 | seg 0.0314 moved 0.0000 sld 0.0047 cpd 0.0044
+[23:55:38] iter 33650 | loss 0.0363 | seg 0.0308 moved 0.0000 sld 0.0051 cpd 0.0004
+[23:55:45] iter 33700 | loss 0.0378 | seg 0.0323 moved 0.0000 sld 0.0045 cpd 0.0010
+[23:55:52] iter 33750 | loss 0.0443 | seg 0.0362 moved 0.0000 sld 0.0050 cpd 0.0031
+[23:56:01] epoch 154 | val dice 0.7964 | best 0.7964
+[23:56:03] iter 33800 | loss 0.0388 | seg 0.0346 moved 0.0000 sld 0.0033 cpd 0.0008
+[23:56:10] iter 33850 | loss 0.0442 | seg 0.0378 moved 0.0000 sld 0.0055 cpd 0.0009
+[23:56:17] iter 33900 | loss 0.0404 | seg 0.0353 moved 0.0000 sld 0.0039 cpd 0.0012
+[23:56:24] iter 33950 | loss 0.0384 | seg 0.0299 moved 0.0000 sld 0.0065 cpd 0.0020
+[23:56:31] iter 34000 | loss 0.0417 | seg 0.0364 moved 0.0000 sld 0.0040 cpd 0.0013
+[23:56:38] iter 34050 | loss 0.0433 | seg 0.0365 moved 0.0000 sld 0.0048 cpd 0.0020
+[23:56:45] iter 34100 | loss 0.0384 | seg 0.0332 moved 0.0000 sld 0.0047 cpd 0.0005
+[23:56:51] iter 34150 | loss 0.0451 | seg 0.0371 moved 0.0000 sld 0.0061 cpd 0.0019
+[23:56:58] iter 34200 | loss 0.0377 | seg 0.0314 moved 0.0000 sld 0.0060 cpd 0.0003
+[23:57:06] iter 34250 | loss 0.0405 | seg 0.0338 moved 0.0000 sld 0.0043 cpd 0.0024
+[23:57:13] iter 34300 | loss 0.0398 | seg 0.0328 moved 0.0000 sld 0.0064 cpd 0.0007
+[23:57:20] iter 34350 | loss 0.0523 | seg 0.0439 moved 0.0000 sld 0.0040 cpd 0.0044
+[23:57:27] iter 34400 | loss 0.0443 | seg 0.0370 moved 0.0000 sld 0.0047 cpd 0.0026
+[23:57:34] iter 34450 | loss 0.0354 | seg 0.0317 moved 0.0000 sld 0.0034 cpd 0.0003
+[23:57:41] iter 34500 | loss 0.0418 | seg 0.0344 moved 0.0000 sld 0.0070 cpd 0.0005
+[23:57:47] iter 34550 | loss 0.0358 | seg 0.0283 moved 0.0000 sld 0.0065 cpd 0.0009
+[23:57:54] iter 34600 | loss 0.0439 | seg 0.0375 moved 0.0000 sld 0.0057 cpd 0.0008
+[23:58:01] iter 34650 | loss 0.0427 | seg 0.0368 moved 0.0000 sld 0.0036 cpd 0.0023
+[23:58:08] iter 34700 | loss 0.0500 | seg 0.0424 moved 0.0000 sld 0.0031 cpd 0.0045
+[23:58:15] iter 34750 | loss 0.0390 | seg 0.0335 moved 0.0000 sld 0.0053 cpd 0.0003
+[23:58:21] iter 34800 | loss 0.0363 | seg 0.0316 moved 0.0000 sld 0.0038 cpd 0.0009
+[23:58:28] iter 34850 | loss 0.0533 | seg 0.0457 moved 0.0000 sld 0.0059 cpd 0.0016
+[23:58:36] epoch 159 | val dice 0.7973 | best 0.7973
+[23:58:39] iter 34900 | loss 0.0417 | seg 0.0354 moved 0.0000 sld 0.0056 cpd 0.0007
+[23:58:46] iter 34950 | loss 0.0465 | seg 0.0397 moved 0.0000 sld 0.0054 cpd 0.0014
+[23:58:53] iter 35000 | loss 0.0424 | seg 0.0371 moved 0.0000 sld 0.0047 cpd 0.0006
+[23:59:00] iter 35050 | loss 0.0486 | seg 0.0406 moved 0.0000 sld 0.0061 cpd 0.0019
+[23:59:08] iter 35100 | loss 0.0516 | seg 0.0456 moved 0.0000 sld 0.0035 cpd 0.0025
+[23:59:15] iter 35150 | loss 0.0403 | seg 0.0335 moved 0.0000 sld 0.0049 cpd 0.0019
+[23:59:22] iter 35200 | loss 0.0459 | seg 0.0403 moved 0.0000 sld 0.0052 cpd 0.0004
+[23:59:29] iter 35250 | loss 0.0436 | seg 0.0387 moved 0.0000 sld 0.0043 cpd 0.0006
+[23:59:36] iter 35300 | loss 0.0437 | seg 0.0374 moved 0.0000 sld 0.0046 cpd 0.0018
+[23:59:43] iter 35350 | loss 0.0388 | seg 0.0345 moved 0.0000 sld 0.0036 cpd 0.0007
+[23:59:50] iter 35400 | loss 0.0502 | seg 0.0437 moved 0.0000 sld 0.0055 cpd 0.0010
+[23:59:57] iter 35450 | loss 0.0415 | seg 0.0374 moved 0.0000 sld 0.0036 cpd 0.0005
+[00:00:04] iter 35500 | loss 0.0511 | seg 0.0451 moved 0.0000 sld 0.0048 cpd 0.0012
+[00:00:12] iter 35550 | loss 0.0418 | seg 0.0359 moved 0.0000 sld 0.0050 cpd 0.0009
+[00:00:19] iter 35600 | loss 0.0457 | seg 0.0408 moved 0.0000 sld 0.0040 cpd 0.0009
+[00:00:25] iter 35650 | loss 0.0400 | seg 0.0306 moved 0.0000 sld 0.0087 cpd 0.0007
+[00:00:32] iter 35700 | loss 0.0492 | seg 0.0428 moved 0.0000 sld 0.0042 cpd 0.0022
+[00:00:39] iter 35750 | loss 0.0467 | seg 0.0394 moved 0.0000 sld 0.0062 cpd 0.0011
+[00:00:46] iter 35800 | loss 0.0355 | seg 0.0301 moved 0.0000 sld 0.0046 cpd 0.0007
+[00:00:53] iter 35850 | loss 0.0539 | seg 0.0461 moved 0.0000 sld 0.0066 cpd 0.0012
+[00:00:59] iter 35900 | loss 0.0359 | seg 0.0319 moved 0.0000 sld 0.0036 cpd 0.0004
+[00:01:06] iter 35950 | loss 0.0472 | seg 0.0422 moved 0.0000 sld 0.0037 cpd 0.0013
+[00:01:12] epoch 164 | val dice 0.7986 | best 0.7986
+[00:01:17] iter 36000 | loss 0.0370 | seg 0.0316 moved 0.0000 sld 0.0046 cpd 0.0008
+[00:01:23] iter 36050 | loss 0.0381 | seg 0.0330 moved 0.0000 sld 0.0040 cpd 0.0011
+[00:01:30] iter 36100 | loss 0.0475 | seg 0.0373 moved 0.0000 sld 0.0094 cpd 0.0008
+[00:01:37] iter 36150 | loss 0.0483 | seg 0.0419 moved 0.0000 sld 0.0049 cpd 0.0015
+[00:01:44] iter 36200 | loss 0.0447 | seg 0.0387 moved 0.0000 sld 0.0046 cpd 0.0014
+[00:01:51] iter 36250 | loss 0.0510 | seg 0.0383 moved 0.0000 sld 0.0107 cpd 0.0020
+[00:01:58] iter 36300 | loss 0.0390 | seg 0.0338 moved 0.0000 sld 0.0041 cpd 0.0010
+[00:02:04] iter 36350 | loss 0.0397 | seg 0.0351 moved 0.0000 sld 0.0040 cpd 0.0006
+[00:02:11] iter 36400 | loss 0.0357 | seg 0.0287 moved 0.0000 sld 0.0060 cpd 0.0009
+[00:02:18] iter 36450 | loss 0.0439 | seg 0.0348 moved 0.0000 sld 0.0069 cpd 0.0022
+[00:02:25] iter 36500 | loss 0.1974 | seg 0.1160 moved 0.0000 sld 0.0488 cpd 0.0326
+[00:02:32] iter 36550 | loss 0.0354 | seg 0.0304 moved 0.0000 sld 0.0042 cpd 0.0008
+[00:02:38] iter 36600 | loss 0.0503 | seg 0.0435 moved 0.0000 sld 0.0046 cpd 0.0022
+[00:02:45] iter 36650 | loss 0.0543 | seg 0.0490 moved 0.0000 sld 0.0031 cpd 0.0023
+[00:02:52] iter 36700 | loss 0.0391 | seg 0.0324 moved 0.0000 sld 0.0062 cpd 0.0005
+[00:02:59] iter 36750 | loss 0.0461 | seg 0.0406 moved 0.0000 sld 0.0045 cpd 0.0009
+[00:03:06] iter 36800 | loss 0.0364 | seg 0.0316 moved 0.0000 sld 0.0040 cpd 0.0008
+[00:03:13] iter 36850 | loss 0.0407 | seg 0.0348 moved 0.0000 sld 0.0052 cpd 0.0006
+[00:03:20] iter 36900 | loss 0.0419 | seg 0.0366 moved 0.0000 sld 0.0046 cpd 0.0007
+[00:03:27] iter 36950 | loss 0.0425 | seg 0.0345 moved 0.0000 sld 0.0055 cpd 0.0025
+[00:03:33] iter 37000 | loss 0.0483 | seg 0.0410 moved 0.0000 sld 0.0066 cpd 0.0007
+[00:03:40] iter 37050 | loss 0.0474 | seg 0.0404 moved 0.0000 sld 0.0046 cpd 0.0023
+[00:03:45] epoch 169 | val dice 0.7947 | best 0.7986
+[00:03:51] iter 37100 | loss 0.0509 | seg 0.0458 moved 0.0000 sld 0.0045 cpd 0.0006
+[00:03:57] iter 37150 | loss 0.0332 | seg 0.0266 moved 0.0000 sld 0.0061 cpd 0.0005
+[00:04:04] iter 37200 | loss 0.0397 | seg 0.0325 moved 0.0000 sld 0.0039 cpd 0.0033
+[00:04:11] iter 37250 | loss 0.0336 | seg 0.0281 moved 0.0000 sld 0.0047 cpd 0.0008
+[00:04:19] iter 37300 | loss 0.0417 | seg 0.0354 moved 0.0000 sld 0.0057 cpd 0.0006
+[00:04:25] iter 37350 | loss 0.0446 | seg 0.0399 moved 0.0000 sld 0.0032 cpd 0.0015
+[00:04:32] iter 37400 | loss 0.0504 | seg 0.0445 moved 0.0000 sld 0.0054 cpd 0.0005
+[00:04:39] iter 37450 | loss 0.0447 | seg 0.0373 moved 0.0000 sld 0.0043 cpd 0.0031
+[00:04:47] iter 37500 | loss 0.0410 | seg 0.0313 moved 0.0000 sld 0.0088 cpd 0.0009
+[00:04:53] iter 37550 | loss 0.0498 | seg 0.0386 moved 0.0000 sld 0.0100 cpd 0.0012
+[00:05:00] iter 37600 | loss 0.0357 | seg 0.0296 moved 0.0000 sld 0.0056 cpd 0.0006
+[00:05:07] iter 37650 | loss 0.0417 | seg 0.0354 moved 0.0000 sld 0.0047 cpd 0.0016
+[00:05:13] iter 37700 | loss 0.0393 | seg 0.0354 moved 0.0000 sld 0.0031 cpd 0.0009
+[00:05:21] iter 37750 | loss 0.0447 | seg 0.0405 moved 0.0000 sld 0.0028 cpd 0.0013
+[00:05:27] iter 37800 | loss 0.0445 | seg 0.0362 moved 0.0000 sld 0.0071 cpd 0.0011
+[00:05:34] iter 37850 | loss 0.0388 | seg 0.0333 moved 0.0000 sld 0.0048 cpd 0.0006
+[00:05:41] iter 37900 | loss 0.0479 | seg 0.0420 moved 0.0000 sld 0.0038 cpd 0.0021
+[00:05:48] iter 37950 | loss 0.0437 | seg 0.0378 moved 0.0000 sld 0.0040 cpd 0.0019
+[00:05:55] iter 38000 | loss 0.0450 | seg 0.0396 moved 0.0000 sld 0.0044 cpd 0.0011
+[00:06:02] iter 38050 | loss 0.0384 | seg 0.0344 moved 0.0000 sld 0.0035 cpd 0.0005
+[00:06:08] iter 38100 | loss 0.0410 | seg 0.0352 moved 0.0000 sld 0.0039 cpd 0.0019
+[00:06:15] iter 38150 | loss 0.0646 | seg 0.0580 moved 0.0000 sld 0.0052 cpd 0.0014
+[00:06:18] epoch 174 | val dice 0.7841 | best 0.7986
+[00:06:25] iter 38200 | loss 0.0419 | seg 0.0347 moved 0.0000 sld 0.0067 cpd 0.0005
+[00:06:32] iter 38250 | loss 0.0395 | seg 0.0318 moved 0.0000 sld 0.0060 cpd 0.0017
+[00:06:39] iter 38300 | loss 0.0358 | seg 0.0306 moved 0.0000 sld 0.0041 cpd 0.0011
+[00:06:46] iter 38350 | loss 0.0389 | seg 0.0341 moved 0.0000 sld 0.0044 cpd 0.0003
+[00:06:53] iter 38400 | loss 0.0409 | seg 0.0355 moved 0.0000 sld 0.0044 cpd 0.0011
+[00:07:00] iter 38450 | loss 0.0545 | seg 0.0446 moved 0.0000 sld 0.0031 cpd 0.0068
+[00:07:07] iter 38500 | loss 0.0391 | seg 0.0333 moved 0.0000 sld 0.0053 cpd 0.0005
+[00:07:14] iter 38550 | loss 0.0390 | seg 0.0334 moved 0.0000 sld 0.0051 cpd 0.0004
+[00:07:21] iter 38600 | loss 0.0364 | seg 0.0303 moved 0.0000 sld 0.0058 cpd 0.0003
+[00:07:28] iter 38650 | loss 0.0765 | seg 0.0696 moved 0.0000 sld 0.0035 cpd 0.0034
+[00:07:35] iter 38700 | loss 0.0880 | seg 0.0686 moved 0.0000 sld 0.0114 cpd 0.0081
+[00:07:42] iter 38750 | loss 0.0357 | seg 0.0303 moved 0.0000 sld 0.0047 cpd 0.0006
+[00:07:49] iter 38800 | loss 0.0487 | seg 0.0403 moved 0.0000 sld 0.0070 cpd 0.0014
+[00:07:56] iter 38850 | loss 0.0429 | seg 0.0361 moved 0.0000 sld 0.0045 cpd 0.0023
+[00:08:03] iter 38900 | loss 0.0472 | seg 0.0408 moved 0.0000 sld 0.0053 cpd 0.0011
+[00:08:10] iter 38950 | loss 0.0434 | seg 0.0363 moved 0.0000 sld 0.0058 cpd 0.0013
+[00:08:16] iter 39000 | loss 0.0483 | seg 0.0438 moved 0.0000 sld 0.0037 cpd 0.0009
+[00:08:24] iter 39050 | loss 0.0397 | seg 0.0347 moved 0.0000 sld 0.0044 cpd 0.0006
+[00:08:30] iter 39100 | loss 0.0391 | seg 0.0318 moved 0.0000 sld 0.0067 cpd 0.0006
+[00:08:37] iter 39150 | loss 0.0466 | seg 0.0391 moved 0.0000 sld 0.0063 cpd 0.0012
+[00:08:44] iter 39200 | loss 0.0418 | seg 0.0367 moved 0.0000 sld 0.0046 cpd 0.0006
+[00:08:53] epoch 179 | val dice 0.7685 | best 0.7986
+[00:08:55] iter 39250 | loss 0.0479 | seg 0.0405 moved 0.0000 sld 0.0052 cpd 0.0023
+[00:09:01] iter 39300 | loss 0.0390 | seg 0.0344 moved 0.0000 sld 0.0033 cpd 0.0013
+[00:09:08] iter 39350 | loss 0.0371 | seg 0.0299 moved 0.0000 sld 0.0067 cpd 0.0005
+[00:09:14] iter 39400 | loss 0.0457 | seg 0.0395 moved 0.0000 sld 0.0053 cpd 0.0009
+[00:09:21] iter 39450 | loss 0.0379 | seg 0.0320 moved 0.0000 sld 0.0034 cpd 0.0026
+[00:09:28] iter 39500 | loss 0.0528 | seg 0.0435 moved 0.0000 sld 0.0043 cpd 0.0050
+[00:09:35] iter 39550 | loss 0.0313 | seg 0.0278 moved 0.0000 sld 0.0031 cpd 0.0004
+[00:09:41] iter 39600 | loss 0.0403 | seg 0.0347 moved 0.0000 sld 0.0038 cpd 0.0018
+[00:09:48] iter 39650 | loss 0.0349 | seg 0.0292 moved 0.0000 sld 0.0052 cpd 0.0005
+[00:09:55] iter 39700 | loss 0.0456 | seg 0.0384 moved 0.0000 sld 0.0063 cpd 0.0009
+[00:10:02] iter 39750 | loss 0.0525 | seg 0.0481 moved 0.0000 sld 0.0029 cpd 0.0015
+[00:10:09] iter 39800 | loss 0.0603 | seg 0.0538 moved 0.0000 sld 0.0059 cpd 0.0006
+[00:10:15] iter 39850 | loss 0.0533 | seg 0.0468 moved 0.0000 sld 0.0037 cpd 0.0028
+[00:10:22] iter 39900 | loss 0.0371 | seg 0.0318 moved 0.0000 sld 0.0048 cpd 0.0004
+[00:10:29] iter 39950 | loss 0.0351 | seg 0.0306 moved 0.0000 sld 0.0039 cpd 0.0007
+[00:10:36] iter 40000 | loss 0.0377 | seg 0.0340 moved 0.0000 sld 0.0028 cpd 0.0009
+[00:10:42] iter 40050 | loss 0.0352 | seg 0.0284 moved 0.0000 sld 0.0062 cpd 0.0005
+[00:10:49] iter 40100 | loss 0.0385 | seg 0.0343 moved 0.0000 sld 0.0034 cpd 0.0008
+[00:10:56] iter 40150 | loss 0.0399 | seg 0.0345 moved 0.0000 sld 0.0041 cpd 0.0013
+[00:11:03] iter 40200 | loss 0.0490 | seg 0.0443 moved 0.0000 sld 0.0038 cpd 0.0009
+[00:11:10] iter 40250 | loss 0.0394 | seg 0.0345 moved 0.0000 sld 0.0040 cpd 0.0009
+[00:11:17] iter 40300 | loss 0.0353 | seg 0.0308 moved 0.0000 sld 0.0038 cpd 0.0007
+[00:11:24] epoch 184 | val dice 0.7851 | best 0.7986
+[00:11:27] iter 40350 | loss 0.0431 | seg 0.0393 moved 0.0000 sld 0.0030 cpd 0.0008
+[00:11:34] iter 40400 | loss 0.0442 | seg 0.0394 moved 0.0000 sld 0.0036 cpd 0.0013
+[00:11:41] iter 40450 | loss 0.0379 | seg 0.0309 moved 0.0000 sld 0.0064 cpd 0.0005
+[00:11:48] iter 40500 | loss 0.0314 | seg 0.0269 moved 0.0000 sld 0.0036 cpd 0.0008
+[00:11:55] iter 40550 | loss 0.0378 | seg 0.0339 moved 0.0000 sld 0.0028 cpd 0.0010
+[00:12:02] iter 40600 | loss 0.0461 | seg 0.0411 moved 0.0000 sld 0.0037 cpd 0.0014
+[00:12:09] iter 40650 | loss 0.0421 | seg 0.0383 moved 0.0000 sld 0.0015 cpd 0.0023
+[00:12:16] iter 40700 | loss 0.0343 | seg 0.0253 moved 0.0000 sld 0.0068 cpd 0.0022
+[00:12:22] iter 40750 | loss 0.0371 | seg 0.0329 moved 0.0000 sld 0.0034 cpd 0.0007
+[00:12:29] iter 40800 | loss 0.0485 | seg 0.0386 moved 0.0000 sld 0.0078 cpd 0.0022
+[00:12:36] iter 40850 | loss 0.0383 | seg 0.0328 moved 0.0000 sld 0.0048 cpd 0.0006
+[00:12:42] iter 40900 | loss 0.0454 | seg 0.0345 moved 0.0000 sld 0.0058 cpd 0.0050
+[00:12:49] iter 40950 | loss 0.0436 | seg 0.0383 moved 0.0000 sld 0.0047 cpd 0.0006
+[00:12:56] iter 41000 | loss 0.0522 | seg 0.0470 moved 0.0000 sld 0.0039 cpd 0.0013
+[00:13:03] iter 41050 | loss 0.0450 | seg 0.0400 moved 0.0000 sld 0.0036 cpd 0.0015
+[00:13:10] iter 41100 | loss 0.0419 | seg 0.0355 moved 0.0000 sld 0.0035 cpd 0.0029
+[00:13:17] iter 41150 | loss 0.0403 | seg 0.0362 moved 0.0000 sld 0.0035 cpd 0.0007
+[00:13:24] iter 41200 | loss 0.0445 | seg 0.0405 moved 0.0000 sld 0.0035 cpd 0.0005
+[00:13:31] iter 41250 | loss 0.0488 | seg 0.0409 moved 0.0000 sld 0.0045 cpd 0.0033
+[00:13:38] iter 41300 | loss 0.0383 | seg 0.0339 moved 0.0000 sld 0.0032 cpd 0.0012
+[00:13:44] iter 41350 | loss 0.0352 | seg 0.0307 moved 0.0000 sld 0.0041 cpd 0.0004
+[00:13:51] iter 41400 | loss 0.0382 | seg 0.0298 moved 0.0000 sld 0.0077 cpd 0.0007
+[00:13:57] epoch 189 | val dice 0.7826 | best 0.7986
+[00:14:02] iter 41450 | loss 0.0405 | seg 0.0359 moved 0.0000 sld 0.0040 cpd 0.0006
+[00:14:08] iter 41500 | loss 0.0376 | seg 0.0337 moved 0.0000 sld 0.0032 cpd 0.0007
+[00:14:15] iter 41550 | loss 0.0384 | seg 0.0340 moved 0.0000 sld 0.0037 cpd 0.0006
+[00:14:22] iter 41600 | loss 0.0583 | seg 0.0391 moved 0.0000 sld 0.0121 cpd 0.0071
+[00:14:29] iter 41650 | loss 0.0672 | seg 0.0390 moved 0.0000 sld 0.0196 cpd 0.0086
+[00:14:36] iter 41700 | loss 0.0376 | seg 0.0328 moved 0.0000 sld 0.0044 cpd 0.0004
+[00:14:42] iter 41750 | loss 0.0428 | seg 0.0355 moved 0.0000 sld 0.0044 cpd 0.0029
+[00:14:49] iter 41800 | loss 0.0443 | seg 0.0385 moved 0.0000 sld 0.0038 cpd 0.0019
+[00:14:56] iter 41850 | loss 0.0426 | seg 0.0363 moved 0.0000 sld 0.0055 cpd 0.0008
+[00:15:03] iter 41900 | loss 0.0502 | seg 0.0452 moved 0.0000 sld 0.0040 cpd 0.0010
+[00:15:10] iter 41950 | loss 0.0418 | seg 0.0352 moved 0.0000 sld 0.0045 cpd 0.0021
+[00:15:16] iter 42000 | loss 0.0383 | seg 0.0337 moved 0.0000 sld 0.0034 cpd 0.0011
+[00:15:23] iter 42050 | loss 0.0337 | seg 0.0296 moved 0.0000 sld 0.0036 cpd 0.0005
+[00:15:30] iter 42100 | loss 0.0431 | seg 0.0383 moved 0.0000 sld 0.0041 cpd 0.0007
+[00:15:37] iter 42150 | loss 0.0490 | seg 0.0433 moved 0.0000 sld 0.0047 cpd 0.0011
+[00:15:44] iter 42200 | loss 0.0373 | seg 0.0333 moved 0.0000 sld 0.0036 cpd 0.0004
+[00:15:50] iter 42250 | loss 0.0374 | seg 0.0315 moved 0.0000 sld 0.0040 cpd 0.0018
+[00:15:58] iter 42300 | loss 0.0369 | seg 0.0315 moved 0.0000 sld 0.0050 cpd 0.0005
+[00:16:05] iter 42350 | loss 0.0428 | seg 0.0374 moved 0.0000 sld 0.0038 cpd 0.0016
+[00:16:11] iter 42400 | loss 0.0389 | seg 0.0352 moved 0.0000 sld 0.0035 cpd 0.0003
+[00:16:18] iter 42450 | loss 0.0765 | seg 0.0712 moved 0.0000 sld 0.0036 cpd 0.0017
+[00:16:25] iter 42500 | loss 0.0507 | seg 0.0440 moved 0.0000 sld 0.0045 cpd 0.0022
+[00:16:30] epoch 194 | val dice 0.7945 | best 0.7986
+[00:16:36] iter 42550 | loss 0.0404 | seg 0.0363 moved 0.0000 sld 0.0032 cpd 0.0009
+[00:16:42] iter 42600 | loss 0.0341 | seg 0.0303 moved 0.0000 sld 0.0035 cpd 0.0003
+[00:16:49] iter 42650 | loss 0.0325 | seg 0.0284 moved 0.0000 sld 0.0039 cpd 0.0002
+[00:16:56] iter 42700 | loss 0.0400 | seg 0.0349 moved 0.0000 sld 0.0029 cpd 0.0022
+[00:17:03] iter 42750 | loss 0.0445 | seg 0.0380 moved 0.0000 sld 0.0053 cpd 0.0012
+[00:17:10] iter 42800 | loss 0.0442 | seg 0.0368 moved 0.0000 sld 0.0035 cpd 0.0039
+[00:17:16] iter 42850 | loss 0.0557 | seg 0.0483 moved 0.0000 sld 0.0056 cpd 0.0018
+[00:17:23] iter 42900 | loss 0.0475 | seg 0.0403 moved 0.0000 sld 0.0051 cpd 0.0021
+[00:17:30] iter 42950 | loss 0.0406 | seg 0.0316 moved 0.0000 sld 0.0067 cpd 0.0024
+[00:17:37] iter 43000 | loss 0.0316 | seg 0.0279 moved 0.0000 sld 0.0034 cpd 0.0004
+[00:17:44] iter 43050 | loss 0.0387 | seg 0.0335 moved 0.0000 sld 0.0046 cpd 0.0005
+[00:17:50] iter 43100 | loss 0.0598 | seg 0.0537 moved 0.0000 sld 0.0040 cpd 0.0020
+[00:17:57] iter 43150 | loss 0.0347 | seg 0.0305 moved 0.0000 sld 0.0039 cpd 0.0003
+[00:18:04] iter 43200 | loss 0.0434 | seg 0.0384 moved 0.0000 sld 0.0044 cpd 0.0005
+[00:18:11] iter 43250 | loss 0.0402 | seg 0.0329 moved 0.0000 sld 0.0061 cpd 0.0012
+[00:18:17] iter 43300 | loss 0.0358 | seg 0.0308 moved 0.0000 sld 0.0043 cpd 0.0006
+[00:18:24] iter 43350 | loss 0.0446 | seg 0.0394 moved 0.0000 sld 0.0046 cpd 0.0006
+[00:18:32] iter 43400 | loss 0.0586 | seg 0.0439 moved 0.0000 sld 0.0087 cpd 0.0060
+[00:18:38] iter 43450 | loss 0.0504 | seg 0.0408 moved 0.0000 sld 0.0055 cpd 0.0041
+[00:18:45] iter 43500 | loss 0.0364 | seg 0.0306 moved 0.0000 sld 0.0049 cpd 0.0009
+[00:18:52] iter 43550 | loss 0.0451 | seg 0.0389 moved 0.0000 sld 0.0054 cpd 0.0008
+[00:18:59] iter 43600 | loss 0.0327 | seg 0.0285 moved 0.0000 sld 0.0036 cpd 0.0006
+[00:19:02] epoch 199 | val dice 0.7923 | best 0.7986
+[00:19:02] 40 test iterations per epoch
+[00:19:03] idx 0 case case_002_volume_ED.npz mean_dice 0.902279 mean_hd95 1.000000, mean_jacard 0.824665 mean_asd 0.294304
+[00:19:04] idx 1 case case_002_volume_ES.npz mean_dice 0.866784 mean_hd95 1.138071, mean_jacard 0.770435 mean_asd 0.315624
+[00:19:05] idx 2 case case_003_volume_ED.npz mean_dice 0.918445 mean_hd95 1.000000, mean_jacard 0.851787 mean_asd 0.239331
+[00:19:05] idx 3 case case_003_volume_ES.npz mean_dice 0.920232 mean_hd95 1.000000, mean_jacard 0.853886 mean_asd 0.242388
+[00:19:06] idx 4 case case_008_volume_ED.npz mean_dice 0.924646 mean_hd95 1.000000, mean_jacard 0.862295 mean_asd 0.218688
+[00:19:07] idx 5 case case_008_volume_ES.npz mean_dice 0.900228 mean_hd95 1.244017, mean_jacard 0.820843 mean_asd 0.303835
+[00:19:08] idx 6 case case_009_volume_ED.npz mean_dice 0.887246 mean_hd95 1.412023, mean_jacard 0.800896 mean_asd 0.393817
+[00:19:09] idx 7 case case_009_volume_ES.npz mean_dice 0.854830 mean_hd95 2.041035, mean_jacard 0.759357 mean_asd 0.481610
+[00:19:10] idx 8 case case_012_volume_ED.npz mean_dice 0.866376 mean_hd95 1.333333, mean_jacard 0.770019 mean_asd 0.349750
+[00:19:10] idx 9 case case_012_volume_ES.npz mean_dice 0.783664 mean_hd95 2.194192, mean_jacard 0.663253 mean_asd 0.513462
+[00:19:11] idx 10 case case_014_volume_ED.npz mean_dice 0.880851 mean_hd95 1.244017, mean_jacard 0.791583 mean_asd 0.247038
+[00:19:12] idx 11 case case_014_volume_ES.npz mean_dice 0.914596 mean_hd95 1.000000, mean_jacard 0.845490 mean_asd 0.154228
+[00:19:13] idx 12 case case_017_volume_ED.npz mean_dice 0.874238 mean_hd95 1.138071, mean_jacard 0.786179 mean_asd 0.348429
+[00:19:14] idx 13 case case_017_volume_ES.npz mean_dice 0.905531 mean_hd95 1.000000, mean_jacard 0.831701 mean_asd 0.278417
+[00:19:14] idx 14 case case_024_volume_ED.npz mean_dice 0.902762 mean_hd95 1.000000, mean_jacard 0.823746 mean_asd 0.268039
+[00:19:15] idx 15 case case_024_volume_ES.npz mean_dice 0.882044 mean_hd95 1.333333, mean_jacard 0.793493 mean_asd 0.284756
+[00:19:15] idx 16 case case_042_volume_ED.npz mean_dice 0.883583 mean_hd95 1.000000, mean_jacard 0.797172 mean_asd 0.311027
+[00:19:16] idx 17 case case_042_volume_ES.npz mean_dice 0.862665 mean_hd95 1.138071, mean_jacard 0.761570 mean_asd 0.369234
+[00:19:17] idx 18 case case_048_volume_ED.npz mean_dice 0.875158 mean_hd95 1.333333, mean_jacard 0.782278 mean_asd 0.343016
+[00:19:17] idx 19 case case_048_volume_ES.npz mean_dice 0.785483 mean_hd95 2.119633, mean_jacard 0.677072 mean_asd 0.574963
+[00:19:18] idx 20 case case_049_volume_ED.npz mean_dice 0.895703 mean_hd95 1.000000, mean_jacard 0.814279 mean_asd 0.193613
+[00:19:18] idx 21 case case_049_volume_ES.npz mean_dice 0.824176 mean_hd95 1.609476, mean_jacard 0.714454 mean_asd 0.322021
+[00:19:19] idx 22 case case_053_volume_ED.npz mean_dice 0.924449 mean_hd95 1.000000, mean_jacard 0.861198 mean_asd 0.191316
+[00:19:19] idx 23 case case_053_volume_ES.npz mean_dice 0.863411 mean_hd95 1.000000, mean_jacard 0.768370 mean_asd 0.293684
+[00:19:20] idx 24 case case_055_volume_ED.npz mean_dice 0.888144 mean_hd95 1.276142, mean_jacard 0.801372 mean_asd 0.341551
+[00:19:21] idx 25 case case_055_volume_ES.npz mean_dice 0.855765 mean_hd95 1.333333, mean_jacard 0.753999 mean_asd 0.422929
+[00:19:22] idx 26 case case_064_volume_ED.npz mean_dice 0.926713 mean_hd95 1.000000, mean_jacard 0.864479 mean_asd 0.235570
+[00:19:22] idx 27 case case_064_volume_ES.npz mean_dice 0.906122 mean_hd95 1.138071, mean_jacard 0.828397 mean_asd 0.311081
+[00:19:23] idx 28 case case_067_volume_ED.npz mean_dice 0.887565 mean_hd95 1.138071, mean_jacard 0.802488 mean_asd 0.342613
+[00:19:24] idx 29 case case_067_volume_ES.npz mean_dice 0.899417 mean_hd95 1.000000, mean_jacard 0.818147 mean_asd 0.340597
+[00:19:25] idx 30 case case_079_volume_ED.npz mean_dice 0.925658 mean_hd95 1.000000, mean_jacard 0.863085 mean_asd 0.195222
+[00:19:25] idx 31 case case_079_volume_ES.npz mean_dice 0.907583 mean_hd95 1.000000, mean_jacard 0.831116 mean_asd 0.238438
+[00:19:27] idx 32 case case_081_volume_ED.npz mean_dice 0.900738 mean_hd95 1.138071, mean_jacard 0.823973 mean_asd 0.388744
+[00:19:28] idx 33 case case_081_volume_ES.npz mean_dice 0.904004 mean_hd95 1.138071, mean_jacard 0.825782 mean_asd 0.317304
+[00:19:30] idx 34 case case_088_volume_ED.npz mean_dice 0.904239 mean_hd95 1.000000, mean_jacard 0.828807 mean_asd 0.274637
+[00:19:31] idx 35 case case_088_volume_ES.npz mean_dice 0.851761 mean_hd95 1.715421, mean_jacard 0.745397 mean_asd 0.414904
+[00:19:33] idx 36 case case_092_volume_ED.npz mean_dice 0.904682 mean_hd95 1.333333, mean_jacard 0.829085 mean_asd 0.403087
+[00:19:34] idx 37 case case_092_volume_ES.npz mean_dice 0.885705 mean_hd95 1.526633, mean_jacard 0.795666 mean_asd 0.509045
+[00:19:35] idx 38 case case_095_volume_ED.npz mean_dice 0.903380 mean_hd95 1.138071, mean_jacard 0.831156 mean_asd 0.309202
+[00:19:36] idx 39 case case_095_volume_ES.npz mean_dice 0.864550 mean_hd95 1.414214, mean_jacard 0.762584 mean_asd 0.482562
+[00:19:36] Mean class (1) mean_dice 0.859215 mean_hd95 1.597672, mean_jacard 0.762654 mean_asd 0.402067
+[00:19:36] Mean class (2) mean_dice 0.854325 mean_hd95 1.070078, mean_jacard 0.747530 mean_asd 0.331190
+[00:19:36] Mean class (3) mean_dice 0.942615 mean_hd95 1.049853, mean_jacard 0.892183 mean_asd 0.246249
+[00:19:36] Testing performance in best val model: mean_dice : 0.885385 mean_hd95 : 1.239201, mean_jacard : 0.800789 mean_asd : 0.326502
+[00:19:36] Testing Finished!
+[00:19:36] TEST (best-val checkpoint) | dice 0.8854 | hd95 1.2392 | jaccard 0.8008 | asd 0.3265

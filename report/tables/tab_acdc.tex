@@ -1,12 +1,11 @@
-\begin{tabular}{l c cc cc}
+\begin{tabular}{l c ccccc}
 \toprule
-Method & seeds & Dice$\uparrow$ & vol.\ Dice$\uparrow$ & Inh.$\downarrow$ & T-ok$\uparrow$ \\
+Method & seeds & Dice$\uparrow$ & vol.\ Dice$\uparrow$ & Inh.$\downarrow$ & Flag.$\downarrow$ & T-ok$\uparrow$ \\
 \midrule
-Teacher (SAM ViT-L) & 1 & 92.3 & 91.2 & -- & -- \\
-Student alone & 1 & 89.9 & 88.3 & 56.5 & 99.67 \\
-KD ($\tau{=}1$) & 1 & 89.8 & 88.5 & 58.4 & 99.67 \\
-KD ($\tau{=}2$) & 1 & 89.6 & 88.0 & 60.1 & 99.68 \\
-CPT-KD ($\tau{=}1$) & -- & \multicolumn{4}{c}{running} \\
-CPT-KD ($\tau{=}2$) & -- & \multicolumn{4}{c}{running} \\
+Teacher (SAM ViT-L) & 1 & 92.3 & 91.2 & -- & -- & -- \\
+Student alone & 2 & 89.7{\scriptsize$\pm$0.2} & 88.2{\scriptsize$\pm$0.1} & 56.9{\scriptsize$\pm$0.6} & 20.2{\scriptsize$\pm$6.0} & 99.67{\scriptsize$\pm$0.00} \\
+KD ($\tau{=}1$) & 1 & 89.8 & 88.4 & 58.4 & 2.9 & 99.67 \\
+CPT-KD ($\tau{=}1$) & 1 & 89.9 & 88.5 & 59.4 & 32.9 & 99.69 \\
+KD ($\tau{=}2$) & 1 & 89.6 & 88.0 & 60.1 & 14.9 & 99.68 \\
 \bottomrule
 \end{tabular}

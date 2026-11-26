@@ -10,7 +10,8 @@
   }
  ],
  "total_copied_pixels": {
-  "KD": 13741
+  "KD": 13741,
+  "CPT-KD (ours)": 14373
  },
  "teacher_wrong_alone_right": 52154
 }
