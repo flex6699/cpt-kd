@@ -1,0 +1,48 @@
+--- ACDC_Tool/train_ACDC_clean.py.bak_before_cpt	2026-11-26 20:39:41.371305998 +0530
++++ ACDC_Tool/train_ACDC_clean.py	2026-11-26 20:39:41.397306006 +0530
+@@ -73,7 +73,8 @@
+ p.add_argument('--gamma', type=float, default=0.1)
+ p.add_argument('--delta', type=float, default=1.0)
+ p.add_argument('--kas_in_ch', type=int, default=256, help='channels of the student global feature')
+-p.add_argument('--kd_loss', default='l2', choices=['l2', 'kl'],
++p.add_argument('--trust', default=None, help='cpt: KxK pair-trust matrix (.npy, rows = true class) from cpt_pilot.py')
++p.add_argument('--kd_loss', default='l2', choices=['l2', 'kl', 'cpt'],
+                help='KIS soft-label loss: l2 on logits (paper) or KL on softened probabilities')
+ p.add_argument('--kd_tau', type=float, default=1.0, help='temperature for --kd_loss kl')
+ # debugging
+@@ -179,6 +180,10 @@
+         for q in net_tea.parameters():
+             q.requires_grad_(False)
+         logging.info('teacher loaded from %s' % args.tea_ckpt)
++        if args.kd_loss == 'cpt':
++            assert args.trust, '--trust is required for --kd_loss cpt'
++            TRUST = torch.from_numpy(np.load(args.trust)).float().cuda()
++            logging.info('CPT-KD pair trust (rows = true class):\n%s' % np.array2string(TRUST.cpu().numpy(), precision=3))
+     if args.mode == 'kas':
+         assert args.stu_ckpt, '--stu_ckpt is required for kas'
+         net.load_state_dict(torch.load(args.stu_ckpt, map_location='cuda'))
+@@ -321,11 +326,21 @@
+                     t_out, _, _ = net_tea(image)
+                 if t_out.shape[-2:] != out.shape[-2:]:
+                     t_out = F.interpolate(t_out, size=out.shape[-2:], mode='bilinear', align_corners=False)
+-                if args.kd_loss == 'kl':
++                if args.kd_loss in ('kl', 'cpt'):
+                     tau = args.kd_tau
+                     zt, zs = t_out.float() / tau, out.float() / tau
+-                    L_sld = (torch.softmax(zt, 1) * (torch.log_softmax(zt, 1) - torch.log_softmax(zs, 1))
+-                             ).sum(1).mean() * tau ** 2
++                    q = torch.softmax(zt, 1)
++                    if args.kd_loss == 'cpt':
++                        # CPT-KD: scale each wrong-class prob by trust[y, c], rescale wrong classes to their
++                        # original total; true-class prob unchanged.
++                        y1 = F.one_hot(label.long(), N_OUT).permute(0, 3, 1, 2).float()
++                        tr = TRUST[label.long()].permute(0, 3, 1, 2)
++                        wrong = q * (1 - y1)
++                        scaled = wrong * tr
++                        scaled = scaled * (wrong.sum(1, keepdim=True) / scaled.sum(1, keepdim=True).clamp_min(1e-12))
++                        q = (q * y1 + scaled).detach()
++                        logs['moved'] = 0.5 * (q - torch.softmax(zt, 1)).abs().sum(1).mean().item()
++                    L_sld = (torch.xlogy(q, q) - q * torch.log_softmax(zs, 1)).sum(1).mean() * tau ** 2
+                     P_t = comp_class_pro(label, torch.softmax(t_out.float(), 1), num_classes=N_OUT)
+                     P_s = comp_class_pro(label, torch.softmax(out.float(), 1), num_classes=N_OUT)
+                 else:
