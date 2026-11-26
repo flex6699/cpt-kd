@@ -10,10 +10,10 @@
 | ACDC students (`student*/kis*/best.pth`) | 49 MB | 9 | 443 MB |
 | SAM ViT-L base weights (`sam_vit_l_0b3195.pth`, Meta, Apache-2.0) | 1.25 GB | 1 | 1.25 GB |
 
-Together this is about 2.3 GB, well above GitHub's 100 MB per-file / ~1 GB per-repository guidance. The weights
-are therefore hosted separately:
-
-**Download:** `CHECKPOINT_URL` (Hugging Face model repository; the folder layout matches the paths below).
+Together this is about 2.3 GB, well above GitHub's 100 MB per-file / ~1 GB per-repository guidance, so the weights
+are not uploaded. Every checkpoint can be regenerated with the commands below (the full set takes about 12 GPU-hours),
+and the SHA-256 hashes of the exact files we used are listed in `sha256.txt`. The weights are available from the
+authors on request.
 
 The SAM base weights come from the official source:
 https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth
@@ -39,8 +39,7 @@ See [`sha256.txt`](sha256.txt). Verify with `sha256sum -c sha256.txt` from the f
 | any classification student | `python cls/train_student.py` with the arguments in its `results/cls/runs/.../args.json` |
 | ACDC teacher / students | the commands in `seg/run_acdc.sh` (arguments also at the top of each `log.txt`) |
 
-## Packaging for upload
+## Packaging
 
 `bash checkpoints/package_checkpoints.sh <ml_research_dir> <cvpr2027_runs_dir> <out_dir>` collects all files
-into `<out_dir>` with the layout above. Then run
-`huggingface-cli upload <user>/cpt-kd-checkpoints <out_dir> .`
+into `<out_dir>` with one layout and writes their SHA-256 hashes (e.g. for later upload to a model hub).

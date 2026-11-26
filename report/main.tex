@@ -222,7 +222,6 @@ All code, run configurations, logs, per-run result files, test logits, trust tab
 \section{Conclusion}
 Distilled students copy their teacher's look-alike confusions, even from a teacher that makes no training errors. We showed this on two fine-grained benchmarks and on medical segmentation with a SAM teacher. CPT-KD estimates which class pairs the teacher confuses more than a student would, and turns down only those pairs in the soft label. It removes the targeted confusions, bringing flagged-pair inheritance below the level of an independently trained student, while keeping KD's accuracy, in about 20 lines and with no new parameters. Its limits are equally clear: it cannot fix shared confusions or the student's general imitation of the teacher, and it needs errors between classes rather than on object boundaries.
 
-%% TODO(authors): add a short author-contribution statement here if required.
 
 {\small
 \bibliographystyle{ieeenat_fullname}

@@ -122,8 +122,8 @@ The datasets total about 4.5 GB and are hosted by their owners, so they are not 
 ## Checkpoints
 
 The weights are 45–96 MB per model, and the full set (including 66 + 54 student runs) is several GB, so they are
-not stored in git. See [`checkpoints/README.md`](checkpoints/README.md) for sizes, SHA-256 hashes, the
-download link and how to regenerate each file deterministically.
+not stored in git. See [`checkpoints/README.md`](checkpoints/README.md) for sizes, SHA-256 hashes, the reason they are
+not uploaded and how to regenerate each file.
 
 ## Acknowledgements
 
