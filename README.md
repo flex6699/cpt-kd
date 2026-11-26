@@ -3,6 +3,7 @@
 **When the Student Is Right: Class-Pair Trust Knowledge Distillation for Fine-Grained Recognition**
 Aniruddha Bohra (P25CS0201), Naveen Pratap (M26CSE017). CSL7620 Machine Learning, IIT Jodhpur.
 
+- Repository: https://github.com/flex6699/cpt-kd
 - Report (CVPR format): [`report/main.pdf`](report/main.pdf)
 - Slides: [`slides/`](slides/)
 - Reproducibility declaration: [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)
